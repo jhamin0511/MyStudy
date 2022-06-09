@@ -13,3 +13,12 @@ subprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task copyGitHooks(type: Copy) {
+    from("/config/git/hooks/") {
+        include '**/*'
+        rename '(.*)', '$1'
+    }
+    into "/.git/hooks"
+}
+clean.dependsOn copyGitHooks
