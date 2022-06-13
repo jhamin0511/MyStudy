@@ -90,6 +90,10 @@ dependencies {
     testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
     // endregion
+
+    // region Logging
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    // endregion
 }
 
 kapt {
