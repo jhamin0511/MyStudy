@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="elevation_none">0dp</dimen>
+    <dimen name="elevation_xsmall">1dp</dimen>
+    <dimen name="elevation_small">2dp</dimen>
+    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_large">6dp</dimen>
+    <dimen name="elevation_xlarge">8dp</dimen>
+
+    <dimen name="height_item_xsmall">20dp</dimen>
+    <dimen name="height_item_small">30dp</dimen>
+    <dimen name="height_item_medium">40dp</dimen>
+    <dimen name="height_item_large">50dp</dimen>
+    <dimen name="height_item_xlarge">60dp</dimen>
+
+    <dimen name="text_xsmall">11sp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_medium">14sp</dimen>
+    <dimen name="text_large">16sp</dimen>
+    <dimen name="text_xlarge">20sp</dimen>
+
+    <dimen name="space_xsmall">4dp</dimen>
+    <dimen name="space_small">8dp</dimen>
+    <dimen name="space_medium">12dp</dimen>
+    <dimen name="space_large">16dp</dimen>
+    <dimen name="space_xlarge">20dp</dimen>
+</resources>
