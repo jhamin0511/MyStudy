@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.ui
+package com.github.jhamin0511.mystudy.ui.study
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.data.StudyVo
 import com.github.jhamin0511.mystudy.databinding.ItemStudyBinding
-import com.github.jhamin0511.mystudy.widget.BaseHolder
+import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
 
 class StudyHolder(view: View) : BaseHolder<StudyVo>(view) {
 

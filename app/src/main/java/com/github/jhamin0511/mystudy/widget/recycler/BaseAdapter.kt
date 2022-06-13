@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.widget
+package com.github.jhamin0511.mystudy.widget.recycler
 
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder

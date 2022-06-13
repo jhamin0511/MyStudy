@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.widget
+package com.github.jhamin0511.mystudy.widget.recycler
 
 import android.content.Context
 import androidx.recyclerview.widget.DividerItemDecoration
