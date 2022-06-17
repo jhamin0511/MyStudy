@@ -23,5 +23,34 @@
             android:layout_height="wrap_content"
             android:text="@string/create_group"
             app:layout_constraintTop_toBottomOf="@id/create_normal" />
+
+        <Button
+            android:id="@+id/create_high"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:text="@string/create_high"
+            app:layout_constraintTop_toBottomOf="@id/create_group" />
+
+        <Button
+            android:id="@+id/create_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_default"
+            app:layout_constraintTop_toBottomOf="@id/create_high" />
+
+        <Button
+            android:id="@+id/create_low"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_low"
+            app:layout_constraintTop_toBottomOf="@id/create_default" />
+
+        <Button
+            android:id="@+id/create_min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_min"
+            app:layout_constraintTop_toBottomOf="@id/create_low" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_studyFragment_to_notificationGroupFragment"
             app:destination="@id/notificationGroupFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_notificationImportanceFragment"
+            app:destination="@id/notificationImportanceFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -34,5 +37,10 @@
         android:id="@+id/notificationGroupFragment"
         android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationGroupFragment"
         android:label="NotificationGroupFragment"
+        tools:layout="@layout/fragment_notification_result" />
+    <fragment
+        android:id="@+id/notificationImportanceFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationImportanceFragment"
+        android:label="NotificationImportanceFragment"
         tools:layout="@layout/fragment_notification_result" />
 </navigation>

@@ -1,22 +1,17 @@
 package com.github.jhamin0511.mystudy.ui.notification
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.NotificationManager.IMPORTANCE_DEFAULT
 import android.content.Context
-import android.content.Context.NOTIFICATION_SERVICE
 import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationCompat.PRIORITY_DEFAULT
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavDeepLinkBuilder
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.key.DESCRIPTION
 import com.github.jhamin0511.mystudy.key.TITLE
-import com.github.jhamin0511.mystudy.ui.notification.ChannelType.NORMAL
-import com.github.jhamin0511.mystudy.ui.notification.GroupType.GROUP
+import com.github.jhamin0511.mystudy.ui.notification.channel.Channel
+import com.github.jhamin0511.mystudy.ui.notification.channel.ChannelGroup
+import com.github.jhamin0511.mystudy.ui.notification.group.Group
 
 class Notification(
     private val context: Context
@@ -26,19 +21,24 @@ class Notification(
         private const val DEFAULT_ICON = R.mipmap.ic_notification
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun createChannel(context: Context) {
-        val channels = ChannelType.values().map {
-            val name = context.getString(it.channelName)
-            NotificationChannel(it.channel, name, IMPORTANCE_DEFAULT)
-        }
-        val manger = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        manger.createNotificationChannels(channels)
-    }
-
     init {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createChannel(context)
+            ChannelGroup.create(context)
+            Channel.create(context)
+        }
+    }
+
+    private fun defaultBuilder(
+        channel: Channel,
+        title: String,
+        descriptions: String
+    ): NotificationCompat.Builder {
+        return NotificationCompat.Builder(context, channel.id).apply {
+            setSmallIcon(DEFAULT_ICON)
+            setContentTitle(title)
+            setContentText(descriptions)
+            setStyle(NotificationCompat.BigTextStyle().bigText(descriptions))
+            setAutoCancel(true)
         }
     }
 
@@ -49,7 +49,6 @@ class Notification(
         val title = "$name $normalCount"
         normalCount++
         val description = context.getString(R.string.channel_normal_description)
-        val descriptions = "$description + $description + $description + $description"
         val args = Bundle().apply {
             putString(TITLE, title)
             putString(DESCRIPTION, description)
@@ -59,23 +58,20 @@ class Notification(
             setDestination(R.id.notificationNormalFragment)
             setArguments(args)
         }.createPendingIntent()
-        val notification = NotificationCompat.Builder(context, NORMAL.channel).apply {
-            setSmallIcon(DEFAULT_ICON)
-            setContentTitle(title)
-            setContentText(descriptions)
-            priority = PRIORITY_DEFAULT
-            setAutoCancel(true)
-            setContentIntent(pendingIntent)
-        }.build()
+        val notification =
+            defaultBuilder(Channel.NORMAL, title, description).apply {
+                setContentIntent(pendingIntent)
+            }.build()
 
-        NotificationManagerCompat.from(context).notify(normalCount, notification)
+        NotificationManagerCompat.from(context)
+            .notify(System.currentTimeMillis().toInt(), notification)
     }
 
     private var groupCount = 1
 
     fun notifyGroup() {
-        val channel = ChannelType.Group.channel
-        val groupKey = GROUP.key
+        val channel = Channel.Group
+        val groupKey = Group.NORMAL.key
         val name = context.getString(R.string.channel_group)
         val description = context.getString(R.string.channel_group_description)
         val title = "$name $groupCount"
@@ -89,18 +85,11 @@ class Notification(
             setDestination(R.id.notificationGroupFragment)
             setArguments(args)
         }.createPendingIntent()
-        val notification = NotificationCompat.Builder(context, channel).apply {
-            setSmallIcon(DEFAULT_ICON)
-            setContentTitle(title)
-            setContentText(description)
-            setStyle(NotificationCompat.BigTextStyle().bigText(description))
-            priority = PRIORITY_DEFAULT
-            setAutoCancel(true)
+        val notification = defaultBuilder(channel, title, description).apply {
             setGroup(groupKey)
             setContentIntent(intent)
         }.build()
-
-        val summaryNotification = NotificationCompat.Builder(context, channel).apply {
+        val summaryNotification = NotificationCompat.Builder(context, channel.id).apply {
             setSmallIcon(R.mipmap.ic_notification)
             setStyle(NotificationCompat.InboxStyle())
             setGroup(groupKey)
@@ -108,10 +97,34 @@ class Notification(
         }.build()
 
         NotificationManagerCompat.from(context).apply {
-            notify(groupCount, notification)
+            notify(System.currentTimeMillis().toInt(), notification)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                notify(GROUP.id, summaryNotification)
+                notify(Group.NORMAL.id, summaryNotification)
             }
         }
+    }
+
+    private var importanceCount = 1
+
+    fun notifyImportance(channel: Channel) {
+        val name = context.getString(channel.nameRes)
+        val title = "$name $importanceCount"
+        importanceCount++
+        val description = context.getString(Channel.getDescription(channel))
+        val args = Bundle().apply {
+            putString(TITLE, title)
+            putString(DESCRIPTION, description)
+        }
+        val pendingIntent = NavDeepLinkBuilder(context).apply {
+            setGraph(R.navigation.navigation)
+            setDestination(R.id.notificationImportanceFragment)
+            setArguments(args)
+        }.createPendingIntent()
+        val notification = defaultBuilder(channel, title, description).apply {
+            setContentIntent(pendingIntent)
+        }.build()
+
+        NotificationManagerCompat.from(context)
+            .notify(System.currentTimeMillis().toInt(), notification)
     }
 }

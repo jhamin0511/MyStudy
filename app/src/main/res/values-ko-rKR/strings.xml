@@ -8,4 +8,18 @@
     <string name="create_group">그룹 알림 만들기</string>
     <string name="channel_group">그룹</string>
     <string name="channel_group_description">그룹 알림</string>
+    <string name="create_high">긴급 알림 만들기</string>
+    <string name="channel_high">긴급</string>
+    <string name="channel_high_description">중요도 긴급 알림</string>
+    <string name="create_default">높음 알림 만들기</string>
+    <string name="channel_default">높음</string>
+    <string name="channel_default_description">중요도 높음 알림</string>
+    <string name="create_low">중간 알림 만들기</string>
+    <string name="channel_low">중간</string>
+    <string name="channel_low_description">중요도 중간 알림</string>
+    <string name="create_min">낮음 알림 만들기</string>
+    <string name="channel_min">낮음</string>
+    <string name="channel_min_description">중요도 낮음 알림</string>
+    <string name="channel_group_normal">일반</string>
+    <string name="channel_group_importance">중요도</string>
 </resources>

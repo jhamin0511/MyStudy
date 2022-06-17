@@ -7,4 +7,18 @@
     <string name="create_group">Create Group Notification</string>
     <string name="channel_group">Group</string>
     <string name="channel_group_description">Group Notification</string>
+    <string name="create_high">Create High Notification</string>
+    <string name="channel_high">HIGH</string>
+    <string name="channel_high_description">Importance High Notification</string>
+    <string name="create_default">Create Default Notification</string>
+    <string name="channel_default">DEFAULT</string>
+    <string name="channel_default_description">Importance Default Notification</string>
+    <string name="create_low">Create Low Notification</string>
+    <string name="channel_low">LOW</string>
+    <string name="channel_low_description">Importance Low Notification</string>
+    <string name="create_min">Create Min Notification</string>
+    <string name="channel_min">MIN</string>
+    <string name="channel_min_description">Importance Min Notification</string>
+    <string name="channel_group_normal">Normal</string>
+    <string name="channel_group_importance">Importance</string>
 </resources>

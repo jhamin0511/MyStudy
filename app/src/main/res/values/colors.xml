@@ -7,7 +7,11 @@
     <color name="red_50">#FFEBEE</color>
     <!--  endregion  -->
 
-    <!--  regions RED  -->
+    <!--  regions PINK  -->
+    <color name="pink_50">#FCE4EC</color>
+    <!--  endregion  -->
+
+    <!--  regions PURPLE  -->
     <color name="purple_50">#F3E5F5</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
