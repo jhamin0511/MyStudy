@@ -17,4 +17,10 @@ class StudyActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_study)
     }
+
+    override fun onPause() {
+        super.onPause()
+
+        overridePendingTransition(0, R.anim.translate_activity_stay)
+    }
 }

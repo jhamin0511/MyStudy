@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/space_medium"
+        android:paddingTop="@dimen/space_small"
+        android:paddingEnd="@dimen/space_medium"
+        android:paddingBottom="@dimen/space_small">
 
+        <Button
+            android:id="@+id/create_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_normal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/create_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_group"
+            app:layout_constraintTop_toBottomOf="@id/create_normal" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

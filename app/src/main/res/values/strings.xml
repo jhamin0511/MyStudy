@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MyStudy</string>
-    <string name="notification">notification</string>
+    <string name="notification">Notification</string>
+    <string name="create_normal">Create Normal Notification</string>
+    <string name="channel_normal">Normal</string>
+    <string name="channel_normal_description">Normal Notification</string>
+    <string name="create_group">Create Group Notification</string>
+    <string name="channel_group">Group</string>
+    <string name="channel_group_description">Group Notification</string>
 </resources>

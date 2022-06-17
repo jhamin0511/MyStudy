@@ -5,11 +5,8 @@ import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentNotificationBinding
 
 class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
-
-    companion object {
-        fun start(): NotificationFragment {
-            return NotificationFragment()
-        }
+    private val notification: Notification by lazy {
+        Notification(requireContext())
     }
 
     override fun getLayoutId() = R.layout.fragment_notification
@@ -27,6 +24,11 @@ class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
     }
 
     override fun bindEvent() {
-        // no-op comment in an unused listener function
+        binding.createNormal.setOnClickListener {
+            notification.notifyNormal()
+        }
+        binding.createGroup.setOnClickListener {
+            notification.notifyGroup()
+        }
     }
 }

@@ -2,4 +2,10 @@
 <resources>
     <string name="app_name">MyStudy</string>
     <string name="notification">알림</string>
+    <string name="create_normal">기본 알림 만들기</string>
+    <string name="channel_normal">기본</string>
+    <string name="channel_normal_description">기본 알림</string>
+    <string name="create_group">그룹 알림 만들기</string>
+    <string name="channel_group">그룹</string>
+    <string name="channel_group_description">그룹 알림</string>
 </resources>
