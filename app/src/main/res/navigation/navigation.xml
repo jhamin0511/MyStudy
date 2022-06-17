@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/studyFragment">
+
+    <fragment
+        android:id="@+id/studyFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.study.StudyFragment"
+        android:label="StudyFragment"
+        tools:layout="@layout/fragment_study">
+        <action
+            android:id="@+id/action_studyFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_notificationNormalFragment"
+            app:destination="@id/notificationNormalFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_notificationGroupFragment"
+            app:destination="@id/notificationGroupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/notificationNormalFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationNormalFragment"
+        android:label="NotificationNormalFragment"
+        tools:layout="@layout/fragment_notification_result" />
+    <fragment
+        android:id="@+id/notificationGroupFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationGroupFragment"
+        android:label="NotificationGroupFragment"
+        tools:layout="@layout/fragment_notification_result" />
+</navigation>
