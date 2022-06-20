@@ -18,6 +18,10 @@
     <color name="purple_700">#FF3700B3</color>
     <!--  endregion  -->
 
+    <!--  region CYAN  -->
+    <color name="cyan_50">#E0F7FA</color>
+    <!--  endregion  -->
+
     <!--  region WHITE  -->
     <color name="white">#FFFFFFFF</color>
     <!--  endregion  -->

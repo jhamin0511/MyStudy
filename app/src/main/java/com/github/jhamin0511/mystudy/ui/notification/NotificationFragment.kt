@@ -4,7 +4,10 @@ import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentNotificationBinding
 import com.github.jhamin0511.mystudy.ui.notification.channel.Channel
+import com.github.jhamin0511.mystudy.ui.notification.style.Style
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
     private val notification: Notification by lazy {
         Notification(requireContext())
@@ -42,6 +45,18 @@ class NotificationFragment : BaseFragment<FragmentNotificationBinding>() {
         }
         binding.createMin.setOnClickListener {
             notification.notifyImportance(Channel.MIN)
+        }
+        binding.createPicture.setOnClickListener {
+            notification.notifyStyle(Style.BIG_PICTURE)
+        }
+        binding.createText.setOnClickListener {
+            notification.notifyStyle(Style.BIG_TEXT)
+        }
+        binding.createMessaging.setOnClickListener {
+            notification.notifyStyle(Style.MESSAGING)
+        }
+        binding.createInbox.setOnClickListener {
+            notification.notifyStyle(Style.INBOX)
         }
     }
 }

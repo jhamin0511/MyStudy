@@ -2,55 +2,89 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="@dimen/space_medium"
-        android:paddingTop="@dimen/space_small"
-        android:paddingEnd="@dimen/space_medium"
-        android:paddingBottom="@dimen/space_small">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/create_normal"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/create_normal"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:paddingStart="@dimen/space_medium"
+            android:paddingTop="@dimen/space_small"
+            android:paddingEnd="@dimen/space_medium"
+            android:paddingBottom="@dimen/space_small">
 
-        <Button
-            android:id="@+id/create_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/create_group"
-            app:layout_constraintTop_toBottomOf="@id/create_normal" />
+            <Button
+                android:id="@+id/create_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_normal"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/create_high"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_medium"
-            android:text="@string/create_high"
-            app:layout_constraintTop_toBottomOf="@id/create_group" />
+            <Button
+                android:id="@+id/create_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_group"
+                app:layout_constraintTop_toBottomOf="@id/create_normal" />
 
-        <Button
-            android:id="@+id/create_default"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/create_default"
-            app:layout_constraintTop_toBottomOf="@id/create_high" />
+            <Button
+                android:id="@+id/create_high"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="@string/create_high"
+                app:layout_constraintTop_toBottomOf="@id/create_group" />
 
-        <Button
-            android:id="@+id/create_low"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/create_low"
-            app:layout_constraintTop_toBottomOf="@id/create_default" />
+            <Button
+                android:id="@+id/create_default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_default"
+                app:layout_constraintTop_toBottomOf="@id/create_high" />
 
-        <Button
-            android:id="@+id/create_min"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/create_min"
-            app:layout_constraintTop_toBottomOf="@id/create_low" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/create_low"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_low"
+                app:layout_constraintTop_toBottomOf="@id/create_default" />
+
+            <Button
+                android:id="@+id/create_min"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_min"
+                app:layout_constraintTop_toBottomOf="@id/create_low" />
+
+            <Button
+                android:id="@+id/create_picture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="@string/create_picture"
+                app:layout_constraintTop_toBottomOf="@id/create_min" />
+
+            <Button
+                android:id="@+id/create_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_text"
+                app:layout_constraintTop_toBottomOf="@id/create_picture" />
+
+            <Button
+                android:id="@+id/create_messaging"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_messaging"
+                app:layout_constraintTop_toBottomOf="@id/create_text" />
+
+            <Button
+                android:id="@+id/create_inbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_inbox"
+                app:layout_constraintTop_toBottomOf="@id/create_messaging" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

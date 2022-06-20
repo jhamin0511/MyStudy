@@ -19,15 +19,57 @@ enum class Channel(
     val id: String,
     @StringRes
     val nameRes: Int,
+    @StringRes
+    val description: Int,
     val importance: Int,
     val group: ChannelGroup = ChannelGroup.NORMAL
 ) {
-    NORMAL("channel_normal", R.string.channel_normal, IMPORTANCE_DEFAULT),
-    Group("channel_group", R.string.channel_group, IMPORTANCE_DEFAULT),
-    HIGH("channel_high", R.string.channel_high, IMPORTANCE_HIGH, IMPORTANCE),
-    DEFAULT("channel_default", R.string.channel_default, IMPORTANCE_DEFAULT, IMPORTANCE),
-    LOW("channel_low", R.string.channel_low, IMPORTANCE_LOW, IMPORTANCE),
-    MIN("channel_min", R.string.channel_min, IMPORTANCE_MIN, IMPORTANCE);
+    STYLE(
+        "channel_style",
+        R.string.channel_style,
+        R.string.channel_style_description,
+        IMPORTANCE_DEFAULT
+    ),
+    NORMAL(
+        "channel_normal",
+        R.string.channel_normal,
+        R.string.channel_normal_description,
+        IMPORTANCE_DEFAULT
+    ),
+    Group(
+        "channel_group",
+        R.string.channel_group,
+        R.string.channel_group_description,
+        IMPORTANCE_DEFAULT
+    ),
+    HIGH(
+        "channel_high",
+        R.string.channel_high,
+        R.string.channel_high_description,
+        IMPORTANCE_HIGH,
+        IMPORTANCE
+    ),
+    DEFAULT(
+        "channel_default",
+        R.string.channel_default,
+        R.string.channel_default_description,
+        IMPORTANCE_DEFAULT,
+        IMPORTANCE
+    ),
+    LOW(
+        "channel_low",
+        R.string.channel_low,
+        R.string.channel_low_description,
+        IMPORTANCE_LOW,
+        IMPORTANCE
+    ),
+    MIN(
+        "channel_min",
+        R.string.channel_min,
+        R.string.channel_min_description,
+        IMPORTANCE_MIN,
+        IMPORTANCE
+    );
 
     companion object {
         @RequiresApi(Build.VERSION_CODES.O)
@@ -40,16 +82,6 @@ enum class Channel(
             }
             val manger = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             manger.createNotificationChannels(channels)
-        }
-
-        @StringRes
-        fun getDescription(value: Channel) = when (value) {
-            NORMAL -> R.string.channel_normal_description
-            Group -> R.string.channel_group_description
-            HIGH -> R.string.channel_high_description
-            DEFAULT -> R.string.channel_default_description
-            LOW -> R.string.channel_low_description
-            MIN -> R.string.channel_min_description
         }
     }
 }

@@ -21,4 +21,10 @@
     <string name="channel_min_description">Importance Min Notification</string>
     <string name="channel_group_normal">Normal</string>
     <string name="channel_group_importance">Importance</string>
+    <string name="channel_style">Style</string>
+    <string name="channel_style_description">Style Notification</string>
+    <string name="create_picture">Create Big Picture Notification</string>
+    <string name="create_text">Create Big Text Notification</string>
+    <string name="create_messaging">Create Messaging Notification</string>
+    <string name="create_inbox">Create Inbox Notification</string>
 </resources>

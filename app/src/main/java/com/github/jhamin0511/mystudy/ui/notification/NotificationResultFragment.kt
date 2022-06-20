@@ -4,10 +4,11 @@ import androidx.fragment.app.viewModels
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentNotificationResultBinding
+import com.github.jhamin0511.mystudy.key.COLOR
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NotificationGroupFragment : BaseFragment<FragmentNotificationResultBinding>() {
+class NotificationResultFragment : BaseFragment<FragmentNotificationResultBinding>() {
 
     private val viewModel: NotificationResultViewModel by viewModels()
 
@@ -19,7 +20,9 @@ class NotificationGroupFragment : BaseFragment<FragmentNotificationResultBinding
 
     override fun bindView() {
         binding.vm = viewModel
-        binding.clRoot.setBackgroundColor(R.color.purple_50)
+
+        val backgroundColor = requireArguments().getInt(COLOR)
+        binding.clRoot.setBackgroundColor(backgroundColor)
     }
 
     override fun bindObserve() {

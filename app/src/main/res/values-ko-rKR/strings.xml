@@ -22,4 +22,10 @@
     <string name="channel_min_description">중요도 낮음 알림</string>
     <string name="channel_group_normal">일반</string>
     <string name="channel_group_importance">중요도</string>
+    <string name="channel_style">스타일</string>
+    <string name="channel_style_description">스타일 알림</string>
+    <string name="create_picture">빅 픽쳐 알림 만들기</string>
+    <string name="create_text">빅 텍스트 알림 만들기</string>
+    <string name="create_messaging">메시징 알림 만들기</string>
+    <string name="create_inbox">인박스 알림 만들기</string>
 </resources>
