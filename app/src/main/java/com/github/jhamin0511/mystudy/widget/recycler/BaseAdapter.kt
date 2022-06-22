@@ -1,51 +1,52 @@
 package com.github.jhamin0511.mystudy.widget.recycler
 
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseAdapter<ITEM> : Adapter<ViewHolder>(), AdapterItem<ITEM> {
-    private val items = mutableListOf<ITEM>()
+class BaseAdapter<VH : BaseHolder>(
+    private val listener: ItemClickListener? = null
+) : RecyclerView.Adapter<VH>() {
+    val query: AdapterQuery = AdapterQueryImpl(this)
 
-    override fun isEmpty(): Boolean {
-        return items.isEmpty()
-    }
-
-    override fun add(e: ITEM) {
-        items.add(e)
-        notifyItemChanged(items.size)
-    }
-
-    override fun addAll(e: List<ITEM>) {
-        val start = items.size
-
-        items.addAll(e)
-        notifyItemRangeChanged(start, items.size)
-    }
-
-    override fun clear() {
-        val preSize = items.size
-
-        items.clear()
-        notifyItemRangeRemoved(0, preSize)
-    }
-
-    override fun remove(e: ITEM) {
-        val position = items.indexOf(e)
-
-        notifyItemRemoved(position)
-    }
-
-    override fun remove(position: Int) {
-        items.removeAt(position)
-
-        notifyItemRemoved(position)
-    }
-
-    override fun get(position: Int): ITEM {
-        return items[position]
+    fun getItem(position: Int): BaseItem<VH> {
+        @Suppress("UNCHECKED_CAST")
+        return query.getItem(position).get() as BaseItem<VH>
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return query.size()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return getItem(position).getViewType()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        val inflater = LayoutInflater.from(parent.context)
+        val item = getItemForViewType(viewType)
+        val view = inflater.inflate(item.getItemLayout(), parent, false)
+
+        return item.createViewHolder(view)
+    }
+
+    private fun getItemForViewType(viewType: Int): BaseItem<VH> {
+        query.getItems().forEachIndexed { _, adapterItem ->
+            val item = adapterItem.get()
+            if (item.getViewType() == viewType) {
+                @Suppress("UNCHECKED_CAST")
+                return item as BaseItem<VH>
+            }
+        }
+
+        error("Could not find view type: $viewType")
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        getItem(position).bind(holder, position, null, listener)
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int, payloads: MutableList<Any>) {
+        getItem(position).bind(holder, position, payloads, listener)
     }
 }

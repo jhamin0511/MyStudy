@@ -3,21 +3,19 @@ package com.github.jhamin0511.mystudy.widget.recycler
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-abstract class BaseHolder<ITEM>(
-    private val view: View
+open class BaseHolder(
+    view: View
 ) : ViewHolder(view) {
+    var item: BaseItem<*>? = null
 
-    abstract fun bind(item: ITEM)
+    fun bind(item: BaseItem<*>, listener: ItemClickListener?) {
+        this.item = item
 
-    fun setClickListener(
-        item: ITEM,
-        listener: AdapterClickListener<ITEM>
-    ) {
-        view.setOnClickListener {
-            listener.onClickListener(adapterPosition, item)
+        itemView.setOnClickListener {
+            listener?.onClickListener(adapterPosition, item)
         }
-        view.setOnLongClickListener {
-            listener.onLongClickListener(adapterPosition, item)
+        itemView.setOnLongClickListener {
+            listener?.onLongClickListener(adapterPosition, item) ?: false
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.github.jhamin0511.mystudy.ui.study
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.jhamin0511.mystudy.R
+import com.github.jhamin0511.mystudy.data.vo.Study
 import com.github.jhamin0511.mystudy.viewmodel.Event
 import com.github.jhamin0511.mystudy.viewmodel.event
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,17 +12,18 @@ import javax.inject.Inject
 @HiltViewModel
 class StudyViewModel
 @Inject constructor(
-    application: Application
 ) : ViewModel() {
 
     // region Binding
     // endregion
 
     // region Observe
-    val observeStudies = MutableLiveData<Event<List<String>>>()
+    val observeStudies = MutableLiveData<Event<List<Study>>>()
 
     init {
-        val items = application.resources.getStringArray(R.array.study).toList()
+        val items = listOf(
+            Study(1, R.string.notification, R.id.action_studyFragment_to_notificationFragment)
+        )
         observeStudies.event(items)
     }
     // endregion
