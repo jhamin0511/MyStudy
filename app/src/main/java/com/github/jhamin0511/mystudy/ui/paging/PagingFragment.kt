@@ -1,25 +1,24 @@
-package com.github.jhamin0511.mystudy.ui.study
+package com.github.jhamin0511.mystudy.ui.paging
 
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
-import com.github.jhamin0511.mystudy.databinding.FragmentStudyBinding
+import com.github.jhamin0511.mystudy.databinding.FragmentPagingBinding
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.recycler.BaseAdapter
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
 import com.github.jhamin0511.mystudy.widget.recycler.BaseItem
 import com.github.jhamin0511.mystudy.widget.recycler.ItemClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
-class StudyFragment : BaseFragment<FragmentStudyBinding>(), ItemClickListener {
+class PagingFragment : BaseFragment<FragmentPagingBinding>(), ItemClickListener {
 
-    private val viewModel: StudyViewModel by viewModels()
+    private val viewModel: PagingViewModel by viewModels()
     private val adapter = BaseAdapter<BaseHolder>(this)
 
-    override fun getLayoutId() = R.layout.fragment_study
+    override fun getLayoutId() = R.layout.fragment_paging
 
     override fun bindValue() {
         // no-op comment in an unused listener function
@@ -27,29 +26,26 @@ class StudyFragment : BaseFragment<FragmentStudyBinding>(), ItemClickListener {
 
     override fun bindView() {
         binding.lifecycleOwner = this
-        binding.recycler.defaultDecoration(requireContext())
         binding.recycler.adapter = adapter
     }
 
     override fun bindObserve() {
-        viewModel.observeStudies.observe(
+        viewModel.observeUser.observe(
             this,
             EventObserver {
-                val items = it.map { vo ->
-                    StudyItem(vo)
-                }
-                adapter.query.addItems(items)
+                Timber.i("items Size : ${it.size}")
+                adapter.query.addItems(it)
             }
         )
     }
 
     override fun bindEvent() {
-        // no-op comment in an unused listener function
+        binding.fabAdd.setOnClickListener {
+            viewModel.bindClickFab()
+        }
     }
 
     override fun onClickListener(position: Int, item: BaseItem<*>) {
-        if (item is StudyItem) {
-            Navigation.findNavController(binding.root).navigate(item.vo.navigateRes)
-        }
+        // no-op comment in an unused listener function
     }
 }

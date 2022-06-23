@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_studyFragment_to_NotificationResultFragment"
             app:destination="@id/notificationResultFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_pagingFragment"
+            app:destination="@id/pagingFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -27,4 +30,9 @@
         android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationResultFragment"
         android:label="NotificationNormalFragment"
         tools:layout="@layout/fragment_notification_result" />
+    <fragment
+        android:id="@+id/pagingFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.PagingFragment"
+        android:label="PagingFragment"
+        tools:layout="@layout/fragment_paging" />
 </navigation>

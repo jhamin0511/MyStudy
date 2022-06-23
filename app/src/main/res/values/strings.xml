@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MyStudy</string>
+    <!--  region Study List  -->
     <string name="notification">Notification</string>
+    <string name="paging">Paging</string>
+    <!-- endregion -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>
     <string name="channel_normal_description">Normal Notification</string>

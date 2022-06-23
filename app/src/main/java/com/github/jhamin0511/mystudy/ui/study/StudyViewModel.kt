@@ -22,7 +22,8 @@ class StudyViewModel
 
     init {
         val items = listOf(
-            Study(1, R.string.notification, R.id.action_studyFragment_to_notificationFragment)
+            Study(1, R.string.notification, R.id.action_studyFragment_to_notificationFragment),
+            Study(2, R.string.paging, R.id.action_studyFragment_to_pagingFragment)
         )
         observeStudies.event(items)
     }

@@ -31,6 +31,7 @@
     <!--  endregion  -->
 
     <!--  region GRAY  -->
+    <color name="gainsboro">#DCDCDC</color>
     <color name="gray">#808080</color>
     <!--  endregion  -->
 </resources>
