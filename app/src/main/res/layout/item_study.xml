@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="vo"
-            type="com.github.jhamin0511.mystudy.data.vo.Study" />
+            name="item"
+            type="com.github.jhamin0511.mystudy.ui.study.StudyItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +28,7 @@
             style="@style/TextView.Content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bindText="@{vo.nameRes}"
+            app:bindText="@{item.nameRes}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toTopOf="parent"

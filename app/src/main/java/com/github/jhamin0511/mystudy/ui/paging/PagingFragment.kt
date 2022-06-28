@@ -5,18 +5,20 @@ import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentPagingBinding
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
-import com.github.jhamin0511.mystudy.widget.recycler.BaseAdapter
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.BaseItem
-import com.github.jhamin0511.mystudy.widget.recycler.ItemClickListener
+import com.github.jhamin0511.mystudy.widget.recycler2.ItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class PagingFragment : BaseFragment<FragmentPagingBinding>(), ItemClickListener {
+class PagingFragment : BaseFragment<FragmentPagingBinding>() {
 
     private val viewModel: PagingViewModel by viewModels()
-    private val adapter = BaseAdapter<BaseHolder>(this)
+    private val userClickListener = object : ItemClickListener<UserItem> {
+        override fun onClick(item: UserItem, position: Int) {
+            // no-op comment in an unused listener function
+        }
+    }
+    private val adapter = PagingAdapter(userClickListener)
 
     override fun getLayoutId() = R.layout.fragment_paging
 
@@ -34,7 +36,7 @@ class PagingFragment : BaseFragment<FragmentPagingBinding>(), ItemClickListener 
             this,
             EventObserver {
                 Timber.i("items Size : ${it.size}")
-                adapter.query.addItems(it)
+                adapter.addItems(it)
             }
         )
     }
@@ -43,9 +45,5 @@ class PagingFragment : BaseFragment<FragmentPagingBinding>(), ItemClickListener 
         binding.fabAdd.setOnClickListener {
             viewModel.bindClickFab()
         }
-    }
-
-    override fun onClickListener(position: Int, item: BaseItem<*>) {
-        // no-op comment in an unused listener function
     }
 }

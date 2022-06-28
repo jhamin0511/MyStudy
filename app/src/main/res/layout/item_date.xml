@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="date"
-            type="String" />
+            name="item"
+            type="com.github.jhamin0511.mystudy.ui.paging.DateItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +24,7 @@
             android:paddingTop="@dimen/space_xsmall"
             android:paddingEnd="@dimen/space_small"
             android:paddingBottom="@dimen/space_xsmall"
-            android:text="@{date}"
+            android:text="@{item.date}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

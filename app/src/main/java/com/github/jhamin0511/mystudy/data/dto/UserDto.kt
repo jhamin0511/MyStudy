@@ -1,8 +1,8 @@
-package com.github.jhamin0511.mystudy.data.vo
+package com.github.jhamin0511.mystudy.data.dto
 
 import androidx.annotation.DrawableRes
 
-data class User(
+data class UserDto(
     val id: Long,
     @DrawableRes
     val icon: Int,

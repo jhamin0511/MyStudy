@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="vo"
-            type="com.github.jhamin0511.mystudy.data.vo.User" />
+            name="item"
+            type="com.github.jhamin0511.mystudy.ui.paging.UserItem" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -29,7 +29,7 @@
                 android:id="@+id/iv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:bindImage="@{vo.icon}"
+                app:bindImage="@{item.icon}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/ic_face" />
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_medium"
-                android:text="@{vo.name}"
+                android:text="@{item.name}"
                 app:layout_constraintStart_toEndOf="@id/iv_user"
                 app:layout_constraintTop_toTopOf="@id/iv_user"
                 tools:text="정하민" />
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_xsmall"
-                android:text="@{Integer.toString(vo.age)}"
+                android:text="@{Integer.toString(item.age)}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_name"
                 app:layout_constraintStart_toEndOf="@id/tv_name"
                 app:layout_constraintTop_toTopOf="@id/tv_name"
@@ -62,7 +62,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/space_small"
-                android:text="@{vo.introduce}"
+                android:text="@{item.introduce}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_name"
