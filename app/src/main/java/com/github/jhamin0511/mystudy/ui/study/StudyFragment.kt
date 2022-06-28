@@ -6,17 +6,19 @@ import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentStudyBinding
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
+import com.github.jhamin0511.mystudy.widget.recycler.Item
+import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
-import com.github.jhamin0511.mystudy.widget.recycler2.ItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class StudyFragment : BaseFragment<FragmentStudyBinding>() {
 
     private val viewModel: StudyViewModel by viewModels()
-    private val studyClickListener = object : ItemClickListener<StudyItem> {
-        override fun onClick(item: StudyItem, position: Int) {
-            Navigation.findNavController(binding.root).navigate(item.navigateRes)
+    private val studyClickListener = object : ItemClick {
+        override fun onClick(item: Item, position: Int) {
+            val study = item as StudyItem
+            Navigation.findNavController(binding.root).navigate(study.navigateRes)
         }
     }
     private val adapter = StudyAdapter(studyClickListener)

@@ -5,7 +5,8 @@ import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentPagingBinding
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
-import com.github.jhamin0511.mystudy.widget.recycler2.ItemClickListener
+import com.github.jhamin0511.mystudy.widget.recycler.Item
+import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -13,8 +14,8 @@ import timber.log.Timber
 class PagingFragment : BaseFragment<FragmentPagingBinding>() {
 
     private val viewModel: PagingViewModel by viewModels()
-    private val userClickListener = object : ItemClickListener<UserItem> {
-        override fun onClick(item: UserItem, position: Int) {
+    private val userClickListener = object : ItemClick {
+        override fun onClick(item: Item, position: Int) {
             // no-op comment in an unused listener function
         }
     }

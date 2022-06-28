@@ -1,7 +1,7 @@
 package com.github.jhamin0511.mystudy.ui.paging
 
 import androidx.annotation.DrawableRes
-import com.github.jhamin0511.mystudy.widget.recycler2.Item
+import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 data class UserItem(
     val id: Long,

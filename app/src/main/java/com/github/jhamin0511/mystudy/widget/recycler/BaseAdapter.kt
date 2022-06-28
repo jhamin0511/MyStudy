@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.widget.recycler2
+package com.github.jhamin0511.mystudy.widget.recycler
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseAdapter : RecyclerView.Adapter<BaseHolder<*>>() {
+abstract class BaseAdapter : RecyclerView.Adapter<BaseHolder>() {
     private val items = mutableListOf<Item>()
 
     override fun getItemCount(): Int {
         return items.size
     }
 
-    override fun onBindViewHolder(holder: BaseHolder<*>, position: Int) {
+    override fun onBindViewHolder(holder: BaseHolder, position: Int) {
         holder.bind(items[position])
     }
 
@@ -40,6 +40,10 @@ abstract class BaseAdapter : RecyclerView.Adapter<BaseHolder<*>>() {
 
     fun getItem(position: Int): Item {
         return items[position]
+    }
+
+    fun getItems(): List<Item> {
+        return items
     }
 
     fun removeItem(e: Item) {
