@@ -17,16 +17,17 @@ class StudyViewModel
 
     // region Observe
     val observeStudies = MutableLiveData<Event<List<StudyItem>>>()
-
-    init {
-        val items = listOf(
-            StudyItem(1, R.string.notification, R.id.action_studyFragment_to_notificationFragment),
-            StudyItem(2, R.string.paging, R.id.action_studyFragment_to_pagingFragment)
-        )
-        observeStudies.event(items)
-    }
     // endregion
 
     // region Model
+    private val items = listOf(
+        StudyItem(R.string.notification, R.id.action_studyFragment_to_notificationFragment),
+        StudyItem(R.string.paging, R.id.action_studyFragment_to_pagingFragment),
+        StudyItem(R.string.github_repository, R.id.action_studyFragment_to_githubRepoFragment)
+    )
+
+    init {
+        observeStudies.event(items)
+    }
     // endregion
 }

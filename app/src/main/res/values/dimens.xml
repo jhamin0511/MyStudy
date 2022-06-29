@@ -24,4 +24,10 @@
     <dimen name="space_medium">12dp</dimen>
     <dimen name="space_large">16dp</dimen>
     <dimen name="space_xlarge">20dp</dimen>
+
+    <dimen name="progress_xsmall">20dp</dimen>
+    <dimen name="progress_small">40dp</dimen>
+    <dimen name="progress_medium">60dp</dimen>
+    <dimen name="progress_large">80dp</dimen>
+    <dimen name="progress_xlarge">100dp</dimen>
 </resources>

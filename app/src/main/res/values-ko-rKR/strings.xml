@@ -4,6 +4,7 @@
     <!--  region Study List  -->
     <string name="notification">알림</string>
     <string name="paging">페이징</string>
+    <string name="github_repository">깃허브 저장소</string>
     <!-- endregion -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>

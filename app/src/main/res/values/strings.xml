@@ -3,6 +3,7 @@
     <!--  region Study List  -->
     <string name="notification">Notification</string>
     <string name="paging">Paging</string>
+    <string name="github_repository">Github Repository</string>
     <!-- endregion -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>

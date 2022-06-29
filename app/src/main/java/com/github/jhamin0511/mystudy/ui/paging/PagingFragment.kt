@@ -8,7 +8,6 @@ import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class PagingFragment : BaseFragment<FragmentPagingBinding>() {
@@ -36,7 +35,6 @@ class PagingFragment : BaseFragment<FragmentPagingBinding>() {
         viewModel.observeUser.observe(
             this,
             EventObserver {
-                Timber.i("items Size : ${it.size}")
                 adapter.addItems(it)
             }
         )

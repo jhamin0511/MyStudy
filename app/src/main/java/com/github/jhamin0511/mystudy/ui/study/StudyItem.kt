@@ -5,7 +5,6 @@ import androidx.annotation.StringRes
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class StudyItem(
-    val id: Long,
     @StringRes
     val nameRes: Int,
     @IntegerRes
