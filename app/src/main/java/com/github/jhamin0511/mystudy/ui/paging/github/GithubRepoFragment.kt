@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class GithubRepoFragment : BaseFragment<FragmentGithubRepoBinding>() {
@@ -34,8 +35,12 @@ class GithubRepoFragment : BaseFragment<FragmentGithubRepoBinding>() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 adapter.loadStateFlow.collect {
-                    binding.progress.isVisible = it.source.append is LoadState.Loading ||
-                            it.source.prepend is LoadState.Loading
+                    Timber.i("it.refresh : ${it.refresh}")
+                    Timber.i("it.prepend : ${it.prepend}")
+                    Timber.i("it.append : ${it.append}")
+                    binding.progress.isVisible = it.refresh is LoadState.Loading ||
+                            it.prepend is LoadState.Loading ||
+                            it.append is LoadState.Loading
                 }
             }
         }

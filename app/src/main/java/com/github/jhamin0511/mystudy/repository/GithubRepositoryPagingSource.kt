@@ -3,56 +3,45 @@ package com.github.jhamin0511.mystudy.repository
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.github.jhamin0511.mystudy.data.dto.github.GithubRepoDto
-import java.util.concurrent.TimeUnit
-import kotlin.math.max
-import kotlinx.coroutines.delay
+import com.github.jhamin0511.mystudy.network.service.GithubService
+import okio.IOException
+import retrofit2.HttpException
+import timber.log.Timber
 
 private const val START_PAGE = 1
-private const val DELAY_SECONDS_TIME = 4L
+private const val KEY_COUNT = 1
 
-class GithubRepositoryPagingSource : PagingSource<Int, GithubRepoDto>() {
+class GithubRepositoryPagingSource(
+    private val service: GithubService,
+    private val keyword: String
+) : PagingSource<Int, GithubRepoDto>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GithubRepoDto> {
         val page = params.key ?: START_PAGE
-        val range = page.until(page + params.loadSize)
-        if (page != START_PAGE) delay(TimeUnit.SECONDS.toMillis(DELAY_SECONDS_TIME))
 
-        return LoadResult.Page(
-            data = range.map {
-                GithubRepoDto(
-                    it.toLong(),
-                    "name : $it",
-                    "description : $it",
-                    "url : $it",
-                    it,
-                    it,
-                    "language : $it"
-                )
-            },
-            prevKey = when (page) {
-                START_PAGE -> null
-                else -> when (val prevKey = ensureValidKey(key = range.first - params.loadSize)) {
-                    // We're at the start, there's nothing more to load
+        return try {
+            val response = service.getSearchRepository(page, params.loadSize, keyword)
+
+            LoadResult.Page(
+                data = response.items,
+                prevKey = when (page) {
                     START_PAGE -> null
-                    else -> prevKey
-                }
-            },
-            nextKey = range.last + 1
-        )
+                    else -> page.minus(KEY_COUNT)
+                },
+                nextKey = page.plus(KEY_COUNT)
+            )
+        } catch (exception: IOException) {
+            Timber.e(exception)
+            LoadResult.Error(exception)
+        } catch (exception: HttpException) {
+            Timber.e(exception)
+            LoadResult.Error(exception)
+        }
     }
 
     override fun getRefreshKey(state: PagingState<Int, GithubRepoDto>): Int? {
-        var key: Int? = null
-        val position = state.anchorPosition
-
-        if (position != null) {
-            val repository = state.closestItemToPosition(position)
-            if (repository != null) {
-                key = ensureValidKey(repository.id.toInt() - (state.config.pageSize / 2))
-            }
+        return state.anchorPosition?.let {
+            val page = state.closestPageToPosition(it)
+            page?.prevKey?.plus(KEY_COUNT) ?: page?.nextKey?.minus(KEY_COUNT)
         }
-
-        return key
     }
-
-    private fun ensureValidKey(key: Int) = max(START_PAGE, key)
 }
