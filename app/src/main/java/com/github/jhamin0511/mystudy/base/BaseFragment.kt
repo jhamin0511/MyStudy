@@ -5,17 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment<BINDING : ViewDataBinding> : Fragment() {
-    protected lateinit var binding: BINDING
-
+abstract class BaseFragment : Fragment() {
     @LayoutRes
     abstract fun getLayoutId(): Int
     abstract fun bindValue()
-    abstract fun bindView()
+    abstract fun bindView(view: View)
     abstract fun bindObserve()
     abstract fun bindEvent()
 
@@ -28,11 +24,8 @@ abstract class BaseFragment<BINDING : ViewDataBinding> : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = DataBindingUtil.bind(view)!!
-        binding.lifecycleOwner = this
-
         bindValue()
-        bindView()
+        bindView(view)
         bindObserve()
         bindEvent()
     }

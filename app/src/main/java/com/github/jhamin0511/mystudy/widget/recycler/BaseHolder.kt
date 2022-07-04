@@ -13,12 +13,12 @@ abstract class BaseHolder(
     init {
         if (click != null) {
             view.setOnClickListener {
-                click.onClick(item, adapterPosition)
+                click.onClick(item, absoluteAdapterPosition)
             }
         }
         if (longClick != null) {
             view.setOnLongClickListener {
-                longClick.onLongClick(item, adapterPosition)
+                longClick.onLongClick(item, absoluteAdapterPosition)
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.repository
+package com.github.jhamin0511.mystudy.repository.github
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
@@ -6,12 +6,11 @@ import com.github.jhamin0511.mystudy.data.dto.github.GithubRepoDto
 import com.github.jhamin0511.mystudy.network.service.GithubService
 import okio.IOException
 import retrofit2.HttpException
-import timber.log.Timber
 
 private const val START_PAGE = 1
 private const val KEY_COUNT = 1
 
-class GithubRepositoryPagingSource(
+class GithubReposPagingSource(
     private val service: GithubService,
     private val keyword: String
 ) : PagingSource<Int, GithubRepoDto>() {
@@ -19,21 +18,20 @@ class GithubRepositoryPagingSource(
         val page = params.key ?: START_PAGE
 
         return try {
-            val response = service.getSearchRepository(page, params.loadSize, keyword)
+            val response = service.getSearchRepository(keyword, page, params.loadSize)
 
             LoadResult.Page(
                 data = response.items,
-                prevKey = when (page) {
-                    START_PAGE -> null
-                    else -> page.minus(KEY_COUNT)
+                prevKey = if (page == START_PAGE) {
+                    null
+                } else {
+                    page.minus(KEY_COUNT)
                 },
                 nextKey = page.plus(KEY_COUNT)
             )
         } catch (exception: IOException) {
-            Timber.e(exception)
             LoadResult.Error(exception)
         } catch (exception: HttpException) {
-            Timber.e(exception)
             LoadResult.Error(exception)
         }
     }

@@ -13,7 +13,6 @@ private const val GITHUB_URL = "https://api.github.com/"
 @InstallIn(SingletonComponent::class)
 @Module
 class ServiceModule {
-
     @Singleton
     @Provides
     fun provideGithubService(default: Retrofit): GithubService {

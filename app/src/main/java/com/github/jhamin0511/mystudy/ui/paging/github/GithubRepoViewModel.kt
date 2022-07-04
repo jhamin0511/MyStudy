@@ -2,14 +2,11 @@ package com.github.jhamin0511.mystudy.ui.paging.github
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import com.github.jhamin0511.mystudy.repository.GithubRepository
+import com.github.jhamin0511.mystudy.repository.github.GithubRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-
-private const val PAGE_SIZE = 30
+import kotlinx.coroutines.flow.MutableStateFlow
 
 @HiltViewModel
 class GithubRepoViewModel
@@ -17,15 +14,14 @@ class GithubRepoViewModel
     repository: GithubRepository
 ) : ViewModel() {
     // region Binding
+    val bindSearchKeyword = MutableStateFlow("Android")
     // endregion
 
     // region Observe
     // endregion
 
     // region Model
-    val items = Pager(
-        config = PagingConfig(pageSize = PAGE_SIZE, enablePlaceholders = false),
-        pagingSourceFactory = { repository.getGithubRepositoryPagingSource("Github") }
-    ).flow.cachedIn(viewModelScope)
+    val items = repository.getGithubRepository(bindSearchKeyword)
+        .cachedIn(viewModelScope)
     // endregion
 }

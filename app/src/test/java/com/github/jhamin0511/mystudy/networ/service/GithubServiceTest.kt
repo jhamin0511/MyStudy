@@ -2,7 +2,7 @@ package com.github.jhamin0511.mystudy.networ.service
 
 import com.github.jhamin0511.mystudy.network.service.GithubService
 import com.google.common.truth.Truth.assertThat
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.junit.jupiter.api.DisplayName
 
@@ -17,14 +17,14 @@ class GithubServiceTest : ServiceTest() {
 
     @DisplayName("GET Github Repository Response Success")
     @Test
-    fun getSearchRepository_success() {
+    fun getSearchRepository_success() = runTest {
         // Given
         mockWebServer.enqueue(success("github/get_repository_response"))
         val page = 1
         val perPage = 30
         val keyword = "Github"
         // When
-        val response = runBlocking { service.getSearchRepository(page, perPage, keyword) }
+        val response = service.getSearchRepository(keyword, page, perPage)
         // Then
         val request = mockWebServer.takeRequest()
         assertThat(request.method).matches("GET")

@@ -1,5 +1,7 @@
 package com.github.jhamin0511.mystudy.ui.paging
 
+import android.view.View
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
@@ -10,8 +12,8 @@ import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PagingFragment : BaseFragment<FragmentPagingBinding>() {
-
+class PagingFragment : BaseFragment() {
+    private lateinit var binding: FragmentPagingBinding
     private val viewModel: PagingViewModel by viewModels()
     private val userClickListener = object : ItemClick {
         override fun onClick(item: Item, position: Int) {
@@ -26,7 +28,8 @@ class PagingFragment : BaseFragment<FragmentPagingBinding>() {
         // no-op comment in an unused listener function
     }
 
-    override fun bindView() {
+    override fun bindView(view: View) {
+        binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.recycler.adapter = adapter
     }

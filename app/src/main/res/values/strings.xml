@@ -31,4 +31,6 @@
     <string name="create_text">Create Big Text Notification</string>
     <string name="create_messaging">Create Messaging Notification</string>
     <string name="create_inbox">Create Inbox Notification</string>
+    <string name="hint_search">Please enter a search term.</string>
+    <string name="recycler_empty">There is no list.</string>
 </resources>

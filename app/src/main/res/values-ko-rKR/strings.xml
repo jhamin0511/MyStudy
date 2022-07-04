@@ -32,4 +32,6 @@
     <string name="create_text">빅 텍스트 알림 만들기</string>
     <string name="create_messaging">메시징 알림 만들기</string>
     <string name="create_inbox">인박스 알림 만들기</string>
+    <string name="hint_search">검색어를 입력해주세요.</string>
+    <string name="recycler_empty">목록이 없습니다.</string>
 </resources>

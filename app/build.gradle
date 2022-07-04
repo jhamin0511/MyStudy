@@ -42,6 +42,12 @@ android {
 dependencies {
     implementation 'com.google.android.material:material:1.6.1'
 
+    // region Kotlin
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_versino"
+    def coroutines_version = "1.6.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    // endregion
+
     // region Test
     // # Junit5
     def junit5_version = "5.8.2"
