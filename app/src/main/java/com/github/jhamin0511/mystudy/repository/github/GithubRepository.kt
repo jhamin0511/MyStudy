@@ -17,7 +17,7 @@ class GithubRepository
 @Inject constructor(
     private val service: GithubService
 ) {
-    fun getGithubRepository(keyword: StateFlow<String>): Flow<PagingData<GithubRepoDto>> {
+    fun getGithubPagingSource(keyword: StateFlow<String>): Flow<PagingData<GithubRepoDto>> {
         return Pager(
             config = PagingConfig(pageSize = PER_PAGE, enablePlaceholders = false),
             pagingSourceFactory = {

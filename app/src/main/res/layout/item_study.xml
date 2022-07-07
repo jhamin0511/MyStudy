@@ -14,7 +14,7 @@
         style="@style/HolderItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/height_large">
+        android:minHeight="@dimen/height_medium">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_start"

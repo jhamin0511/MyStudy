@@ -1,7 +1,5 @@
 package com.github.jhamin0511.mystudy.ui.paging
 
-import android.view.View
-import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ItemDateBinding
 import com.github.jhamin0511.mystudy.databinding.ItemUserBinding
@@ -15,10 +13,8 @@ object PagingHolder {
 }
 
 class DateHolder(
-    view: View
-) : BaseHolder(view) {
-    private val binding: ItemDateBinding = DataBindingUtil.bind(view)!!
-
+    private val binding: ItemDateBinding
+) : BaseHolder(binding.root) {
     override fun bind(item: Item) {
         super.bind(item)
 
@@ -27,11 +23,9 @@ class DateHolder(
 }
 
 class UserHolder(
-    view: View,
+    private val binding: ItemUserBinding,
     onClick: ItemClick
-) : BaseHolder(view, onClick) {
-    private val binding: ItemUserBinding = DataBindingUtil.bind(view)!!
-
+) : BaseHolder(binding.root, onClick) {
     override fun bind(item: Item) {
         super.bind(item)
 

@@ -6,25 +6,27 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://localhost.com"
-private const val TIMEOUT = 5L
+private const val TIMEOUT = 5000L
+const val GITHUB_RETROFIT = "https://api.github.com/"
 
 @InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule {
+    @Named(GITHUB_RETROFIT)
     @Singleton
     @Provides
-    fun provideRetrofit(
+    fun provideGithubRetrofit(
         client: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder().apply {
-            baseUrl(BASE_URL)
+            baseUrl(GITHUB_RETROFIT)
             client(client)
             addConverterFactory(GsonConverterFactory.create())
         }.build()
@@ -40,9 +42,9 @@ class NetworkModule {
         }
 
         return OkHttpClient.Builder().apply {
-            connectTimeout(TIMEOUT, TimeUnit.MINUTES)
-            readTimeout(TIMEOUT, TimeUnit.MINUTES)
-            writeTimeout(TIMEOUT, TimeUnit.MINUTES)
+            connectTimeout(TIMEOUT, TimeUnit.MILLISECONDS)
+            readTimeout(TIMEOUT, TimeUnit.MILLISECONDS)
+            writeTimeout(TIMEOUT, TimeUnit.MILLISECONDS)
             addInterceptor(loggingInterceptor)
         }.build()
     }

@@ -41,7 +41,6 @@ open class ServiceTest {
         mockWebServer.shutdown()
     }
 
-
     private fun loadFile(fileName: String): String {
         val name = if (fileName.contains(".json")) {
             fileName

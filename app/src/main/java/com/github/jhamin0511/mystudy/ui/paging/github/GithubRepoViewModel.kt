@@ -18,10 +18,10 @@ class GithubRepoViewModel
     // endregion
 
     // region Observe
+    val items = repository.getGithubPagingSource(bindSearchKeyword)
+        .cachedIn(viewModelScope)
     // endregion
 
     // region Model
-    val items = repository.getGithubRepository(bindSearchKeyword)
-        .cachedIn(viewModelScope)
     // endregion
 }

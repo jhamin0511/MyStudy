@@ -1,72 +1,72 @@
 package com.github.jhamin0511.mystudy.ui.paging
 
-import androidx.lifecycle.MutableLiveData
+import androidx.annotation.VisibleForTesting
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.github.jhamin0511.mystudy.viewmodel.Event
-import com.github.jhamin0511.mystudy.viewmodel.event
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import androidx.paging.insertSeparators
+import androidx.paging.map
+import com.github.jhamin0511.mystudy.data.dto.user.UserDto
+import com.github.jhamin0511.mystudy.repository.paging.PagingRepository
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.flow.map
 
-private const val PER_PAGE = 30
+fun PagingData<UserDto>.transformItem(): PagingData<Item> {
+    return this.map { dto ->
+        PagingItem.createUser(dto)
+    }.insertSeparators { before, after ->
+        val firstDate = before == null && after != null
+        val restDate = before is UserItem &&
+                after is UserItem &&
+                before.createdAt != after.createdAt
+        if (firstDate || restDate) {
+            DateItem((after as UserItem).createdAt)
+        } else {
+            null
+        }
+    }
+}
 
 @HiltViewModel
 class PagingViewModel
 @Inject constructor(
+    private val repository: PagingRepository
 ) : ViewModel() {
-
     // region Binding
-    fun bindClickFab() {
-        // no-op comment in an unused listener function
-    }
     // endregion
 
     // region Observe
-    val observeUser = MutableLiveData<Event<List<Item>>>()
+    fun observerUserPagingSource(): LiveData<PagingData<Item>> {
+        return repository.getUsersPagingSource().flow
+            .map {
+                transformItem(it)
+            }
+            .cachedIn(viewModelScope)
+            .asLiveData()
+    }
     // endregion
 
     // region Model
-    private var preCount = 1
-    private var getListCount = 1
-
-    fun getList(count: Int): List<Item> {
-        val list = mutableListOf<UserItem>()
-
-//        for (i: Int in preCount..count * getListCount) {
-//            val icon = when (i % 5) {
-//                0 -> R.drawable.ic_face
-//                1 -> R.drawable.ic_face2
-//                2 -> R.drawable.ic_face3
-//                3 -> R.drawable.ic_face4
-//                else -> R.drawable.ic_face5
-//            }
-//            val user = UserItem(
-//                i.toLong(),
-//                icon,
-//                "2022.06.22",
-//                "user$i",
-//                i % 19,
-//                " $i : introduce my informations every body rounderisei la la la la la roule wero"
-//            )
-//            list.add(user)
-//        }
-
-        preCount = count * getListCount
-        getListCount++
-
-        return list.groupBy { it.createdAt }.flatMap { group ->
-            val users = group.value.map { user ->
-                UserItem(user.id, user.icon, user.createdAt, user.name, user.age, user.introduce)
-            }
-            mutableListOf<Item>().apply {
-                add(DateItem(group.key))
-                addAll(users)
+    @VisibleForTesting
+    fun transformItem(value: PagingData<UserDto>): PagingData<Item> {
+        return value.map { dto ->
+            PagingItem.createUser(dto)
+        }.insertSeparators { before, after ->
+            val firstDate = before == null && after != null
+            val restDate = before is UserItem &&
+                    after is UserItem &&
+                    before.createdAt != after.createdAt
+            if (firstDate || restDate) {
+                DateItem((after as UserItem).createdAt)
+            } else {
+                null
             }
         }
-    }
-
-    init {
-        observeUser.event(getList(PER_PAGE))
     }
     // endregion
 }
