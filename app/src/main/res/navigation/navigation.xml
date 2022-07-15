@@ -17,8 +17,8 @@
             android:id="@+id/action_studyFragment_to_NotificationResultFragment"
             app:destination="@id/notificationResultFragment" />
         <action
-            android:id="@+id/action_studyFragment_to_pagingFragment"
-            app:destination="@id/pagingFragment" />
+            android:id="@+id/action_studyFragment_to_userFragment"
+            app:destination="@id/userFragment" />
         <action
             android:id="@+id/action_studyFragment_to_githubRepoFragment"
             app:destination="@id/githubRepoFragment" />
@@ -34,12 +34,26 @@
         android:label="NotificationNormalFragment"
         tools:layout="@layout/fragment_notification_result" />
     <fragment
-        android:id="@+id/pagingFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.paging.PagingFragment"
+        android:id="@+id/userFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.user.UserFragment"
         android:label="PagingFragment"
-        tools:layout="@layout/fragment_paging" />
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/githubRepoFragment"
         android:name="com.github.jhamin0511.mystudy.ui.paging.github.GithubRepoFragment"
-        android:label="GithubRepoFragment" />
+        android:label="GithubRepoFragment"
+        tools:layout="@layout/fragment_github_repo" />
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.user.detail.UserDetailFragment"
+        android:label="UserDetailFragment"
+        tools:layout="@layout/fragment_user_detail">
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 </navigation>

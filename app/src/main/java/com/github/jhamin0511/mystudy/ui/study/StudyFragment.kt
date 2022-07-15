@@ -17,13 +17,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class StudyFragment : BaseFragment() {
     private lateinit var binding: FragmentStudyBinding
     private val viewModel: StudyViewModel by viewModels()
-    private val studyClickListener = object : ItemClick {
+    private val studyClick = object : ItemClick {
         override fun onClick(item: Item, position: Int) {
             val study = item as StudyItem
             Navigation.findNavController(binding.root).navigate(study.navigateRes)
         }
     }
-    private val adapter = StudyAdapter(studyClickListener)
+    private val adapter = StudyAdapter(studyClick)
 
     override fun getLayoutId() = R.layout.fragment_study
 

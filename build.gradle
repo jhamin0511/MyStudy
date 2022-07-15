@@ -12,7 +12,6 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_versino"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.20.0"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
-        classpath "de.mannodermaus.gradle.plugins:android-junit5:1.8.2.0"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }

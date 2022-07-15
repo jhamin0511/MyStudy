@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.networ.service
+package com.github.jhamin0511.mystudy.network.service
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.gson.JsonObject
@@ -10,6 +10,7 @@ import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.RecordedRequest
 import okio.buffer
 import okio.source
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import retrofit2.Retrofit
@@ -36,7 +37,7 @@ open class ServiceTest {
         }.build()
     }
 
-    @Before
+    @After
     internal fun tearDown() {
         mockWebServer.shutdown()
     }

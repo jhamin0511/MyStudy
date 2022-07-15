@@ -19,6 +19,7 @@ abstract class BaseHolder(
         if (longClick != null) {
             view.setOnLongClickListener {
                 longClick.onLongClick(item, absoluteAdapterPosition)
+                true
             }
         }
     }

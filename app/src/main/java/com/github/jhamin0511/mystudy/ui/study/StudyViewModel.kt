@@ -22,8 +22,8 @@ class StudyViewModel
     // region Model
     private val items = listOf(
         StudyItem(R.string.notification, R.id.action_studyFragment_to_notificationFragment),
-        StudyItem(R.string.paging, R.id.action_studyFragment_to_pagingFragment),
-        StudyItem(R.string.github_repository, R.id.action_studyFragment_to_githubRepoFragment)
+        StudyItem(R.string.github_repository, R.id.action_studyFragment_to_githubRepoFragment),
+        StudyItem(R.string.user_paging, R.id.action_studyFragment_to_userFragment),
     )
 
     init {

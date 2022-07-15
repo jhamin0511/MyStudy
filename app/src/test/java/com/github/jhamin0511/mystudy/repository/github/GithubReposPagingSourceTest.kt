@@ -10,12 +10,9 @@ import com.github.jhamin0511.mystudy.test.mock
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.TestInstance
+import org.junit.Test
 import org.mockito.Mockito
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @OptIn(ExperimentalCoroutinesApi::class)
 class GithubReposPagingSourceTest {
 
@@ -35,12 +32,6 @@ class GithubReposPagingSourceTest {
     private val service: GithubService = mock()
     private val pagingSource = GithubReposPagingSource(service, KEYWORD)
 
-    @BeforeAll
-    fun setUp() = runTest {
-        val response = GithubRepositoryResponse(3000, ITEMS)
-        Mockito.`when`(service.getSearchRepository(KEYWORD, PAGE, PER_PAGE)).thenReturn(response)
-    }
-
     @Test
     fun load_result_assertThat() = runTest {
         // Given
@@ -49,6 +40,8 @@ class GithubReposPagingSourceTest {
             prevKey = null,
             nextKey = 2
         )
+        val response = GithubRepositoryResponse(3000, ITEMS)
+        Mockito.`when`(service.getSearchRepository(KEYWORD, PAGE, PER_PAGE)).thenReturn(response)
         // When
         val actual = pagingSource.load(
             PagingSource.LoadParams.Refresh(

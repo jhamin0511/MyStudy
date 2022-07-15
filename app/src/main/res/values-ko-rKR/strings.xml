@@ -5,6 +5,8 @@
     <string name="notification">알림</string>
     <string name="paging">페이징</string>
     <string name="github_repository">깃허브 저장소</string>
+    <string name="user_paging">유저 페이징</string>
+    <string name="user_room_paging">유저 룸 페이징</string>
     <!-- endregion -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>
@@ -34,4 +36,9 @@
     <string name="create_inbox">인박스 알림 만들기</string>
     <string name="hint_search">검색어를 입력해주세요.</string>
     <string name="recycler_empty">목록이 없습니다.</string>
+    <string name="paging_network">Network</string>
+    <string name="paging_database">Database</string>
+    <string name="paging_net_db">Network + Database</string>
+    <string name="detail_not_support">상세화면을 지원되지 않습니다.</string>
+    <string name="save">저장</string>
 </resources>

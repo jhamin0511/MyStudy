@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.ui.paging
+package com.github.jhamin0511.mystudy.ui.paging.user
 
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ItemDateBinding
@@ -6,6 +6,7 @@ import com.github.jhamin0511.mystudy.databinding.ItemUserBinding
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
+import com.github.jhamin0511.mystudy.widget.recycler.ItemLongClick
 
 object PagingHolder {
     const val DATE = R.layout.item_date
@@ -24,8 +25,9 @@ class DateHolder(
 
 class UserHolder(
     private val binding: ItemUserBinding,
-    onClick: ItemClick
-) : BaseHolder(binding.root, onClick) {
+    click: ItemClick,
+    longClick: ItemLongClick
+) : BaseHolder(binding.root, click, longClick) {
     override fun bind(item: Item) {
         super.bind(item)
 

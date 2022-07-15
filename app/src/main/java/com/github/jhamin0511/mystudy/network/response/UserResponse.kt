@@ -7,5 +7,7 @@ data class UserResponse(
     @SerializedName("total_count")
     val total: Long,
     @SerializedName("items")
-    val users: List<UserDto>
+    val users: List<UserDto>,
+    @SerializedName("last")
+    val last: Boolean
 )

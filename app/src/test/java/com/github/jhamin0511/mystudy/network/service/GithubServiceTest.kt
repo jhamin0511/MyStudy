@@ -1,11 +1,12 @@
-package com.github.jhamin0511.mystudy.networ.service
+package com.github.jhamin0511.mystudy.network.service
 
-import com.github.jhamin0511.mystudy.network.service.GithubService
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
-import org.junit.jupiter.api.DisplayName
 
+@Suppress("BlockingMethodInNonBlockingContext")
+@OptIn(ExperimentalCoroutinesApi::class)
 class GithubServiceTest : ServiceTest() {
     private lateinit var service: GithubService
 
@@ -15,9 +16,8 @@ class GithubServiceTest : ServiceTest() {
         service = retrofit.create(GithubService::class.java)
     }
 
-    @DisplayName("GET Github Repository Response Success")
     @Test
-    fun getSearchRepository_success() = runTest {
+    fun getSearchRepository_success_assertThat() = runTest {
         // Given
         mockWebServer.enqueue(success("github/get_repository_response"))
         val page = 1
@@ -28,10 +28,10 @@ class GithubServiceTest : ServiceTest() {
         // Then
         val request = mockWebServer.takeRequest()
         assertThat(request.method).matches("GET")
-        val path = "search/repositories?page=$page&per_page=$perPage&sort=stars&q=$keyword"
-        assertThat(request.path).matches(path)
+        val path = "/search/repositories?sort=stars&q=$keyword&page=$page&per_page=$perPage"
+        assertThat(request.path).isEqualTo(path)
 
         assertThat(response.total).isEqualTo(34110)
-        assertThat(response.items.size).isEqualTo(30)
+        assertThat(response.items).hasSize(30)
     }
 }

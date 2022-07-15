@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.ui.paging
+package com.github.jhamin0511.mystudy.ui.paging.user
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,9 +10,11 @@ import com.github.jhamin0511.mystudy.databinding.ItemUserBinding
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
+import com.github.jhamin0511.mystudy.widget.recycler.ItemLongClick
 
-class PagingAdapter(
-    private val userClickListener: ItemClick
+class UserAdapter(
+    private val userClick: ItemClick,
+    private val userLongClick: ItemLongClick
 ) : PagingDataAdapter<Item, BaseHolder>(DIFF_CALLBACK) {
     companion object {
         @VisibleForTesting
@@ -57,7 +59,7 @@ class PagingAdapter(
             }
             PagingHolder.USER -> {
                 val binding = ItemUserBinding.inflate(inflater, parent, false)
-                UserHolder(binding, userClickListener)
+                UserHolder(binding, userClick, userLongClick)
             }
             else -> {
                 throw IllegalArgumentException("not support type.")

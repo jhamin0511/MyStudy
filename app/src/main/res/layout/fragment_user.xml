@@ -8,7 +8,7 @@
 
         <variable
             name="vm"
-            type="com.github.jhamin0511.mystudy.ui.paging.PagingViewModel" />
+            type="com.github.jhamin0511.mystudy.ui.paging.user.UserViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,12 +38,12 @@
             tools:visibility="visible" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_add"
+            android:id="@+id/fab_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/space_xlarge"
             android:layout_marginBottom="@dimen/space_xlarge"
-            android:src="@drawable/ic_person_add"
+            android:src="@drawable/ic_refresh"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

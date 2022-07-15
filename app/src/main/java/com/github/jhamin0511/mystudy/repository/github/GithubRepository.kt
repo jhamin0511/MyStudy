@@ -18,11 +18,8 @@ class GithubRepository
     private val service: GithubService
 ) {
     fun getGithubPagingSource(keyword: StateFlow<String>): Flow<PagingData<GithubRepoDto>> {
-        return Pager(
-            config = PagingConfig(pageSize = PER_PAGE, enablePlaceholders = false),
-            pagingSourceFactory = {
-                GithubReposPagingSource(service, keyword.value)
-            }
-        ).flow
+        return Pager(PagingConfig(PER_PAGE)) {
+            GithubReposPagingSource(service, keyword.value)
+        }.flow
     }
 }

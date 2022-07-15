@@ -6,6 +6,7 @@ import com.github.jhamin0511.mystudy.data.dto.github.GithubRepoDto
 import com.github.jhamin0511.mystudy.network.service.GithubService
 import okio.IOException
 import retrofit2.HttpException
+import timber.log.Timber
 
 private const val START_PAGE = 1
 private const val KEY_COUNT = 1
@@ -16,6 +17,7 @@ class GithubReposPagingSource(
 ) : PagingSource<Int, GithubRepoDto>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, GithubRepoDto> {
         val page = params.key ?: START_PAGE
+        Timber.i("load() page : ${page} / loadSize : ${params.loadSize}")
 
         return try {
             val response = service.getSearchRepository(keyword, page, params.loadSize)
