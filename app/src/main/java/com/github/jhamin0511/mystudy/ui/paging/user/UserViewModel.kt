@@ -3,8 +3,7 @@ package com.github.jhamin0511.mystudy.ui.paging.user
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.switchMap
+import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
@@ -26,17 +25,17 @@ class UserViewModel
     // endregion
 
     // region Observe
-    private val type = MutableLiveData(UserPagingType.NETWORK)
+    private val type = MutableLiveData(UserPagingType.NET_DB)
 
-    val observeItems = type.switchMap {
+    val observeItems = type.map {
         when (it) {
             UserPagingType.NETWORK -> repository.getUsersOnlyNetworkPagingSource()
             UserPagingType.DATABASE -> repository.getUserOnlyDatabasePagingSource()
             UserPagingType.NET_DB -> repository.getUsersNetDbPagingSource()
             else -> throw IllegalArgumentException("not support type.")
-        }.flow.map { pagingData -> transformItem(pagingData) }
+        }.flow
+            .map { pagingData -> transformItem(pagingData) }
             .cachedIn(viewModelScope)
-            .asLiveData()
     }
     // endregion
 
@@ -57,9 +56,9 @@ class UserViewModel
             val firstDate = before == null && after != null
             val restDate = before is UserItem &&
                     after is UserItem &&
-                    before.createdAt != after.createdAt
+                    before.date != after.date
             if (firstDate || restDate) {
-                DateItem((after as UserItem).createdAt)
+                DateItem((after as UserItem).date)
             } else {
                 null
             }

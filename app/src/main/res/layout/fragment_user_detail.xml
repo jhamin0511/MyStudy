@@ -48,6 +48,22 @@
             app:layout_constraintTop_toTopOf="@id/tv_name"
             tools:text="32" />
 
+        <TextView
+            android:id="@+id/date"
+            style="@style/TextView.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_medium"
+            android:drawablePadding="@dimen/space_xsmall"
+            android:onClick="@{() -> vm.bindClickDate()}"
+            android:padding="@dimen/space_xsmall"
+            android:text="@{vm.bindDate}"
+            app:drawableStartCompat="@drawable/ic_calendar_month_small"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_age"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            tools:text="2022.07.15 17:42" />
+
         <EditText
             android:id="@+id/tv_introduce"
             style="@style/TextView.Title"

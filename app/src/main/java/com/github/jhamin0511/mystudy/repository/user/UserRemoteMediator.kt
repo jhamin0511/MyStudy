@@ -28,47 +28,48 @@ class UserRemoteMediator(
         loadType: LoadType,
         state: PagingState<Int, UserEntity>
     ): MediatorResult {
-        currentKey = when (loadType) {
-            LoadType.REFRESH -> {
-                START_PAGE
-            }
-            LoadType.PREPEND -> {
-                return MediatorResult.Success(endOfPaginationReached = true)
-            }
-            LoadType.APPEND -> {
-                currentKey.plus(KEY_COUNT)
-            }
-        }
-        Timber.i("load() / loadKey : $currentKey / loadType : $loadType")
-
+        Timber.i("load()")
         return try {
-            val perPage = when (loadType) {
-                LoadType.REFRESH -> state.config.initialLoadSize
-                else -> state.config.pageSize
+            currentKey = when (loadType) {
+                LoadType.REFRESH -> {
+                    Timber.i("LoadType.REFRESH")
+                    START_PAGE
+                }
+                LoadType.PREPEND -> {
+                    Timber.i("LoadType.PREPEND")
+                    return MediatorResult.Success(true)
+                }
+                LoadType.APPEND -> {
+                    Timber.i("LoadType.APPEND")
+                    currentKey.plus(KEY_COUNT)
+                }
             }
-            val response = service.getUsers(currentKey, perPage)
-            val users = UserEntity.create(response.users)
+            val pageSize = if (loadType == LoadType.REFRESH) {
+                state.config.initialLoadSize
+            } else {
+                state.config.pageSize
+            }
+            Timber.i("pageSize : $pageSize / loadType : $loadType/ currentKey : $currentKey")
 
+            val response = service.getUsers(currentKey, pageSize)
+            val users = UserEntity.create(response.users)
             delay(NETWORK_DELAY_TIME)
 
             database.withTransaction {
+                Timber.i("database.withTransaction")
                 if (loadType == LoadType.REFRESH) {
                     database.userDao().deleteAll()
                 }
-
                 database.userDao().insertAll(users)
             }
 
-            MediatorResult.Success(endOfPaginationReached = response.last)
+            MediatorResult.Success(response.last)
         } catch (e: IOException) {
+            Timber.i("IOException : $e")
             MediatorResult.Error(e)
         } catch (e: HttpException) {
+            Timber.i("HttpException : $e")
             MediatorResult.Error(e)
         }
-    }
-
-    override suspend fun initialize(): InitializeAction {
-        Timber.i("initialize()")
-        return InitializeAction.LAUNCH_INITIAL_REFRESH
     }
 }

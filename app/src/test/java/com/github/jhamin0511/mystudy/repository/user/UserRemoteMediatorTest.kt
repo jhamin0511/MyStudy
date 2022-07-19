@@ -47,7 +47,7 @@ class UserRemoteMediatorTest {
         perPage
     )
     private val items = listOf(
-        UserDto(1, UserType.ONE, 1656946800000, "name1", 1, "introduce")
+        UserDto(1, UserType.ONE, 1656946800000, "name1", 1, "introduce", "content")
     )
 
     @Before

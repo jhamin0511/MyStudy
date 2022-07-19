@@ -10,8 +10,8 @@ data class UserItem(
     val id: Long,
     @DrawableRes
     val picture: Int,
-    val createdAt: String,
-    val name: String,
+    var date: String,
+    var name: String,
     val age: Int,
     val introduce: String
 ) : Item {
@@ -20,7 +20,7 @@ data class UserItem(
             return UserItem(
                 value.id,
                 value.type.icon,
-                GlobalTime.convertDate(value.createAt),
+                GlobalTime.convertDate(value.date),
                 value.name,
                 value.age,
                 value.introduce
@@ -30,7 +30,7 @@ data class UserItem(
             return UserItem(
                 value.id,
                 value.type.icon,
-                GlobalTime.convertDate(value.createAt),
+                GlobalTime.convertDate(value.date),
                 value.name,
                 value.age,
                 value.introduce

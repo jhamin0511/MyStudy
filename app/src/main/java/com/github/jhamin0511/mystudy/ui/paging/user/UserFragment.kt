@@ -4,7 +4,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -14,6 +13,7 @@ import androidx.paging.LoadState
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentUserBinding
+import com.github.jhamin0511.mystudy.time.GlobalTime
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 import com.github.jhamin0511.mystudy.widget.recycler.ItemLongClick
@@ -29,7 +29,7 @@ class UserFragment : BaseFragment() {
     private val viewModel: UserViewModel by viewModels()
     private val userClick = object : ItemClick {
         override fun onClick(item: Item, position: Int) {
-            startUserDetail(item)
+            startUserDetail(item, position)
         }
     }
     private val userLongClick = object : ItemLongClick {
@@ -58,19 +58,20 @@ class UserFragment : BaseFragment() {
         viewModel.observeItems.observe(this) { observe ->
             Timber.i("observeItems.observe() : $observe")
             lifecycleScope.launch {
-                adapter.submitData(observe)
+                observe.collectLatest { pagingData ->
+                    adapter.submitData(pagingData)
+                }
             }
         }
     }
 
     override fun bindEvent() {
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest {
                 if (binding.refresh.isRefreshing) {
                     binding.refresh.isRefreshing = it.refresh is LoadState.Loading
                 } else {
                     binding.progress.isVisible = it.refresh is LoadState.Loading ||
-                            it.prepend is LoadState.Loading ||
                             it.append is LoadState.Loading
                 }
                 binding.recyclerEmpty.root.setVisible(adapter.itemCount == 0)
@@ -106,7 +107,7 @@ class UserFragment : BaseFragment() {
         }
     }
 
-    private fun startUserDetail(item: Item) {
+    private fun startUserDetail(item: Item, position: Int) {
         when (viewModel.getType()) {
             UserPagingType.DATABASE, UserPagingType.NET_DB -> {
                 val id = (item as UserItem).id
@@ -114,11 +115,11 @@ class UserFragment : BaseFragment() {
                 findNavController().navigate(action)
             }
             else -> {
-                Toast.makeText(
-                    requireContext(),
-                    R.string.detail_not_support,
-                    Toast.LENGTH_SHORT
-                ).show()
+                val items = adapter.snapshot().items
+                val convertDate = GlobalTime.convertDate(System.currentTimeMillis())
+                (items[position] as UserItem).name = convertDate
+                (items[position] as UserItem).date = convertDate
+                adapter.notifyDataSetChanged()
             }
         }
     }

@@ -12,14 +12,17 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(entities: List<UserEntity>)
 
-    @Query("SELECT * FROM user ORDER BY createAt DESC")
+    @Query("SELECT * FROM user ORDER BY date DESC")
     fun selectAll(): PagingSource<Int, UserEntity>
 
     @Query("SELECT * FROM user WHERE id=:id")
-    suspend fun selectById(id: Long): UserEntity
+    suspend fun selectById(id: Long): UserEntity?
 
-    @Query("UPDATE user set createAt=:createAt, introduce=:introduce, content=:content  WHERE id=:id")
-    suspend fun update(id: Long, createAt: Long, introduce: String, content: String)
+    @Query("SELECT date FROM user WHERE id=:id")
+    suspend fun selectDateById(id: Long): Long
+
+    @Query("UPDATE user set date=:date, introduce=:introduce, content=:content  WHERE id=:id")
+    suspend fun update(id: Long, date: Long, introduce: String, content: String)
 
     @Query("DELETE FROM user")
     suspend fun deleteAll()

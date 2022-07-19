@@ -3,7 +3,6 @@ package com.github.jhamin0511.mystudy.di.database
 import android.app.Application
 import androidx.room.Room
 import com.github.jhamin0511.mystudy.database.AppDatabase
-import com.github.jhamin0511.mystudy.database.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,10 +21,5 @@ class DatabaseModule {
             AppDatabase.APP_DATABASE_NAME
         ).fallbackToDestructiveMigration()
             .build()
-    }
-
-    @Provides
-    fun provideUserDao(database: AppDatabase): UserDao {
-        return database.userDao()
     }
 }

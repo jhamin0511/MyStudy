@@ -44,8 +44,7 @@ class UserAdapter(
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
             is DateItem -> PagingHolder.DATE
-            is UserItem -> PagingHolder.USER
-            else -> throw IllegalArgumentException("not support type.")
+            else -> PagingHolder.USER
         }
     }
 
@@ -57,12 +56,9 @@ class UserAdapter(
                 val binding = ItemDateBinding.inflate(inflater, parent, false)
                 DateHolder(binding)
             }
-            PagingHolder.USER -> {
+            else -> {
                 val binding = ItemUserBinding.inflate(inflater, parent, false)
                 UserHolder(binding, userClick, userLongClick)
-            }
-            else -> {
-                throw IllegalArgumentException("not support type.")
             }
         }
     }

@@ -32,7 +32,8 @@ class UserOnlyNetworkPagingSource(
             } else {
                 currentKey.plus(KEY_COUNT)
             }
-            Timber.i("load() / prevKey = $prevKey / currentKey : $currentKey / nextKey = $nextKey")
+            Timber.i("load() / loadSize : ${params.loadSize} / prevKey : $prevKey / " +
+                    "currentKey : $currentKey / nextKey : $nextKey")
 
             LoadResult.Page(
                 data = UserEntity.create(response.users),

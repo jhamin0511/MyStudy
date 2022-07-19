@@ -1,5 +1,7 @@
 package com.github.jhamin0511.mystudy.ui.paging.user.detail
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -13,6 +15,9 @@ import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentUserDetailBinding
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Calendar
+import java.util.Date
+import java.util.GregorianCalendar
 
 @AndroidEntryPoint
 class UserDetailFragment : BaseFragment() {
@@ -38,6 +43,9 @@ class UserDetailFragment : BaseFragment() {
         viewModel.observeSaved.observe(this, EventObserver {
             findNavController().popBackStack()
         })
+        viewModel.observeShowPicker.observe(this, EventObserver {
+            showDateTimePickerDialog(it)
+        })
     }
 
     override fun bindEvent() {
@@ -56,5 +64,37 @@ class UserDetailFragment : BaseFragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun showDateTimePickerDialog(value: Long) {
+        val calendar = GregorianCalendar()
+        calendar.time = Date(value)
+
+        val timePicker = TimePickerDialog(
+            requireContext(),
+            { _, hourOfDay, minute ->
+                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                calendar.set(Calendar.MINUTE, minute)
+
+                viewModel.applyDate(calendar.time.time)
+            },
+            calendar.get(Calendar.HOUR_OF_DAY),
+            calendar.get(Calendar.MINUTE),
+            true
+        )
+
+        DatePickerDialog(
+            requireContext(),
+            { _, year, month, dayOfMonth ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+                timePicker.show()
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
     }
 }

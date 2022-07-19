@@ -15,6 +15,8 @@ data class UserEntity(
     val type: UserType,
     @ColumnInfo(name = "createAt")
     val createAt: Long,
+    @ColumnInfo(name = "date")
+    val date: Long,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "age")
@@ -24,6 +26,16 @@ data class UserEntity(
     @ColumnInfo(name = "content")
     val content: String
 ) {
+    constructor(
+        id: Long,
+        type: UserType,
+        createAt: Long,
+        name: String,
+        age: Int,
+        introduce: String,
+        content: String
+    ) : this(id, type, createAt, createAt, name, age, introduce, content)
+
     companion object {
         fun create(dtos: List<UserDto>): List<UserEntity> {
             return dtos.map {
@@ -36,6 +48,7 @@ data class UserEntity(
                 dto.id,
                 dto.type,
                 dto.createAt,
+                dto.date,
                 dto.name,
                 dto.age,
                 dto.introduce,

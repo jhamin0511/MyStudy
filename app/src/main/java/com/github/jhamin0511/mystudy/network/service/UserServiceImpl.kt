@@ -4,7 +4,7 @@ import com.github.jhamin0511.mystudy.data.dto.user.UserDto
 import com.github.jhamin0511.mystudy.data.dto.user.UserType
 import com.github.jhamin0511.mystudy.network.response.UserResponse
 
-private const val CAL_TIME = 100000L
+private const val CAL_TIME = 14000000L
 private const val END_PAGE = 10
 private const val DIV_SIZE = 5
 private const val CONTENT1_TYPE = 1

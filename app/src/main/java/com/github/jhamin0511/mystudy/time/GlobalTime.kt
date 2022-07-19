@@ -7,11 +7,13 @@ object GlobalTime {
     private const val PATTERN_DATE = "yyyy-MM-dd"
     private const val PATTERN_TIME = "HH:mm:ss"
     private const val PATTERN_UTC = "+hh:mm"
+    private const val PATTERN_DATE_TIME = "$PATTERN_DATE $PATTERN_TIME"
     private const val PATTERN_ISO_8601 = "${PATTERN_DATE}'T'${PATTERN_TIME}${PATTERN_UTC}"
 
     private val formatDate = SimpleDateFormat(PATTERN_DATE)
     private val formatTime = SimpleDateFormat(PATTERN_TIME)
-    private val formatDateTime = SimpleDateFormat(PATTERN_ISO_8601)
+    private val formatDateTime = SimpleDateFormat(PATTERN_DATE_TIME)
+    private val formatISO = SimpleDateFormat(PATTERN_ISO_8601)
 
     fun convertDate(value: Number): String {
         return formatDate.format(value)
@@ -31,5 +33,13 @@ object GlobalTime {
 
     fun convertDateTime(value: Number): String {
         return formatDateTime.format(value)
+    }
+
+    fun parseDateTime(value: String): Date {
+        return formatDateTime.parse(value) ?: Date()
+    }
+
+    fun convertISO(value: Number): String {
+        return formatISO.format(value)
     }
 }
