@@ -14,6 +14,7 @@ import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentUserBinding
 import com.github.jhamin0511.mystudy.time.GlobalTime
+import com.github.jhamin0511.mystudy.ui.paging.PagingErrorHandler
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 import com.github.jhamin0511.mystudy.widget.recycler.ItemLongClick
@@ -38,6 +39,7 @@ class UserFragment : BaseFragment() {
         }
     }
     private val adapter = UserAdapter(userClick, userLongClick)
+    private val handler by lazy { PagingErrorHandler(requireContext()) }
 
     override fun getLayoutId() = R.layout.fragment_user
 
@@ -68,11 +70,14 @@ class UserFragment : BaseFragment() {
     override fun bindEvent() {
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest {
+                handler.showToast(it)
+
                 if (binding.refresh.isRefreshing) {
                     binding.refresh.isRefreshing = it.refresh is LoadState.Loading
                 } else {
                     binding.progress.isVisible = it.refresh is LoadState.Loading ||
                             it.append is LoadState.Loading
+                    it.source.refresh
                 }
                 binding.recyclerEmpty.root.setVisible(adapter.itemCount == 0)
             }

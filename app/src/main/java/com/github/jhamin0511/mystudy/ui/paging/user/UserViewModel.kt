@@ -25,7 +25,7 @@ class UserViewModel
     // endregion
 
     // region Observe
-    private val type = MutableLiveData(UserPagingType.NET_DB)
+    private val type = MutableLiveData(UserPagingType.NETWORK)
 
     val observeItems = type.map {
         when (it) {

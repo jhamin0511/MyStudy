@@ -9,13 +9,12 @@ import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.database.AppDatabase
 import com.github.jhamin0511.mystudy.network.service.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.network.service.UserService
+import com.github.jhamin0511.mystudy.ui.paging.KEY_COUNT
+import com.github.jhamin0511.mystudy.ui.paging.START_PAGE
 import java.io.IOException
 import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import timber.log.Timber
-
-private const val START_PAGE = 1
-private const val KEY_COUNT = 1
 
 @OptIn(ExperimentalPagingApi::class)
 class UserRemoteMediator(

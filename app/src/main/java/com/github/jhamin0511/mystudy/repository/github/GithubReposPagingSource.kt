@@ -4,12 +4,11 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.github.jhamin0511.mystudy.data.dto.github.GithubRepoDto
 import com.github.jhamin0511.mystudy.network.service.GithubService
+import com.github.jhamin0511.mystudy.ui.paging.KEY_COUNT
+import com.github.jhamin0511.mystudy.ui.paging.START_PAGE
 import okio.IOException
 import retrofit2.HttpException
 import timber.log.Timber
-
-private const val START_PAGE = 1
-private const val KEY_COUNT = 1
 
 class GithubReposPagingSource(
     private val service: GithubService,

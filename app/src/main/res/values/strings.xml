@@ -40,4 +40,6 @@
     <string name="paging_net_db">Network + Database</string>
     <string name="detail_not_support">Details screen is not supported.</string>
     <string name="save">Save</string>
+    <string name="error_internet_connect">Please check your internet connectivity</string>
+    <string name="error_unknown">An Unknown Error has occurred.</string>
 </resources>

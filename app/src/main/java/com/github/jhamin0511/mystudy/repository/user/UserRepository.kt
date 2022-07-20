@@ -21,7 +21,7 @@ class UserRepository
         val config = PagingConfig(PER_PAGE)
 
         return Pager(config) {
-            UserOnlyNetworkPagingSource(service)
+            UserPagingSource(service)
         }
     }
 

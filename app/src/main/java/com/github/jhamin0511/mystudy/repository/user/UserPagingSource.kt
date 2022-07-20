@@ -5,21 +5,19 @@ import androidx.paging.PagingState
 import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.network.service.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.network.service.UserService
+import com.github.jhamin0511.mystudy.ui.paging.KEY_COUNT
+import com.github.jhamin0511.mystudy.ui.paging.START_PAGE
 import java.io.IOException
 import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import timber.log.Timber
 
-private const val START_PAGE = 1
-private const val KEY_COUNT = 1
-
-class UserOnlyNetworkPagingSource(
+class UserPagingSource(
     private val service: UserService
 ) : PagingSource<Int, UserEntity>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, UserEntity> {
         Timber.i("load() / params : $params")
-
         return try {
             val currentKey = params.key ?: START_PAGE
             val response = service.getUsers(currentKey, params.loadSize)
@@ -32,8 +30,10 @@ class UserOnlyNetworkPagingSource(
             } else {
                 currentKey.plus(KEY_COUNT)
             }
-            Timber.i("load() / loadSize : ${params.loadSize} / prevKey : $prevKey / " +
-                    "currentKey : $currentKey / nextKey : $nextKey")
+            Timber.i(
+                "load() / loadSize : ${params.loadSize} / prevKey : $prevKey / " +
+                        "currentKey : $currentKey / nextKey : $nextKey"
+            )
 
             LoadResult.Page(
                 data = UserEntity.create(response.users),

@@ -96,9 +96,7 @@ class UserRemoteMediatorTest {
         // Given
         val responseBody = "HttpError".toResponseBody("text/plain".toMediaType())
         val errorResponse = Response.error<String>(HttpURLConnection.HTTP_BAD_REQUEST, responseBody)
-        Mockito.doAnswer {
-            throw HttpException(errorResponse)
-        }.`when`(service).getUsers(any(), any())
+        Mockito.`when`(service.getUsers(any(), any())).thenThrow(HttpException(errorResponse))
         // When
         val actual = mediator.load(LoadType.REFRESH, pagingState)
         // Then
