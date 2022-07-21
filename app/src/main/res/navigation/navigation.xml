@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/studyFragment">
+
+    <fragment
+        android:id="@+id/studyFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.study.StudyFragment"
+        android:label="StudyFragment"
+        tools:layout="@layout/fragment_study">
+        <action
+            android:id="@+id/action_studyFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_NotificationResultFragment"
+            app:destination="@id/notificationResultFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_githubRepoFragment"
+            app:destination="@id/githubRepoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/notificationResultFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationResultFragment"
+        android:label="NotificationNormalFragment"
+        tools:layout="@layout/fragment_notification_result" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.user.UserFragment"
+        android:label="PagingFragment"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/githubRepoFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.github.GithubRepoFragment"
+        android:label="GithubRepoFragment"
+        tools:layout="@layout/fragment_github_repo" />
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.user.detail.UserDetailFragment"
+        android:label="UserDetailFragment"
+        tools:layout="@layout/fragment_user_detail">
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+</navigation>
