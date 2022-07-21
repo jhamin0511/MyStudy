@@ -6,15 +6,15 @@
     <data>
 
         <variable
-            name="vo"
-            type="String" />
+            name="item"
+            type="com.github.jhamin0511.mystudy.ui.study.StudyItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/HolderItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/height_item_large">
+        android:minHeight="@dimen/height_medium">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guide_start"
@@ -28,7 +28,7 @@
             style="@style/TextView.Content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{vo}"
+            app:bindText="@{item.nameRes}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toTopOf="parent"

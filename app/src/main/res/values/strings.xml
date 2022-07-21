@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">MyStudy</string>
+    <!--  region Study List  -->
     <string name="notification">Notification</string>
+    <string name="paging">Paging</string>
+    <string name="github_repository">Github Repository</string>
+    <string name="user_paging">User Paging</string>
+    <string name="user_room_paging">User Room Paging</string>
+    <!-- endregion -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>
     <string name="channel_normal_description">Normal Notification</string>
@@ -27,4 +33,13 @@
     <string name="create_text">Create Big Text Notification</string>
     <string name="create_messaging">Create Messaging Notification</string>
     <string name="create_inbox">Create Inbox Notification</string>
+    <string name="hint_search">Please enter a search term.</string>
+    <string name="recycler_empty">There is no list.</string>
+    <string name="paging_network">Network</string>
+    <string name="paging_database">Database</string>
+    <string name="paging_net_db">Network + Database</string>
+    <string name="detail_not_support">Details screen is not supported.</string>
+    <string name="save">Save</string>
+    <string name="error_internet_connect">Please check your internet connectivity</string>
+    <string name="error_unknown">An Unknown Error has occurred.</string>
 </resources>

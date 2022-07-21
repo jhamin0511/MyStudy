@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_network"
+        android:title="@string/paging_network" />
+    <item
+        android:id="@+id/menu_database"
+        android:title="@string/paging_database" />
+    <item
+        android:id="@+id/menu_net_db"
+        android:title="@string/paging_net_db" />
+</menu>

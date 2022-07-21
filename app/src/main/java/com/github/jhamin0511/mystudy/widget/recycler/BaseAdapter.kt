@@ -1,51 +1,54 @@
 package com.github.jhamin0511.mystudy.widget.recycler
 
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseAdapter<ITEM> : Adapter<ViewHolder>(), AdapterItem<ITEM> {
-    private val items = mutableListOf<ITEM>()
+abstract class BaseAdapter : RecyclerView.Adapter<BaseHolder>() {
+    private val items = mutableListOf<Item>()
 
-    override fun isEmpty(): Boolean {
+    override fun getItemCount(): Int {
+        return items.size
+    }
+
+    override fun onBindViewHolder(holder: BaseHolder, position: Int) {
+        holder.bind(items[position])
+    }
+
+    protected fun onCreateView(parent: ViewGroup, @LayoutRes layout: Int): View {
+        val inflater = LayoutInflater.from(parent.context)
+
+        return inflater.inflate(layout, parent, false)
+    }
+
+    fun isEmpty(): Boolean {
         return items.isEmpty()
     }
 
-    override fun add(e: ITEM) {
+    fun addItem(e: Item) {
         items.add(e)
         notifyItemChanged(items.size)
     }
 
-    override fun addAll(e: List<ITEM>) {
-        val start = items.size
-
-        items.addAll(e)
-        notifyItemRangeChanged(start, items.size)
-    }
-
-    override fun clear() {
+    fun addItems(e: List<Item>) {
         val preSize = items.size
-
-        items.clear()
-        notifyItemRangeRemoved(0, preSize)
+        items.addAll(e)
+        notifyItemChanged(preSize, items.size)
     }
 
-    override fun remove(e: ITEM) {
-        val position = items.indexOf(e)
-
-        notifyItemRemoved(position)
-    }
-
-    override fun remove(position: Int) {
-        items.removeAt(position)
-
-        notifyItemRemoved(position)
-    }
-
-    override fun get(position: Int): ITEM {
+    fun getItem(position: Int): Item {
         return items[position]
     }
 
-    override fun getItemCount(): Int {
-        return items.size
+    fun getItems(): List<Item> {
+        return items
+    }
+
+    fun removeItem(e: Item) {
+        val position = items.indexOf(e)
+        items.removeAt(position)
+        notifyItemRemoved(position)
     }
 }

@@ -1,27 +1,21 @@
 package com.github.jhamin0511.mystudy.ui.study
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ItemStudyBinding
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
+import com.github.jhamin0511.mystudy.widget.recycler.Item
+import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 
-class StudyHolder(view: View) : BaseHolder<String>(view) {
-
-    companion object {
-        fun create(viewGroup: ViewGroup): StudyHolder {
-            val inflater = LayoutInflater.from(viewGroup.context)
-            val view = inflater.inflate(R.layout.item_study, viewGroup, false)
-
-            return StudyHolder(view)
-        }
-    }
-
+class StudyHolder(
+    view: View,
+    onClick: ItemClick
+) : BaseHolder(view, onClick) {
     private val binding: ItemStudyBinding = DataBindingUtil.bind(view)!!
 
-    override fun bind(item: String) {
-        binding.vo = item
+    override fun bind(item: Item) {
+        super.bind(item)
+
+        binding.item = item as StudyItem
     }
 }

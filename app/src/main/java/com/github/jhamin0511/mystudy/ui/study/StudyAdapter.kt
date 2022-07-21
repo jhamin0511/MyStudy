@@ -1,24 +1,18 @@
 package com.github.jhamin0511.mystudy.ui.study
 
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.github.jhamin0511.mystudy.widget.recycler.AdapterClickListener
+import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.widget.recycler.BaseAdapter
+import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
+import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 
 class StudyAdapter(
-    private val listener: AdapterClickListener<String>
-) : BaseAdapter<String>() {
+    private val studyClickListener: ItemClick
+) : BaseAdapter() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return StudyHolder.create(parent)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHolder {
+        val view = onCreateView(parent, R.layout.item_study)
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val item = get(position)
-
-        if (holder is StudyHolder) {
-            holder.bind(item)
-            holder.setClickListener(item, listener)
-        }
+        return StudyHolder(view, studyClickListener)
     }
 }

@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy
+package com.github.jhamin0511.mystudy.test
 
 import org.mockito.Mockito
 

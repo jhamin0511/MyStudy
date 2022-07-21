@@ -9,7 +9,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class StudyActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityStudyBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
