@@ -16,7 +16,7 @@ data class UserItem(
     val introduce: String
 ) : Item {
     companion object {
-        fun createUser(value: UserDto): UserItem {
+        fun create(value: UserDto): UserItem {
             return UserItem(
                 value.id,
                 value.type.icon,
@@ -26,7 +26,8 @@ data class UserItem(
                 value.introduce
             )
         }
-        fun createUser(value: UserEntity): UserItem {
+
+        fun create(value: UserEntity): UserItem {
             return UserItem(
                 value.id,
                 value.type.icon,

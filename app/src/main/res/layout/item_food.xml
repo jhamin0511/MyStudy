@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.github.jhamin0511.mystudy.ui.selection.FoodItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/CardItemHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/space_medium">
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextView.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.title}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="야채곱창" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                style="@style/TextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_large"
+                android:text="@{item.price}"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_title"
+                app:layout_constraintStart_toEndOf="@id/tv_title"
+                tools:text="₩8,000 ~ ₩12,000" />
+
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="@dimen/image_xlarge"
+                android:layout_height="@dimen/image_xlarge"
+                android:layout_marginTop="@dimen/space_large"
+                android:scaleType="fitXY"
+                app:bindImage="@{item.image}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                tools:src="@drawable/img_yachaebokkeum" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/TextView.Content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_small"
+                android:text="@{item.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_image"
+                app:layout_constraintTop_toTopOf="@id/iv_image"
+                tools:text="CJ제일제당은 최근 40여 년간 쌓은 육가공 기술과 노하우를 토대로 프리미엄 델리 브랜드 ‘육공육(六工肉)’을 론칭하고 ‘육공육 더블에이징(Double-aging) 후랑크’ 신제품 3종을 선보였다.육공육은 ‘6가지 육가공 기술에 현대적 취향을 담은 델리미트’라는 뜻으로 음식에서도 다양한 경험을 추구하는 소비자에게 새로운 식문화를 제시하겠다는 CJ제일제당의 브랜드 철학이 담겼다. 새로 선보이는 육공육 더블에이징 후랑크는 후랑크, 킬바사, 롱후랑크 3종으로 구성됐다. 더블에이징 후랑크는 커브 모양의 시그니처 제품으로 브런치, 캠핑 등에서 메인 요리나 안주 등으로 다양하게 활용하기 좋다. 말발굽 모양의 더블에이징 킬바사는 바비큐나 캠핑에 특히 잘 어울리는 제품이다. 더블에이징 롱후랑크는 핫도그나 김밥 등에 잘 어울린다." />
+
+            <TextView
+                android:id="@+id/iv_favorite"
+                style="@style/TextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_medium"
+                android:gravity="center"
+                android:text="@{Integer.toString(item.favoriteCount)}"
+                app:drawableTopCompat="@drawable/ic_favorite"
+                app:layout_constraintEnd_toEndOf="@id/iv_image"
+                app:layout_constraintStart_toStartOf="@id/iv_image"
+                app:layout_constraintTop_toBottomOf="@id/iv_image"
+                tools:text="23" />
+
+            <TextView
+                android:id="@+id/iv_bookmark"
+                style="@style/TextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:gravity="center"
+                android:text="@{Integer.toString(item.bookmarkCount)}"
+                app:drawableTopCompat="@drawable/ic_bookmark"
+                app:layout_constraintEnd_toEndOf="@id/iv_favorite"
+                app:layout_constraintStart_toStartOf="@id/iv_favorite"
+                app:layout_constraintTop_toBottomOf="@id/iv_favorite"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/iv_follow"
+                style="@style/TextView.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:gravity="center"
+                android:text="@{Integer.toString(item.followCount)}"
+                app:drawableTopCompat="@drawable/ic_follow"
+                app:layout_constraintEnd_toEndOf="@id/iv_bookmark"
+                app:layout_constraintStart_toStartOf="@id/iv_bookmark"
+                app:layout_constraintTop_toBottomOf="@id/iv_bookmark"
+                tools:text="435" />
+
+            <ImageView
+                android:id="@+id/iv_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selector_check"
+                app:bindSelected="@{item.selected}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_studyFragment_to_githubRepoFragment"
             app:destination="@id/githubRepoFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_selectionFragment"
+            app:destination="@id/selectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -56,4 +59,9 @@
             android:name="id"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.selection.SelectionFragment"
+        android:label="SelectionFragment"
+        tools:layout="@layout/fragment_selection" />
 </navigation>

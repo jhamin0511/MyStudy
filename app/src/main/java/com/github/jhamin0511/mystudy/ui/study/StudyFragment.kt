@@ -27,18 +27,18 @@ class StudyFragment : BaseFragment() {
 
     override fun getLayoutId() = R.layout.fragment_study
 
-    override fun bindValue() {
+    override fun initValue() {
         // no-op comment in an unused listener function
     }
 
-    override fun bindView(view: View) {
+    override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.recycler.defaultDecoration(requireContext())
         binding.recycler.adapter = adapter
     }
 
-    override fun bindObserve() {
+    override fun initObserve() {
         viewModel.observeStudies.observe(
             this,
             EventObserver {
@@ -47,7 +47,7 @@ class StudyFragment : BaseFragment() {
         )
     }
 
-    override fun bindEvent() {
+    override fun initEvent() {
         // no-op comment in an unused listener function
     }
 }

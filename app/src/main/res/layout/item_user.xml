@@ -12,13 +12,9 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        style="@style/CardItemHolder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_small"
-        android:layout_marginTop="@dimen/space_xsmall"
-        android:layout_marginEnd="@dimen/space_small"
-        android:layout_marginBottom="@dimen/space_xsmall"
-        android:foreground="?attr/selectableItemBackground">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

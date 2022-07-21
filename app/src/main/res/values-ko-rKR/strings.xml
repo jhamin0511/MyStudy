@@ -6,7 +6,7 @@
     <string name="paging">페이징</string>
     <string name="github_repository">깃허브 저장소</string>
     <string name="user_paging">유저 페이징</string>
-    <string name="user_room_paging">유저 룸 페이징</string>
+    <string name="selection">목록 선택</string>
     <!-- endregion -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>

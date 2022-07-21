@@ -27,11 +27,11 @@ class UserDetailFragment : BaseFragment() {
 
     override fun getLayoutId() = R.layout.fragment_user_detail
 
-    override fun bindValue() {
+    override fun initValue() {
         viewModel.initModel(arg)
     }
 
-    override fun bindView(view: View) {
+    override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.vm = viewModel
@@ -39,7 +39,7 @@ class UserDetailFragment : BaseFragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun bindObserve() {
+    override fun initObserve() {
         viewModel.observeSaved.observe(this, EventObserver {
             findNavController().popBackStack()
         })
@@ -48,7 +48,7 @@ class UserDetailFragment : BaseFragment() {
         })
     }
 
-    override fun bindEvent() {
+    override fun initEvent() {
         // no-op comment in an unused listener function
     }
 

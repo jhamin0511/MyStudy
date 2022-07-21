@@ -30,4 +30,16 @@ object BindingAdapter {
     fun bindVisible(view: View, visible: Boolean) {
         view.setVisible(visible)
     }
+
+    @JvmStatic
+    @BindingAdapter("bindSelected")
+    fun bindSelected(view: View, selected: Boolean) {
+        view.isSelected = selected
+    }
+
+    @JvmStatic
+    @BindingAdapter("bindImage")
+    fun bindImage(view: ImageView, @DrawableRes res: Int) {
+        view.setImageResource(res)
+    }
 }

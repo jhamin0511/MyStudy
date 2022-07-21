@@ -43,11 +43,11 @@ class UserFragment : BaseFragment() {
 
     override fun getLayoutId() = R.layout.fragment_user
 
-    override fun bindValue() {
+    override fun initValue() {
         // no-op comment in an unused listener function
     }
 
-    override fun bindView(view: View) {
+    override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.vm = viewModel
@@ -56,7 +56,7 @@ class UserFragment : BaseFragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun bindObserve() {
+    override fun initObserve() {
         viewModel.observeItems.observe(this) { observe ->
             Timber.i("observeItems.observe() : $observe")
             lifecycleScope.launch {
@@ -67,7 +67,7 @@ class UserFragment : BaseFragment() {
         }
     }
 
-    override fun bindEvent() {
+    override fun initEvent() {
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest {
                 handler.showToast(it)

@@ -1,6 +1,8 @@
 package com.github.jhamin0511.mystudy.di.network.service
 
 import com.github.jhamin0511.mystudy.di.network.GITHUB_RETROFIT
+import com.github.jhamin0511.mystudy.network.service.FoodService
+import com.github.jhamin0511.mystudy.network.service.FoodServiceImpl
 import com.github.jhamin0511.mystudy.network.service.GithubService
 import com.github.jhamin0511.mystudy.network.service.UserService
 import com.github.jhamin0511.mystudy.network.service.UserServiceImpl
@@ -28,5 +30,11 @@ class ServiceModule {
     @Provides
     fun provideUserService(): UserService {
         return UserServiceImpl()
+    }
+
+    @Singleton
+    @Provides
+    fun provideFoodService(): FoodService {
+        return FoodServiceImpl()
     }
 }

@@ -51,7 +51,7 @@ class UserViewModel
     @VisibleForTesting
     fun transformItem(value: PagingData<UserEntity>): PagingData<Item> {
         return value.map { dto ->
-            UserItem.createUser(dto)
+            UserItem.create(dto)
         }.insertSeparators { before, after ->
             val firstDate = before == null && after != null
             val restDate = before is UserItem &&

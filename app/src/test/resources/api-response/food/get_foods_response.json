@@ -1,0 +1,55 @@
+{
+  "totalCount": 5,
+  "items": [
+    {
+      "id": 1,
+      "title": "title1",
+      "price": "price1",
+      "image": 1,
+      "description": "description1",
+      "favoriteCount": 1,
+      "bookmarkCount": 1,
+      "followCount": 1
+    },
+    {
+      "id": 2,
+      "title": "title2",
+      "price": "price2",
+      "image": 2,
+      "description": "description2",
+      "favoriteCount": 2,
+      "bookmarkCount": 2,
+      "followCount": 2
+    },
+    {
+      "id": 3,
+      "title": "title3",
+      "price": "price3",
+      "image": 3,
+      "description": "description3",
+      "favoriteCount": 3,
+      "bookmarkCount": 3,
+      "followCount": 3
+    },
+    {
+      "id": 4,
+      "title": "title4",
+      "price": "price4",
+      "image": 4,
+      "description": "description4",
+      "favoriteCount": 4,
+      "bookmarkCount": 4,
+      "followCount": 4
+    },
+    {
+      "id": 5,
+      "title": "title5",
+      "price": "price5",
+      "image": 5,
+      "description": "description5",
+      "favoriteCount": 5,
+      "bookmarkCount": 5,
+      "followCount": 5
+    }
+  ]
+}
