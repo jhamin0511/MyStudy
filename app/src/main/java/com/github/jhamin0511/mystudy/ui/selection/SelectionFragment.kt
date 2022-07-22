@@ -4,6 +4,10 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.selection.SelectionPredicates
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StableIdKeyProvider
+import androidx.recyclerview.selection.StorageStrategy
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentSelectionBinding
@@ -22,6 +26,17 @@ class SelectionFragment : BaseFragment() {
         }
     }
     private val adapter = FoodAdapter(itemClick)
+    private val tracker by lazy {
+        SelectionTracker.Builder(
+            "food",
+            binding.recycler,
+            StableIdKeyProvider(binding.recycler),
+            FoodItemDetailsLookup(binding.recycler),
+            StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+            SelectionPredicates.createSelectAnything()
+        ).build()
+    }
 
     override fun getLayoutId() = R.layout.fragment_selection
 
@@ -34,6 +49,7 @@ class SelectionFragment : BaseFragment() {
         binding.lifecycleOwner = this
         binding.vm = viewModel
         binding.recycler.adapter = adapter
+        adapter.tracker = tracker
     }
 
     override fun initObserve() {

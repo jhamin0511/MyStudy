@@ -1,5 +1,6 @@
 package com.github.jhamin0511.mystudy.ui.selection
 
+import androidx.recyclerview.selection.ItemDetailsLookup
 import com.github.jhamin0511.mystudy.BR
 import com.github.jhamin0511.mystudy.databinding.ItemFoodBinding
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
@@ -29,11 +30,6 @@ class FoodHolder(
             foodItem.followCount++
             binding.setVariable(BR.item, item)
         }
-        binding.ivSelect.setOnClickListener {
-            val foodItem = item as FoodItem
-            foodItem.selected = !foodItem.selected
-            binding.setVariable(BR.item, item)
-        }
     }
 
     override fun bind(item: Item) {
@@ -41,5 +37,21 @@ class FoodHolder(
 
         binding.setVariable(BR.item, item)
         binding.executePendingBindings()
+    }
+
+    fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> {
+        return object : ItemDetailsLookup.ItemDetails<Long>() {
+            override fun getPosition(): Int {
+                return absoluteAdapterPosition
+            }
+
+            override fun getSelectionKey(): Long? {
+                return (item as FoodItem).id
+            }
+        }
+    }
+
+    fun select(selected: Boolean) {
+        binding.ivSelect.isSelected = selected
     }
 }
