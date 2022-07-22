@@ -3,6 +3,7 @@ package com.github.jhamin0511.mystudy.ui.selection
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentSelectionBinding
@@ -13,7 +14,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class SelectionFragment : BaseFragment() {
     private lateinit var binding: FragmentSelectionBinding
     private val viewModel: SelectionViewModel by viewModels()
-    private val adapter = FoodAdapter()
+    private val itemClick = object : FoodItemClickListener {
+        override fun onClickImage(resource: Int) {
+            val action = SelectionFragmentDirections
+                .actionSelectionFragmentToImageDetailFragment(resource)
+            findNavController().navigate(action)
+        }
+    }
+    private val adapter = FoodAdapter(itemClick)
 
     override fun getLayoutId() = R.layout.fragment_selection
 

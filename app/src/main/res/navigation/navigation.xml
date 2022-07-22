@@ -63,5 +63,19 @@
         android:id="@+id/selectionFragment"
         android:name="com.github.jhamin0511.mystudy.ui.selection.SelectionFragment"
         android:label="SelectionFragment"
-        tools:layout="@layout/fragment_selection" />
+        tools:layout="@layout/fragment_selection">
+
+        <action
+            android:id="@+id/action_selectionFragment_to_imageDetailFragment"
+            app:destination="@id/imageDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetailFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.image.ImageDetailFragment"
+        android:label="ImageDetailFragment"
+        tools:layout="@layout/fragment_image_detail">
+        <argument
+            android:name="resource"
+            app:argType="integer" />
+    </fragment>
 </navigation>
