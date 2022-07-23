@@ -3,7 +3,7 @@ package com.github.jhamin0511.mystudy.repository.user
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.github.jhamin0511.mystudy.data.entity.UserEntity
-import com.github.jhamin0511.mystudy.network.service.NETWORK_DELAY_TIME
+import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.network.service.UserService
 import com.github.jhamin0511.mystudy.ui.paging.KEY_COUNT
 import com.github.jhamin0511.mystudy.ui.paging.START_PAGE
@@ -32,7 +32,7 @@ class UserPagingSource(
             }
             Timber.i(
                 "load() / loadSize : ${params.loadSize} / prevKey : $prevKey / " +
-                        "currentKey : $currentKey / nextKey : $nextKey"
+                    "currentKey : $currentKey / nextKey : $nextKey"
             )
 
             LoadResult.Page(

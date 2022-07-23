@@ -1,0 +1,65 @@
+{
+  "totalCount": 5,
+  "items": [
+    {
+      "id": 1,
+      "buyAt": 1,
+      "image": 1,
+      "name": "name1",
+      "price": "price1",
+      "description": "description1",
+      "taste": "bad",
+      "bookmark": true,
+      "favorite": true,
+      "follow": true
+    },
+    {
+      "id": 2,
+      "buyAt": 2,
+      "image": 2,
+      "name": "name2",
+      "price": "price2",
+      "description": "description2",
+      "taste": "row",
+      "bookmark": true,
+      "favorite": true,
+      "follow": true
+    },
+    {
+      "id": 3,
+      "buyAt": 3,
+      "image": 3,
+      "name": "name3",
+      "price": "price3",
+      "description": "description3",
+      "taste": "middle",
+      "bookmark": true,
+      "favorite": true,
+      "follow": true
+    },
+    {
+      "id": 4,
+      "buyAt": 4,
+      "image": 4,
+      "name": "name4",
+      "price": "price4",
+      "description": "description4",
+      "taste": "high",
+      "bookmark": true,
+      "favorite": true,
+      "follow": true
+    },
+    {
+      "id": 5,
+      "buyAt": 5,
+      "image": 5,
+      "name": "name5",
+      "price": "price5",
+      "description": "description5",
+      "taste": "good",
+      "bookmark": true,
+      "favorite": true,
+      "follow": true
+    }
+  ]
+}

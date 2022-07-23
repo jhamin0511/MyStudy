@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.base
+package com.github.jhamin0511.mystudy.ui.common
 
 import android.os.Bundle
 import android.view.LayoutInflater

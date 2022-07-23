@@ -11,9 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentUserBinding
 import com.github.jhamin0511.mystudy.time.GlobalTime
+import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.ui.paging.PagingErrorHandler
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
@@ -76,7 +76,7 @@ class UserFragment : BaseFragment() {
                     binding.refresh.isRefreshing = it.refresh is LoadState.Loading
                 } else {
                     binding.progress.isVisible = it.refresh is LoadState.Loading ||
-                            it.append is LoadState.Loading
+                        it.append is LoadState.Loading
                     it.source.refresh
                 }
                 binding.recyclerEmpty.root.setVisible(adapter.itemCount == 0)

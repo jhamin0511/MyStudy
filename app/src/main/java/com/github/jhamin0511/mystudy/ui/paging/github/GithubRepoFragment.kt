@@ -9,8 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentGithubRepoBinding
+import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
 import com.github.jhamin0511.mystudy.widget.setVisible
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,8 +37,8 @@ class GithubRepoFragment : BaseFragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 adapter.loadStateFlow.collectLatest {
                     binding.progress.isVisible = it.refresh is LoadState.Loading ||
-                            it.prepend is LoadState.Loading ||
-                            it.append is LoadState.Loading
+                        it.prepend is LoadState.Loading ||
+                        it.append is LoadState.Loading
                     binding.recyclerEmpty.root.setVisible(adapter.itemCount == 0)
                 }
             }

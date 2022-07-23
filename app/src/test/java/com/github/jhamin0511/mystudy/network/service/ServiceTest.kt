@@ -1,6 +1,7 @@
 package com.github.jhamin0511.mystudy.network.service
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.github.jhamin0511.mystudy.di.network.NetworkModule
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import java.net.HttpURLConnection
@@ -14,7 +15,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 open class ServiceTest {
     @get:Rule
@@ -30,10 +30,9 @@ open class ServiceTest {
         val client = OkHttpClient.Builder().apply {
         }.build()
 
-        retrofit = Retrofit.Builder().apply {
+        retrofit = NetworkModule.createRetrofitBuilder().apply {
             client(client)
             baseUrl(mockWebServer.url("/"))
-            addConverterFactory(GsonConverterFactory.create())
         }.build()
     }
 

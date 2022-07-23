@@ -6,6 +6,7 @@
     <string name="github_repository">Github Repository</string>
     <string name="user_paging">User Paging</string>
     <string name="selection">RecyclerView Selection</string>
+    <string name="diffutil">RecyclerView DiffUtil</string>
     <!-- endregion -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>
@@ -42,4 +43,5 @@
     <string name="save">Save</string>
     <string name="error_internet_connect">Please check your internet connectivity</string>
     <string name="error_unknown">An Unknown Error has occurred.</string>
+    <string name="product_information">Product Information</string>
 </resources>

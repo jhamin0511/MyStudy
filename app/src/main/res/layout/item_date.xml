@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.github.jhamin0511.mystudy.ui.paging.user.DateItem" />
+            type="com.github.jhamin0511.mystudy.ui.common.recycler.DateItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,6 +1,7 @@
 package com.github.jhamin0511.mystudy.di.network
 
 import com.github.jhamin0511.mystudy.BuildConfig
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,21 +15,30 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val TIMEOUT = 5000L
+const val NETWORK_DELAY_TIME = 3000L
 const val LOCAL_RETROFIT = "https://localhost.com/"
 const val GITHUB_RETROFIT = "https://api.github.com/"
 
 @InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule {
+    companion object {
+        fun createRetrofitBuilder(): Retrofit.Builder {
+            val gson = GsonBuilder()
+            return Retrofit.Builder().apply {
+                addConverterFactory(GsonConverterFactory.create())
+            }
+        }
+    }
+
     @Singleton
     @Provides
     fun provideLocalRetrofitBuilder(
         client: OkHttpClient
     ): Retrofit.Builder {
-        return Retrofit.Builder().apply {
+        return createRetrofitBuilder().apply {
             baseUrl(LOCAL_RETROFIT)
             client(client)
-            addConverterFactory(GsonConverterFactory.create())
         }
     }
 

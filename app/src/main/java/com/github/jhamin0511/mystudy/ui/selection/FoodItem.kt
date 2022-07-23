@@ -31,8 +31,8 @@ data class FoodItem(
             )
         }
 
-        fun create(value: List<FoodDto>): List<FoodItem> {
-            return value.map {
+        fun create(values: List<FoodDto>): List<FoodItem> {
+            return values.map {
                 create(it)
             }
         }

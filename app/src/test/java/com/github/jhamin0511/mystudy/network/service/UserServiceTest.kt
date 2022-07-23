@@ -30,7 +30,6 @@ class UserServiceTest : ServiceTest() {
         val path = "/users?page=$page&per_page=$perPage"
         assertThat(request.path).isEqualTo(path)
 
-        assertThat(response.total).isEqualTo(23)
-        assertThat(response.users).hasSize(5)
+        ServiceResponseChecker.checkData(response)
     }
 }

@@ -25,10 +25,8 @@ class FoodServiceTest : ServiceTest() {
         // Then
         val request = mockWebServer.takeRequest()
         assertThat(request.method).matches("GET")
-        val path = "/foods"
-        assertThat(request.path).isEqualTo(path)
+        assertThat(request.path).isEqualTo("/foods")
 
-        assertThat(response.total).isEqualTo(5)
-        assertThat(response.foods).hasSize(5)
+        ServiceResponseChecker.checkData(response)
     }
 }

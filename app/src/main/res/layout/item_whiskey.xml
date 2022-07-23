@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.github.jhamin0511.mystudy.ui.diffutil.WhiskeyItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/ItemHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_medium">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_image"
+            android:layout_width="@dimen/image_xlarge"
+            android:layout_height="@dimen/image_xlarge"
+            android:scaleType="fitXY"
+            app:bindImage="@{item.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_border_color="@color/gainsboro"
+            app:riv_border_width="@dimen/border_xsmall"
+            app:riv_corner_radius="@dimen/radius_small"
+            tools:src="@drawable/img_evanwilliamsblack" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextView.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small"
+            android:text="@{item.name}"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_image"
+            tools:text="진빔" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            style="@style/TextView.Content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_xsmall"
+            android:text="@{item.price}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="36,000원" />
+
+        <ImageView
+            android:id="@+id/iv_taste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_medium"
+            app:bindImage="@{item.taste.imageRes}"
+            app:layout_constraintEnd_toStartOf="@id/iv_bookmark"
+            app:layout_constraintTop_toTopOf="@id/iv_bookmark"
+            tools:src="@drawable/ic_taste_2" />
+
+        <ImageView
+            android:id="@+id/iv_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_medium"
+            android:src="@drawable/selector_bookmark"
+            app:bindSelected="@{item.bookmark}"
+            app:layout_constraintEnd_toStartOf="@id/iv_favorite"
+            app:layout_constraintTop_toTopOf="@id/iv_favorite" />
+
+        <ImageView
+            android:id="@+id/iv_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_medium"
+            android:src="@drawable/selector_favorite"
+            app:bindSelected="@{item.favorite}"
+            app:layout_constraintEnd_toStartOf="@id/iv_follow"
+            app:layout_constraintTop_toTopOf="@id/iv_follow" />
+
+        <ImageView
+            android:id="@+id/iv_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_small"
+            android:layout_marginTop="@dimen/space_large"
+            android:src="@drawable/selector_follow"
+            app:bindSelected="@{item.follow}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_product_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_small"
+            android:text="@string/product_information"
+            android:textColor="@color/title_black"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/TextView.Content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small"
+            android:text="@{item.description}"
+            android:textColor="@color/content_gray"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_product_info"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_info"
+            tools:text="전형적인 버번 위스키의 오렌지 색상에 가볍고 매끄러우며 풍부한 바닐라, 캐러멜 향이 난다. 달콤한 꿀과 감초 사탕 맛이 느껴진다. 여운이 짧으나 매력적이며 복합적인 풍미를 지니고 있다. 4년산이며 알코올도수는 40%이다. 80 proof이다." />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

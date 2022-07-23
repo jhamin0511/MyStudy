@@ -39,7 +39,3 @@ data class UserItem(
         }
     }
 }
-
-data class DateItem(
-    val date: String
-) : Item

@@ -6,6 +6,8 @@ import com.github.jhamin0511.mystudy.network.service.FoodServiceImpl
 import com.github.jhamin0511.mystudy.network.service.GithubService
 import com.github.jhamin0511.mystudy.network.service.UserService
 import com.github.jhamin0511.mystudy.network.service.UserServiceImpl
+import com.github.jhamin0511.mystudy.network.service.WhiskeyService
+import com.github.jhamin0511.mystudy.network.service.WhiskeyServiceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,5 +38,11 @@ class ServiceModule {
     @Provides
     fun provideFoodService(): FoodService {
         return FoodServiceImpl()
+    }
+
+    @Singleton
+    @Provides
+    fun provideWhiskeyService(): WhiskeyService {
+        return WhiskeyServiceImpl()
     }
 }

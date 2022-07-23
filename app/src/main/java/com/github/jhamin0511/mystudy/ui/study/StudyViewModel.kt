@@ -25,6 +25,7 @@ class StudyViewModel
         StudyItem(R.string.github_repository, R.id.action_studyFragment_to_githubRepoFragment),
         StudyItem(R.string.user_paging, R.id.action_studyFragment_to_userFragment),
         StudyItem(R.string.selection, R.id.action_studyFragment_to_selectionFragment),
+        StudyItem(R.string.diffutil, R.id.action_studyFragment_to_diffutilFragment),
     )
 
     init {

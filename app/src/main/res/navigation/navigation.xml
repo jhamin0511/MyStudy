@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_studyFragment_to_selectionFragment"
             app:destination="@id/selectionFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_diffutilFragment"
+            app:destination="@id/diffutilFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -78,4 +81,9 @@
             android:name="resource"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/diffutilFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.diffutil.DiffutilFragment"
+        android:label="DiffutilFragment"
+        tools:layout="@layout/fragment_diffutil" />
 </navigation>

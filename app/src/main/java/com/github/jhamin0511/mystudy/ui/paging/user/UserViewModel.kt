@@ -11,6 +11,7 @@ import androidx.paging.insertSeparators
 import androidx.paging.map
 import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.repository.user.UserRepository
+import com.github.jhamin0511.mystudy.ui.common.recycler.DateItem
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -55,8 +56,8 @@ class UserViewModel
         }.insertSeparators { before, after ->
             val firstDate = before == null && after != null
             val restDate = before is UserItem &&
-                    after is UserItem &&
-                    before.date != after.date
+                after is UserItem &&
+                before.date != after.date
             if (firstDate || restDate) {
                 DateItem((after as UserItem).date)
             } else {

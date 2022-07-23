@@ -3,8 +3,8 @@ package com.github.jhamin0511.mystudy.ui.notification
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentNotificationBinding
+import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.ui.notification.channel.Channel
 import com.github.jhamin0511.mystudy.ui.notification.style.Style
 import dagger.hilt.android.AndroidEntryPoint
