@@ -36,7 +36,6 @@ class FoodHolder(
         super.bind(item)
 
         binding.setVariable(BR.item, item)
-        binding.executePendingBindings()
     }
 
     fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> {

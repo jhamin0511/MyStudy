@@ -1,7 +1,6 @@
 package com.github.jhamin0511.mystudy.di.network
 
 import com.github.jhamin0511.mystudy.BuildConfig
-import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +23,6 @@ const val GITHUB_RETROFIT = "https://api.github.com/"
 class NetworkModule {
     companion object {
         fun createRetrofitBuilder(): Retrofit.Builder {
-            val gson = GsonBuilder()
             return Retrofit.Builder().apply {
                 addConverterFactory(GsonConverterFactory.create())
             }

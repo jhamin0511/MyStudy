@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseHolder(
     view: View,
-    click: ItemClick? = null,
-    longClick: ItemLongClick? = null
+    click: HolderItemClickListener? = null,
+    longClick: HolderItemLongClickListener? = null
 ) : RecyclerView.ViewHolder(view) {
     lateinit var item: Item
 

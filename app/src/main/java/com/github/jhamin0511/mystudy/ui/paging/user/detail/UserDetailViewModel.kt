@@ -52,6 +52,8 @@ class UserDetailViewModel
         id = args.id
 
         viewModelScope.launch {
+            bindLoading.value = true
+
             val entity = userDao.selectById(id) ?: UserEntity(
                 id,
                 UserType.ONE,
@@ -69,6 +71,10 @@ class UserDetailViewModel
             bindDate.value = GlobalTime.convertDateTime(entity.date)
             bindIntroduce.value = entity.introduce
             bindContent.value = entity.content
+
+            delay(NETWORK_DELAY_TIME)
+
+            observeSaved.event(true)
         }
     }
 

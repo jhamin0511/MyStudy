@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.ui.common.recycler
+package com.github.jhamin0511.mystudy.ui.paging.user
 
 import com.github.jhamin0511.mystudy.databinding.ItemDateBinding
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder

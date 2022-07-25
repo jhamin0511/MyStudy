@@ -15,6 +15,13 @@ abstract class BaseFragment : Fragment() {
     abstract fun initObserve()
     abstract fun initEvent()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        initValue()
+        initObserve()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,9 +31,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initValue()
         initView(view)
-        initObserve()
         initEvent()
     }
 }

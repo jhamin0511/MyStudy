@@ -68,7 +68,7 @@ class UserPagingSourceTest {
         // When
         val actual = pagingSource.load(params)
         println((actual as PagingSource.LoadResult.Error).toString())
-        println((actual as PagingSource.LoadResult.Error).throwable)
+        println(actual.throwable)
         println(actual.toString())
         // Then
         assertThat(actual).isEqualTo(expected)

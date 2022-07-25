@@ -17,5 +17,17 @@ enum class WhiskeyTaste(
     @SerializedName("high")
     HIGH(R.drawable.ic_taste_4),
     @SerializedName("good")
-    GOOD(R.drawable.ic_taste_5)
+    GOOD(R.drawable.ic_taste_5);
+
+    companion object {
+        fun rotate(current: WhiskeyTaste): WhiskeyTaste {
+            return when (current) {
+                BAD -> ROW
+                ROW -> MIDDLE
+                MIDDLE -> HIGH
+                HIGH -> GOOD
+                GOOD -> BAD
+            }
+        }
+    }
 }

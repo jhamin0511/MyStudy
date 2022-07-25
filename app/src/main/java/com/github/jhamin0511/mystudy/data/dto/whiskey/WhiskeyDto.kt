@@ -1,13 +1,17 @@
 package com.github.jhamin0511.mystudy.data.dto.whiskey
 
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
+import com.github.jhamin0511.mystudy.data.dto.Dto
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class WhiskeyDto(
     @SerializedName("id")
-    val id: Long,
+    val uuid: Long,
     @SerializedName("buyAt")
-    val buyAt: Long,
+    var buyAt: Long,
     @DrawableRes
     @SerializedName("image")
     val image: Int,
@@ -17,14 +21,18 @@ data class WhiskeyDto(
     val price: String,
     @SerializedName("description")
     val description: String,
+    @SerializedName("history")
+    val history: String,
     @SerializedName("taste")
-    val taste: WhiskeyTaste,
+    var taste: WhiskeyTaste,
     @SerializedName("bookmark")
-    val bookmark: Boolean,
+    var bookmark: Boolean,
     @SerializedName("favorite")
-    val favorite: Boolean,
+    var favorite: Boolean,
     @SerializedName("follow")
-    val follow: Boolean,
-    @SerializedName("checked")
-    val checked: Boolean? = null
-)
+    var follow: Boolean
+) : Parcelable, Dto {
+    override fun getId(): Long {
+        return uuid
+    }
+}

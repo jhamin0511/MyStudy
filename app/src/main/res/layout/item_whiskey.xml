@@ -27,7 +27,7 @@
             app:riv_border_color="@color/gainsboro"
             app:riv_border_width="@dimen/border_xsmall"
             app:riv_corner_radius="@dimen/radius_small"
-            tools:src="@drawable/img_evanwilliamsblack" />
+            tools:src="@drawable/img_jimbeam" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -35,6 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_small"
+            android:singleLine="true"
             android:text="@{item.name}"
             app:layout_constraintEnd_toEndOf="@id/iv_image"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +52,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="36,000원" />
+
+        <TextView
+            android:id="@+id/tv_product_info"
+            style="@style/TextView.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_small"
+            android:text="@string/product_information"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/TextView.Content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="3"
+            android:text="@{item.description}"
+            android:textColor="@color/content_gray"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_product_info"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_info"
+            tools:text="전형적인 버번 위스키의 오렌지 색상에 가볍고 매끄러우며 풍부한 바닐라, 캐러멜 향이 난다. 달콤한 꿀과 감초 사탕 맛이 느껴진다. 여운이 짧으나 매력적이며 복합적인 풍미를 지니고 있다. 4년산이며 알코올도수는 40%이다. 80 proof이다." />
 
         <ImageView
             android:id="@+id/iv_taste"
@@ -92,30 +119,5 @@
             app:bindSelected="@{item.follow}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_description" />
-
-        <TextView
-            android:id="@+id/tv_product_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_small"
-            android:text="@string/product_information"
-            android:textColor="@color/title_black"
-            android:textSize="@dimen/text_medium"
-            app:layout_constraintStart_toEndOf="@id/iv_image"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_description"
-            style="@style/TextView.Content"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small"
-            android:text="@{item.description}"
-            android:textColor="@color/content_gray"
-            android:textSize="@dimen/text_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tv_product_info"
-            app:layout_constraintTop_toBottomOf="@id/tv_product_info"
-            tools:text="전형적인 버번 위스키의 오렌지 색상에 가볍고 매끄러우며 풍부한 바닐라, 캐러멜 향이 난다. 달콤한 꿀과 감초 사탕 맛이 느껴진다. 여운이 짧으나 매력적이며 복합적인 풍미를 지니고 있다. 4년산이며 알코올도수는 40%이다. 80 proof이다." />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

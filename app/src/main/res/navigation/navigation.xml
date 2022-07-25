@@ -85,5 +85,21 @@
         android:id="@+id/diffutilFragment"
         android:name="com.github.jhamin0511.mystudy.ui.diffutil.DiffutilFragment"
         android:label="DiffutilFragment"
-        tools:layout="@layout/fragment_diffutil" />
+        tools:layout="@layout/fragment_diffutil">
+        <action
+            android:id="@+id/action_diffutilFragment_to_imageDetailFragment"
+            app:destination="@id/imageDetailFragment" />
+        <action
+            android:id="@+id/action_diffutilFragment_to_whiskeyDetailFragment"
+            app:destination="@id/whiskeyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/whiskeyDetailFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.diffutil.detail.WhiskeyDetailFragment"
+        android:label="WhiskeyDetailFragment"
+        tools:layout="@layout/fragment_whiskey_detail">
+        <argument
+            android:name="dto"
+            app:argType="com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto" />
+    </fragment>
 </navigation>

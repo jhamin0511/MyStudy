@@ -4,10 +4,10 @@ import android.view.ViewGroup
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.widget.recycler.BaseAdapter
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
+import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
 
 class StudyAdapter(
-    private val studyClickListener: ItemClick
+    private val studyClickListener: HolderItemClickListener
 ) : BaseAdapter() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHolder {

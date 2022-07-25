@@ -17,12 +17,13 @@ data class WhiskeyItem(
     var taste: WhiskeyTaste,
     var bookmark: Boolean,
     var favorite: Boolean,
-    var follow: Boolean
+    var follow: Boolean,
+    var checked: Boolean = false,
 ) : Item {
     companion object {
         fun create(value: WhiskeyDto): WhiskeyItem {
             return WhiskeyItem(
-                value.id,
+                value.uuid,
                 GlobalTime.convertDate(value.buyAt),
                 value.image,
                 value.name,

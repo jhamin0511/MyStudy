@@ -15,9 +15,9 @@ import com.github.jhamin0511.mystudy.databinding.FragmentUserBinding
 import com.github.jhamin0511.mystudy.time.GlobalTime
 import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.ui.paging.PagingErrorHandler
+import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
+import com.github.jhamin0511.mystudy.widget.recycler.HolderItemLongClickListener
 import com.github.jhamin0511.mystudy.widget.recycler.Item
-import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
-import com.github.jhamin0511.mystudy.widget.recycler.ItemLongClick
 import com.github.jhamin0511.mystudy.widget.setVisible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -28,12 +28,12 @@ import timber.log.Timber
 class UserFragment : BaseFragment() {
     private lateinit var binding: FragmentUserBinding
     private val viewModel: UserViewModel by viewModels()
-    private val userClick = object : ItemClick {
+    private val userClick = object : HolderItemClickListener {
         override fun onClick(item: Item, position: Int) {
             startUserDetail(item, position)
         }
     }
-    private val userLongClick = object : ItemLongClick {
+    private val userLongClick = object : HolderItemLongClickListener {
         override fun onLongClick(item: Item, position: Int) {
             // no-op comment in an unused listener function
         }

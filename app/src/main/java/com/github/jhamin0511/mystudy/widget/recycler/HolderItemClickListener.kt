@@ -1,5 +1,5 @@
 package com.github.jhamin0511.mystudy.widget.recycler
 
-interface ItemClick {
+interface HolderItemClickListener {
     fun onClick(item: Item, position: Int)
 }

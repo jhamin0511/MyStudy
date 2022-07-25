@@ -4,12 +4,12 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.databinding.ItemStudyBinding
 import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
+import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
 import com.github.jhamin0511.mystudy.widget.recycler.Item
-import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 
 class StudyHolder(
     view: View,
-    onClick: ItemClick
+    onClick: HolderItemClickListener
 ) : BaseHolder(view, onClick) {
     private val binding: ItemStudyBinding = DataBindingUtil.bind(view)!!
 

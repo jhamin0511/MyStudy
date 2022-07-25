@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.repository.whiskey.WhiskeyRepository
 import com.github.jhamin0511.mystudy.viewmodel.Event
-import com.github.jhamin0511.mystudy.viewmodel.event
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -27,13 +26,14 @@ class DiffutilViewModel
     // endregion
 
     // region Model
+    val dataSource = WhiskeyDataSource(observeItems)
+
     fun callWhiskeys() {
         viewModelScope.launch {
             bindLoading.value = true
             val response = repository.getWhiskeys()
-            val items = WhiskeyItem.create(response.whiskeys)
             delay(NETWORK_DELAY_TIME)
-            observeItems.event(items)
+            dataSource.addAll(response.whiskeys)
             bindLoading.value = false
         }
     }

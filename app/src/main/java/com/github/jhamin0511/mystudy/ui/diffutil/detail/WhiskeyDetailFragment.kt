@@ -1,27 +1,33 @@
-package com.github.jhamin0511.mystudy.ui.paging.user.detail
+package com.github.jhamin0511.mystudy.ui.diffutil.detail
 
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.databinding.FragmentUserDetailBinding
+import com.github.jhamin0511.mystudy.databinding.FragmentWhiskeyDetailBinding
+import com.github.jhamin0511.mystudy.key.DTO
+import com.github.jhamin0511.mystudy.key.REQUEST
 import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.PickerDialogShower
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class UserDetailFragment : BaseFragment() {
-    private lateinit var binding: FragmentUserDetailBinding
-    private val viewModel: UserDetailViewModel by viewModels()
-    private val arg: UserDetailFragmentArgs by navArgs()
+class WhiskeyDetailFragment : BaseFragment() {
+    private lateinit var binding: FragmentWhiskeyDetailBinding
+    private val viewModel: WhiskeyDetailViewModel by viewModels()
+    private val arg: WhiskeyDetailFragmentArgs by navArgs()
 
-    override fun getLayoutId() = R.layout.fragment_user_detail
+    override fun getLayoutId(): Int {
+        return R.layout.fragment_whiskey_detail
+    }
 
     override fun initValue() {
         viewModel.initModel(arg)
@@ -37,6 +43,7 @@ class UserDetailFragment : BaseFragment() {
 
     override fun initObserve() {
         viewModel.observeSaved.observe(this, EventObserver {
+            setFragmentResult(REQUEST, bundleOf(DTO to it))
             findNavController().popBackStack()
         })
         viewModel.observeShowPicker.observe(this, EventObserver {
@@ -63,6 +70,5 @@ class UserDetailFragment : BaseFragment() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 
 }
