@@ -70,5 +70,4 @@ class WhiskeyDetailFragment : BaseFragment() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 }

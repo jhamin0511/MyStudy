@@ -25,6 +25,12 @@ class WhiskeyHolder(
             holderLongClick.onLongClick(whiskey.id, absoluteAdapterPosition)
             true
         }
+        binding.ivSelect.setOnClickListener {
+            val whiskey = item as WhiskeyItem
+            val selected = itemClick.onClickSelect(whiskey.id)
+            whiskey.select = selected
+            binding.setVariable(BR.item, item)
+        }
         binding.ivImage.setOnClickListener {
             val whiskey = item as WhiskeyItem
             itemClick.onClickImage(whiskey.image)

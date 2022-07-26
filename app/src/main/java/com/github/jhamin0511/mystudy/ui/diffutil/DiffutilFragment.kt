@@ -1,6 +1,10 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
@@ -19,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DiffutilFragment : BaseFragment() {
     private lateinit var binding: FragmentDiffutilBinding
     private val viewModel: DiffutilViewModel by viewModels()
-    private val itemClick by lazy { WhiskeyItemClick(findNavController()) }
+    private val itemClick by lazy { WhiskeyItemClick(findNavController(), viewModel.dataSource) }
     private val holderClick by lazy {
         WhiskeyHolderClick(findNavController(), viewModel.dataSource)
     }
@@ -42,6 +46,8 @@ class DiffutilFragment : BaseFragment() {
         binding.vm = viewModel
         binding.recycler.defaultDecoration(requireContext())
         binding.recycler.adapter = adapter
+
+        setHasOptionsMenu(true)
     }
 
     override fun initObserve() {
@@ -57,6 +63,21 @@ class DiffutilFragment : BaseFragment() {
         setFragmentResultListener(REQUEST) { _, bundle ->
             val dto = bundle.get(DTO) as WhiskeyDto
             viewModel.dataSource.update(dto)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.confirm, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.confirm -> {
+                val list = viewModel.dataSource.getSelected()
+                Toast.makeText(requireContext(), list.toString(), Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

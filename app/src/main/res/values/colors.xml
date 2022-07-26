@@ -14,6 +14,10 @@
     <color name="red_50">#FFEBEE</color>
     <!--  endregion  -->
 
+    <!--  regions BLUE  -->
+    <color name="dodgerblue">#1E90FF</color>
+    <!--  endregion  -->
+
     <!--  regions PINK  -->
     <color name="pink_50">#FCE4EC</color>
     <!--  endregion  -->

@@ -18,7 +18,7 @@ data class WhiskeyItem(
     var bookmark: Boolean,
     var favorite: Boolean,
     var follow: Boolean,
-    var checked: Boolean = false,
+    var select: Boolean = false
 ) : Item {
     companion object {
         fun create(value: WhiskeyDto): WhiskeyItem {
