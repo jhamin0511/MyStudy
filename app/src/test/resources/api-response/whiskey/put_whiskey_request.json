@@ -1,0 +1,12 @@
+{
+  "buyAt": 1,
+  "image": 1,
+  "name": "name",
+  "price": "price",
+  "description": "description",
+  "history": "history",
+  "taste": "bad",
+  "bookmark": false,
+  "favorite": false,
+  "follow": false
+}

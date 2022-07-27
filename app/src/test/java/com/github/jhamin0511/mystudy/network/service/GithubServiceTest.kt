@@ -26,10 +26,10 @@ class GithubServiceTest : ServiceTest() {
         // When
         val response = service.getSearchRepository(keyword, page, perPage)
         // Then
-        val request = mockWebServer.takeRequest()
-        assertThat(request.method).matches("GET")
+        val takeRequest = mockWebServer.takeRequest()
+        assertThat(takeRequest.method).matches("GET")
         val path = "/search/repositories?sort=stars&q=$keyword&page=$page&per_page=$perPage"
-        assertThat(request.path).isEqualTo(path)
+        assertThat(takeRequest.path).isEqualTo(path)
 
         ServiceResponseChecker.checkData(response)
     }

@@ -7,7 +7,6 @@ import androidx.navigation.Navigation
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentStudyBinding
 import com.github.jhamin0511.mystudy.ui.common.BaseFragment
-import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
@@ -39,12 +38,9 @@ class StudyFragment : BaseFragment() {
     }
 
     override fun initObserve() {
-        viewModel.observeStudies.observe(
-            this,
-            EventObserver {
-                adapter.addItems(it)
-            }
-        )
+        viewModel.observeStudies.observe(this) {
+            adapter.addItems(it)
+        }
     }
 
     override fun initEvent() {

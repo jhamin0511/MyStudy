@@ -13,7 +13,7 @@ class LiveDataExtKtTest {
         // Given
         val liveData = MutableLiveData<Boolean>()
         // When
-        val actual = liveData.get()
+        val actual = liveData.value()
         // Then
         assertThat(actual).isFalse()
     }
@@ -23,7 +23,7 @@ class LiveDataExtKtTest {
         // Given
         val liveData = MutableLiveData<Boolean>()
         // When
-        val actual = liveData.get(true)
+        val actual = liveData.value(true)
         // Then
         assertThat(actual).isTrue()
     }
@@ -33,7 +33,7 @@ class LiveDataExtKtTest {
         // Given
         val liveData = MutableLiveData(false)
         // When
-        val actual = liveData.get()
+        val actual = liveData.value()
         // Then
         assertThat(actual).isFalse()
     }
@@ -43,7 +43,7 @@ class LiveDataExtKtTest {
         // Given
         val liveData = MutableLiveData(true)
         // When
-        val actual = liveData.get()
+        val actual = liveData.value()
         // Then
         assertThat(actual).isTrue()
     }

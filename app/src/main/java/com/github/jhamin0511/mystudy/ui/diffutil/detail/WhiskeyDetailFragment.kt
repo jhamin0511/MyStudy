@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentWhiskeyDetailBinding
 import com.github.jhamin0511.mystudy.key.DTO
@@ -23,14 +22,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class WhiskeyDetailFragment : BaseFragment() {
     private lateinit var binding: FragmentWhiskeyDetailBinding
     private val viewModel: WhiskeyDetailViewModel by viewModels()
-    private val arg: WhiskeyDetailFragmentArgs by navArgs()
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_whiskey_detail
     }
 
     override fun initValue() {
-        viewModel.initModel(arg)
+        // no-op comment in an unused listener function
     }
 
     override fun initView(view: View) {
@@ -42,15 +40,21 @@ class WhiskeyDetailFragment : BaseFragment() {
     }
 
     override fun initObserve() {
-        viewModel.observeSaved.observe(this, EventObserver {
-            setFragmentResult(REQUEST, bundleOf(DTO to it))
-            findNavController().popBackStack()
-        })
-        viewModel.observeShowPicker.observe(this, EventObserver {
-            PickerDialogShower.showDateTime(requireContext(), it) { time ->
-                viewModel.applyDate(time)
+        viewModel.observeSaved.observe(
+            this,
+            EventObserver {
+                setFragmentResult(REQUEST, bundleOf(DTO to it))
+                findNavController().popBackStack()
             }
-        })
+        )
+        viewModel.observeShowPicker.observe(
+            this,
+            EventObserver {
+                PickerDialogShower.showDateTime(requireContext(), it) { time ->
+                    viewModel.applyDate(time)
+                }
+            }
+        )
     }
 
     override fun initEvent() {

@@ -2,7 +2,12 @@ package com.github.jhamin0511.mystudy.widget.recycler.source
 
 import com.github.jhamin0511.mystudy.data.dto.Dto
 
+@Suppress("TooManyFunctions")
 abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
+    companion object {
+        private const val INIT_INDEX = -1
+    }
+
     protected val source = mutableListOf<DATA>()
     private val selectedSource = mutableListOf<Long>()
 
@@ -10,6 +15,12 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
 
     override fun get(id: Long): DATA? {
         return source.find { it.getId() == id }
+    }
+
+    override fun set(values: List<DATA>) {
+        source.clear()
+        source.addAll(values)
+        submit(source)
     }
 
     override fun add(value: DATA) {
@@ -23,7 +34,7 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
     }
 
     override fun remove(id: Long) {
-        var findIndex = -1
+        var findIndex = INIT_INDEX
 
         source.forEachIndexed { index, data ->
             if (data.getId() == id) {
@@ -32,13 +43,20 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
             }
         }
 
-        source.removeAt(findIndex)
-        submit(source)
+        if (findIndex != INIT_INDEX) {
+            source.removeAt(findIndex)
+            submit(source)
+
+            removeSelect(id)
+        }
     }
 
-    override fun remove(value: DATA) {
-        source.remove(value)
-        submit(source)
+    private fun removeSelect(id: Long) {
+        val hasId = selectedSource.contains(id)
+
+        if (hasId) {
+            selectedSource.remove(id)
+        }
     }
 
     override fun update(value: DATA) {
@@ -52,6 +70,11 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
         }
 
         source[findIndex] = value
+        submit(source)
+    }
+
+    override fun clear() {
+        source.clear()
         submit(source)
     }
 

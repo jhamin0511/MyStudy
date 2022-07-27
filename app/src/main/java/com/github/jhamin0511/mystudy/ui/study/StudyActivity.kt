@@ -1,20 +1,29 @@
 package com.github.jhamin0511.mystudy.ui.study
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ActivityStudyBinding
+import com.github.jhamin0511.mystudy.ui.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class StudyActivity : AppCompatActivity() {
+class StudyActivity : BaseActivity() {
     private lateinit var binding: ActivityStudyBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun initValue() {
+        // no-op comment in an unused listener function
+    }
 
+    override fun initView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_study)
+    }
+
+    override fun initObserve() {
+        // no-op comment in an unused listener function
+    }
+
+    override fun initEvent() {
+        // no-op comment in an unused listener function
     }
 
     override fun onPause() {

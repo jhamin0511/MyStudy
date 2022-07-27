@@ -21,7 +21,7 @@ data class WhiskeyItem(
     var select: Boolean = false
 ) : Item {
     companion object {
-        fun create(value: WhiskeyDto): WhiskeyItem {
+        fun create(value: WhiskeyDto, isSelect: Boolean): WhiskeyItem {
             return WhiskeyItem(
                 value.uuid,
                 GlobalTime.convertDate(value.buyAt),
@@ -32,13 +32,15 @@ data class WhiskeyItem(
                 value.taste,
                 value.bookmark,
                 value.favorite,
-                value.follow
+                value.follow,
+                isSelect
             )
         }
 
-        fun create(values: List<WhiskeyDto>): List<WhiskeyItem> {
+        fun create(values: List<WhiskeyDto>, selection: List<Long>): List<WhiskeyItem> {
             return values.map {
-                create(it)
+                val select = selection.contains(it.uuid)
+                create(it, select)
             }
         }
     }

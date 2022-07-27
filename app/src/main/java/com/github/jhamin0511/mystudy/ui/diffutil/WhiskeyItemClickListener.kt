@@ -2,6 +2,7 @@ package com.github.jhamin0511.mystudy.ui.diffutil
 
 import androidx.annotation.DrawableRes
 import androidx.navigation.NavController
+import com.github.jhamin0511.mystudy.widget.recycler.source.SourceQuery
 
 interface WhiskeyItemClickListener {
     fun onClickImage(@DrawableRes resource: Int)
@@ -10,7 +11,7 @@ interface WhiskeyItemClickListener {
 
 class WhiskeyItemClick(
     private val navController: NavController,
-    private val dataSource: WhiskeyDataSource
+    private val query: SourceQuery<*>
 ) : WhiskeyItemClickListener {
     override fun onClickImage(resource: Int) {
         val action =
@@ -19,6 +20,6 @@ class WhiskeyItemClick(
     }
 
     override fun onClickSelect(id: Long): Boolean {
-        return dataSource.selected(id)
+        return query.selected(id)
     }
 }

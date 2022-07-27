@@ -32,7 +32,7 @@ object ServiceResponseChecker {
             }
             if (!type.isMarkedNullable) {
                 if (value == null) {
-                    val message = "$name is immutable field(${type}), but value is null."
+                    val message = "$name is immutable field($type), but value is null."
                     throw NullPointerException(message)
                 }
             }

@@ -3,16 +3,19 @@ package com.github.jhamin0511.mystudy.network.service
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyTaste
+import com.github.jhamin0511.mystudy.network.request.WhiskeyRequest
 import com.github.jhamin0511.mystudy.network.response.WhiskeyResponse
+import com.github.jhamin0511.mystudy.network.response.WhiskeysResponse
 
 @Suppress("MaxLineLength", "MagicNumber", "LongMethod")
 class WhiskeyServiceImpl : WhiskeyService {
+    private var putId = 100L
 
     companion object {
         private const val TERM_OF_TIME = 100000000L
     }
 
-    override suspend fun getWhiskeys(): WhiskeyResponse {
+    override suspend fun getWhiskeys(): WhiskeysResponse {
         val currentTime = System.currentTimeMillis()
 
         val whiskeys = listOf(
@@ -267,6 +270,23 @@ class WhiskeyServiceImpl : WhiskeyService {
             )
         )
 
-        return WhiskeyResponse(9, whiskeys)
+        return WhiskeysResponse(9, whiskeys)
+    }
+
+    override suspend fun putWhiskey(request: WhiskeyRequest): WhiskeyResponse {
+        val item = WhiskeyDto(
+            putId++,
+            request.buyAt,
+            request.image,
+            request.name,
+            request.price,
+            request.description,
+            request.history,
+            request.taste,
+            request.bookmark,
+            request.favorite,
+            request.follow
+        )
+        return WhiskeyResponse(item)
     }
 }

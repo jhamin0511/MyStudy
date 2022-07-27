@@ -15,7 +15,6 @@ import com.github.jhamin0511.mystudy.databinding.FragmentDiffutilBinding
 import com.github.jhamin0511.mystudy.key.DTO
 import com.github.jhamin0511.mystudy.key.REQUEST
 import com.github.jhamin0511.mystudy.ui.common.BaseFragment
-import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,7 +36,7 @@ class DiffutilFragment : BaseFragment() {
     }
 
     override fun initValue() {
-        viewModel.callWhiskeys()
+        // no-op comment in an unused listener function
     }
 
     override fun initView(view: View) {
@@ -51,12 +50,9 @@ class DiffutilFragment : BaseFragment() {
     }
 
     override fun initObserve() {
-        viewModel.observeItems.observe(
-            this,
-            EventObserver {
-                adapter.submitList(it)
-            }
-        )
+        viewModel.observeItems.observe(this) {
+            adapter.submitList(it)
+        }
     }
 
     override fun initEvent() {

@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val TIMEOUT = 5000L
-const val NETWORK_DELAY_TIME = 3000L
+const val NETWORK_DELAY_TIME = 1500L
 const val LOCAL_RETROFIT = "https://localhost.com/"
 const val GITHUB_RETROFIT = "https://api.github.com/"
 

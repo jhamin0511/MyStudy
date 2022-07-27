@@ -3,8 +3,6 @@ package com.github.jhamin0511.mystudy.ui.study
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.viewmodel.Event
-import com.github.jhamin0511.mystudy.viewmodel.event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,7 +14,7 @@ class StudyViewModel
     // endregion
 
     // region Observe
-    val observeStudies = MutableLiveData<Event<List<StudyItem>>>()
+    val observeStudies = MutableLiveData<List<StudyItem>>()
     // endregion
 
     // region Model
@@ -29,7 +27,7 @@ class StudyViewModel
     )
 
     init {
-        observeStudies.event(items)
+        observeStudies.value = items
     }
     // endregion
 }
