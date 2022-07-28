@@ -9,9 +9,13 @@ import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class UserHolder(
     private val binding: ItemUserBinding,
-    click: HolderItemClickListener,
-    longClick: HolderItemLongClickListener
-) : BaseHolder(binding.root, click, longClick) {
+    itemClick: HolderItemClickListener,
+    itemLongClick: HolderItemLongClickListener
+) : BaseHolder(
+    binding.root,
+    itemClick = itemClick,
+    itemLongClick = itemLongClick
+) {
     override fun bind(item: Item) {
         super.bind(item)
 

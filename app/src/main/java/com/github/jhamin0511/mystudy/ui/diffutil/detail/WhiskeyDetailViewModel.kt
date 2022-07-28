@@ -62,7 +62,7 @@ class WhiskeyDetailViewModel
             val whiskey = savedStateHandle.get<WhiskeyDto>("dto")
             Timber.i("init() / whiskey : ${whiskey}")
             if (whiskey != null) {
-                id = whiskey.uuid
+                id = whiskey.id
                 date = whiskey.buyAt
 
                 bindImage.value = whiskey.image

@@ -39,7 +39,7 @@ class UserAdapter(
 
             override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
                 return if (oldItem is DateItem && newItem is DateItem) {
-                    oldItem == newItem
+                    oldItem.date == newItem.date
                 } else if (oldItem is UserItem && newItem is UserItem) {
                     oldItem == newItem
                 } else {

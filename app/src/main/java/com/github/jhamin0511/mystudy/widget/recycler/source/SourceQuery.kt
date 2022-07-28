@@ -7,9 +7,10 @@ interface SourceQuery<DATA : Dto> {
     fun set(values: List<DATA>)
     fun add(value: DATA)
     fun addAll(values: List<DATA>)
-    fun remove(id: Long)
-    fun update(value: DATA)
+    fun remove(id: Long): DATA?
+    fun update(value: DATA) : DATA?
     fun clear()
+    fun size(): Int
     /**
      * @return true 이면 선택, false 이면 해제
      *  */

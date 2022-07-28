@@ -10,21 +10,16 @@ import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class WhiskeyHolder(
     private val binding: ItemWhiskeyBinding,
-    private val holderClick: HolderClickListener,
-    private val holderLongClick: HolderLongClickListener,
+    holderClick: HolderClickListener,
+    holderLongClick: HolderLongClickListener,
     private val itemClick: WhiskeyItemClickListener
-) : BaseHolder(binding.root) {
+) : BaseHolder(
+    binding.root,
+    holderClick = holderClick,
+    holderLongClick = holderLongClick
+) {
 
     init {
-        binding.root.setOnClickListener {
-            val whiskey = item as WhiskeyItem
-            holderClick.onClick(whiskey.id, absoluteAdapterPosition)
-        }
-        binding.root.setOnLongClickListener {
-            val whiskey = item as WhiskeyItem
-            holderLongClick.onLongClick(whiskey.id, absoluteAdapterPosition)
-            true
-        }
         binding.ivSelect.setOnClickListener {
             val whiskey = item as WhiskeyItem
             val selected = itemClick.onClickSelect(whiskey.id)

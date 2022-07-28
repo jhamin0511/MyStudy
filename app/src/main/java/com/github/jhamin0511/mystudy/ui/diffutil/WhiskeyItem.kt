@@ -20,10 +20,14 @@ data class WhiskeyItem(
     var follow: Boolean,
     var select: Boolean = false
 ) : Item {
+    override fun id(): Long {
+        return id
+    }
+
     companion object {
         fun create(value: WhiskeyDto, isSelect: Boolean): WhiskeyItem {
             return WhiskeyItem(
-                value.uuid,
+                value.id,
                 GlobalTime.convertDate(value.buyAt),
                 value.image,
                 value.name,
@@ -39,7 +43,7 @@ data class WhiskeyItem(
 
         fun create(values: List<WhiskeyDto>, selection: List<Long>): List<WhiskeyItem> {
             return values.map {
-                val select = selection.contains(it.uuid)
+                val select = selection.contains(it.id)
                 create(it, select)
             }
         }

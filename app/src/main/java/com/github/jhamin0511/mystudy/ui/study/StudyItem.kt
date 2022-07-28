@@ -9,4 +9,8 @@ class StudyItem(
     val nameRes: Int,
     @IntegerRes
     val navigateRes: Int
-) : Item
+) : Item {
+    override fun id(): Long {
+        return nameRes.toLong()
+    }
+}

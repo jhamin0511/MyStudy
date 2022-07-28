@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class WhiskeyDto(
     @SerializedName("id")
-    val uuid: Long,
+    val id: Long,
     @SerializedName("buyAt")
     var buyAt: Long,
     @DrawableRes
@@ -32,7 +32,7 @@ data class WhiskeyDto(
     @SerializedName("follow")
     var follow: Boolean
 ) : Parcelable, Dto {
-    override fun getId(): Long {
-        return uuid
+    override fun id(): Long {
+        return id
     }
 }

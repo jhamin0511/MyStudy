@@ -11,12 +11,12 @@ class WhiskeyDataSource(
     override fun submit(values: List<WhiskeyDto>) {
         val sorted = values.sortedByDescending { it.buyAt }
         val maps = sorted.map {
-            val select = getSelected().contains(it.uuid)
+            val select = getSelected().contains(it.id)
             WhiskeyItem.create(it, select)
         }
         val group = maps.groupBy { it.buyAt }
         val list = group.flatMap {
-            mutableListOf<Item>(WhiskeyHeaderItem(it.key)).apply {
+            mutableListOf<Item>(WhiskeyHeaderItem(it.hashCode().toLong(), it.key)).apply {
                 addAll(it.value)
             }
         }

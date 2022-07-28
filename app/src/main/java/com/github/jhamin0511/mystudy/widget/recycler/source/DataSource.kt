@@ -14,7 +14,7 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
     abstract fun submit(values: List<DATA>)
 
     override fun get(id: Long): DATA? {
-        return source.find { it.getId() == id }
+        return source.find { it.id() == id }
     }
 
     override fun set(values: List<DATA>) {
@@ -33,22 +33,25 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
         submit(source)
     }
 
-    override fun remove(id: Long) {
+    override fun remove(id: Long): DATA? {
         var findIndex = INIT_INDEX
 
         source.forEachIndexed { index, data ->
-            if (data.getId() == id) {
+            if (data.id() == id) {
                 findIndex = index
                 return@forEachIndexed
             }
         }
 
-        if (findIndex != INIT_INDEX) {
-            source.removeAt(findIndex)
-            submit(source)
+        var removeData: DATA? = null
 
+        if (findIndex != INIT_INDEX) {
+            removeData = source.removeAt(findIndex)
+            submit(source)
             removeSelect(id)
         }
+
+        return removeData
     }
 
     private fun removeSelect(id: Long) {
@@ -59,23 +62,33 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
         }
     }
 
-    override fun update(value: DATA) {
-        var findIndex = -1
+    override fun update(value: DATA): DATA? {
+        var findIndex = INIT_INDEX
 
         source.forEachIndexed { index, data ->
-            if (data.getId() == value.getId()) {
+            if (data.id() == value.id()) {
                 findIndex = index
                 return@forEachIndexed
             }
         }
 
-        source[findIndex] = value
-        submit(source)
+        var updateData: DATA? = null
+
+        if (findIndex != INIT_INDEX) {
+            updateData = source.set(findIndex, value)
+            submit(source)
+        }
+
+        return updateData
     }
 
     override fun clear() {
         source.clear()
         submit(source)
+    }
+
+    override fun size(): Int {
+        return source.size
     }
 
     override fun selected(id: Long): Boolean {

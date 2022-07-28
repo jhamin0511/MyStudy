@@ -9,8 +9,11 @@ import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class StudyHolder(
     view: View,
-    onClick: HolderItemClickListener
-) : BaseHolder(view, onClick) {
+    itemClick: HolderItemClickListener
+) : BaseHolder(
+    view,
+    itemClick = itemClick
+) {
     private val binding: ItemStudyBinding = DataBindingUtil.bind(view)!!
 
     override fun bind(item: Item) {

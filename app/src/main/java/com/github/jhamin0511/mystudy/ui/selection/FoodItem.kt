@@ -16,6 +16,10 @@ data class FoodItem(
     var followCount: Int,
     var selected: Boolean
 ) : Item {
+    override fun id(): Long {
+        return id
+    }
+
     companion object {
         fun create(value: FoodDto): FoodItem {
             return FoodItem(

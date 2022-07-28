@@ -15,6 +15,10 @@ data class UserItem(
     val age: Int,
     val introduce: String
 ) : Item {
+    override fun id(): Long {
+        return id
+    }
+
     companion object {
         fun create(value: UserDto): UserItem {
             return UserItem(
