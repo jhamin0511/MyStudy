@@ -59,7 +59,7 @@ class UserViewModel
                 before.date != after.date
             if (firstDate || restDate) {
                 val item = after as UserItem
-                DateItem(item.id, item.date)
+                DateItem(item.date)
             } else {
                 null
             }

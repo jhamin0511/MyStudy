@@ -16,7 +16,7 @@ class WhiskeyDataSource(
         }
         val group = maps.groupBy { it.buyAt }
         val list = group.flatMap {
-            mutableListOf<Item>(WhiskeyHeaderItem(it.hashCode().toLong(), it.key)).apply {
+            mutableListOf<Item>(WhiskeyHeaderItem(it.key)).apply {
                 addAll(it.value)
             }
         }
