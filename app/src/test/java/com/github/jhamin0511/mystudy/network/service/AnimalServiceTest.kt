@@ -7,25 +7,29 @@ import org.junit.Test
 
 @Suppress("BlockingMethodInNonBlockingContext")
 @OptIn(ExperimentalCoroutinesApi::class)
-class FoodServiceTest : ServiceTest() {
-    private lateinit var service: FoodService
+class AnimalServiceTest : ServiceTest() {
+    private lateinit var service: AnimalService
 
     override fun setUp() {
         super.setUp()
 
-        service = retrofit.create(FoodService::class.java)
+        service = retrofit.create(AnimalService::class.java)
     }
 
     @Test
-    fun getFoods_success_assertThat() = runTest {
+    fun getAnimals_success_assertThat() = runTest {
         // Given
-        mockWebServer.enqueue(success("food/get_foods_response"))
+        mockWebServer.enqueue(success("animal/get_animals_response"))
+        val page = 1
+        val perPage = 30
+        val search = "Monkey"
         // When
-        val response = service.getFoods()
+        val response = service.getAnimals(page, perPage, search)
         // Then
         val takeRequest = mockWebServer.takeRequest()
         assertThat(takeRequest.method).matches(GET)
-        assertThat(takeRequest.path).isEqualTo("/foods")
+        val path = "/animals?page=1&per_page=30&search=Monkey"
+        assertThat(takeRequest.path).isEqualTo(path)
 
         ServiceResponseChecker.checkData(response)
     }

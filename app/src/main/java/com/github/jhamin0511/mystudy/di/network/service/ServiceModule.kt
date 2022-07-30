@@ -1,6 +1,8 @@
 package com.github.jhamin0511.mystudy.di.network.service
 
 import com.github.jhamin0511.mystudy.di.network.GITHUB_RETROFIT
+import com.github.jhamin0511.mystudy.network.service.AnimalService
+import com.github.jhamin0511.mystudy.network.service.AnimalServiceImpl
 import com.github.jhamin0511.mystudy.network.service.FoodService
 import com.github.jhamin0511.mystudy.network.service.FoodServiceImpl
 import com.github.jhamin0511.mystudy.network.service.GithubService
@@ -19,6 +21,12 @@ import retrofit2.Retrofit
 @InstallIn(SingletonComponent::class)
 @Module
 class ServiceModule {
+    @Singleton
+    @Provides
+    fun provideAnimalService(): AnimalService {
+        return AnimalServiceImpl()
+    }
+
     @Singleton
     @Provides
     fun provideGithubService(

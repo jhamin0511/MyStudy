@@ -6,7 +6,10 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.github.jhamin0511.mystudy.widget.recycler.AppendLoader
 import com.github.jhamin0511.mystudy.widget.setVisible
+import timber.log.Timber
 
 object BindingAdapter {
     @JvmStatic
@@ -41,5 +44,18 @@ object BindingAdapter {
     @BindingAdapter("bindImage")
     fun bindImage(view: ImageView, @DrawableRes res: Int) {
         view.setImageResource(res)
+    }
+
+    @JvmStatic
+    @BindingAdapter("bindInfiniteScroll")
+    fun setBindInfiniteScroll(view: RecyclerView, listener: AppendLoader) {
+        view.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (!recyclerView.canScrollVertically(1)) {
+                    Timber.i("최하단")
+                    listener.onLoad()
+                }
+            }
+        })
     }
 }

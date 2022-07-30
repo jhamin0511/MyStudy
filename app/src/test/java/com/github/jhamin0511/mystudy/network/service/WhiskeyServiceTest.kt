@@ -25,7 +25,7 @@ class WhiskeyServiceTest : ServiceTest() {
         val response = service.getWhiskeys()
         // Then
         val takeRequest = mockWebServer.takeRequest()
-        assertThat(takeRequest.method).matches("GET")
+        assertThat(takeRequest.method).matches(GET)
         assertThat(takeRequest.path).isEqualTo("/whiskeys")
 
         ServiceResponseChecker.checkData(response)
@@ -41,7 +41,7 @@ class WhiskeyServiceTest : ServiceTest() {
         val response = service.putWhiskey(request)
         // Then
         val takeRequest = mockWebServer.takeRequest()
-        assertThat(takeRequest.method).matches("PUT")
+        assertThat(takeRequest.method).matches(PUT)
         assertThat(takeRequest.path).matches("/whiskey")
 
         ServiceResponseChecker.checkData(response)

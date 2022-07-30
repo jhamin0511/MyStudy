@@ -38,7 +38,7 @@ class StudyFragment : BaseFragment() {
     }
 
     override fun initObserve() {
-        viewModel.observeStudies.observe(this) {
+        viewModel.observeItems.observe(this) {
             adapter.addItems(it)
         }
     }

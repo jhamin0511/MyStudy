@@ -8,6 +8,7 @@
     <string name="user_paging">유저 페이징</string>
     <string name="selection">목록 선택</string>
     <string name="diffutil">목록 DiffUtil</string>
+    <string name="custom_paging">커스텀 페이징</string>
     <!-- endregion -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>
@@ -47,4 +48,11 @@
     <string name="product_information">Product Information</string>
     <string name="history">History</string>
     <string name="confirm">확인</string>
+    <string name="designation">명칭</string>
+    <string name="lifespan">수명</string>
+    <string name="animal_taste">식성</string>
+    <string name="herbivores">초식성</string>
+    <string name="carnivores">육식성</string>
+    <string name="omnivores">잡식성</string>
+    <string name="summary">요약</string>
 </resources>

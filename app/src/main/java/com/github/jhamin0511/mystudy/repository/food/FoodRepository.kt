@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.repository
+package com.github.jhamin0511.mystudy.repository.food
 
 import com.github.jhamin0511.mystudy.data.dto.food.FoodDto
 import com.github.jhamin0511.mystudy.network.service.FoodService

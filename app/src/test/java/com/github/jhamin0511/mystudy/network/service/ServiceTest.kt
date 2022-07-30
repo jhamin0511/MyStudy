@@ -17,6 +17,12 @@ import org.junit.Rule
 import retrofit2.Retrofit
 
 open class ServiceTest {
+    companion object {
+        internal const val GET = "GET"
+        internal const val POST = "POST"
+        internal const val PUT = "PUT"
+        internal const val DELETE = "DELETE"
+    }
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 

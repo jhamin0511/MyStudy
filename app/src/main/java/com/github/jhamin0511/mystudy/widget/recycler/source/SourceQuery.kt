@@ -11,6 +11,7 @@ interface SourceQuery<DATA : Dto> {
     fun update(value: DATA) : DATA?
     fun clear()
     fun size(): Int
+    fun isEmpty(): Boolean
     /**
      * @return true 이면 선택, false 이면 해제
      *  */

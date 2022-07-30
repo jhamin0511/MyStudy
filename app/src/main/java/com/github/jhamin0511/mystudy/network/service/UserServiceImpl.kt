@@ -32,8 +32,8 @@ private const val CONTENT5 = "여러 라이브러리 모듈이 로그인 그래�
 
 class UserServiceImpl : UserService {
     private val serviceTime = System.currentTimeMillis()
-    private var preCount: Int = 1
     private var id: Long = 1
+    private var preCount: Int = 1
 
     override suspend fun getUsers(page: Int, perPage: Int): UserResponse {
         val list = mutableListOf<UserDto>()

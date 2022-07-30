@@ -15,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 private const val KEYWORD_CHANGED_DELAY = 1000L
 
@@ -33,15 +34,14 @@ class SearchView
         binding.etKeyword.addTextChangedListener {
             binding.ivCancel.setVisibleGone(it)
         }
-        binding.etKeyword.addTextChangedListener {
-            listener?.onChange()
-        }
         var job: Job? = null
         binding.etKeyword.addTextChangedListener {
             job?.cancel()
             job = CoroutineScope(Dispatchers.Main).launch {
+                Timber.i("Changed Keyword!!")
                 delay(KEYWORD_CHANGED_DELAY)
                 onChanged?.invoke(it.toString())
+                listener?.onChange()
                 job = null
             }
         }
@@ -51,6 +51,7 @@ class SearchView
     }
 
     fun setKeyword(value: String?) {
+        Timber.i("setKeyword() : $value")
         binding.etKeyword.setText(value)
     }
 
@@ -81,23 +82,25 @@ class SearchView
 object SearchViewAdapter {
     @JvmStatic
     @BindingAdapter("bindKeyword")
-    fun setBindKeyword(view: SearchView, value: String?) {
+    fun setBindKeyword(view: SearchView, new: String?) {
         val old = view.getKeyword()
-
-        if (old != value) {
-            view.setKeyword(value)
+        Timber.i("setBindKeyword() / old : $old / new : $new")
+        if (old != new && new != null) {
+            view.setKeyword(new)
         }
     }
 
     @JvmStatic
     @BindingAdapter("bindOnChangeKeyword")
     fun bindOnChangeKeyword(view: SearchView, listener: InverseBindingListener) {
+        Timber.i("bindOnChangeKeyword()")
         view.setKeywordInverse(listener)
     }
 
     @JvmStatic
     @InverseBindingAdapter(attribute = "bindKeyword", event = "bindOnChangeKeyword")
     fun getBindKeyword(view: SearchView): String {
+        Timber.i("getBindKeyword() : ${view.getKeyword()}")
         return view.getKeyword()
     }
 }

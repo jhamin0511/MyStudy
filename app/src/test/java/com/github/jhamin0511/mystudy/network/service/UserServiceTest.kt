@@ -26,7 +26,7 @@ class UserServiceTest : ServiceTest() {
         val response = service.getUsers(page, perPage)
         // Then
         val takeRequest = mockWebServer.takeRequest()
-        assertThat(takeRequest.method).matches("GET")
+        assertThat(takeRequest.method).matches(GET)
         val path = "/users?page=$page&per_page=$perPage"
         assertThat(takeRequest.path).isEqualTo(path)
 

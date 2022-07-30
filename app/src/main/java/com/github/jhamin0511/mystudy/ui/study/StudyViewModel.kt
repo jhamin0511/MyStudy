@@ -14,20 +14,18 @@ class StudyViewModel
     // endregion
 
     // region Observe
-    val observeStudies = MutableLiveData<List<StudyItem>>()
+    val observeItems = MutableLiveData<List<StudyItem>>()
     // endregion
 
-    // region Model
-    private val items = listOf(
-        StudyItem(R.string.notification, R.id.action_studyFragment_to_notificationFragment),
-        StudyItem(R.string.github_repository, R.id.action_studyFragment_to_githubRepoFragment),
-        StudyItem(R.string.user_paging, R.id.action_studyFragment_to_userFragment),
-        StudyItem(R.string.selection, R.id.action_studyFragment_to_selectionFragment),
-        StudyItem(R.string.diffutil, R.id.action_studyFragment_to_diffutilFragment),
-    )
-
     init {
-        observeStudies.value = items
+        observeItems.value = listOf(
+            StudyItem(R.string.notification, R.id.action_studyFragment_to_notificationFragment),
+            StudyItem(R.string.github_repository, R.id.action_studyFragment_to_githubRepoFragment),
+            StudyItem(R.string.user_paging, R.id.action_studyFragment_to_userFragment),
+            StudyItem(R.string.selection, R.id.action_studyFragment_to_selectionFragment),
+            StudyItem(R.string.diffutil, R.id.action_studyFragment_to_diffutilFragment),
+            StudyItem(R.string.custom_paging, R.id.action_studyFragment_to_animalFragment)
+        )
     }
     // endregion
 }

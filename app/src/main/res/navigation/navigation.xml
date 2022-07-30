@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/studyFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.study.StudyFragment"
         android:label="StudyFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.study.StudyFragment"
         tools:layout="@layout/fragment_study">
         <action
             android:id="@+id/action_studyFragment_to_notificationFragment"
@@ -28,21 +28,24 @@
         <action
             android:id="@+id/action_studyFragment_to_diffutilFragment"
             app:destination="@id/diffutilFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_animalFragment"
+            app:destination="@id/animalFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationFragment"
         android:label="NotificationFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationFragment"
         tools:layout="@layout/fragment_notification" />
     <fragment
         android:id="@+id/notificationResultFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationResultFragment"
         android:label="NotificationNormalFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.notification.NotificationResultFragment"
         tools:layout="@layout/fragment_notification_result" />
     <fragment
         android:id="@+id/userFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.paging.user.UserFragment"
         android:label="PagingFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.user.UserFragment"
         tools:layout="@layout/fragment_user">
         <action
             android:id="@+id/action_userFragment_to_userDetailFragment"
@@ -50,13 +53,13 @@
     </fragment>
     <fragment
         android:id="@+id/githubRepoFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.paging.github.GithubRepoFragment"
         android:label="GithubRepoFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.github.GithubRepoFragment"
         tools:layout="@layout/fragment_github_repo" />
     <fragment
         android:id="@+id/userDetailFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.paging.user.detail.UserDetailFragment"
         android:label="UserDetailFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.user.detail.UserDetailFragment"
         tools:layout="@layout/fragment_user_detail">
         <argument
             android:name="id"
@@ -64,8 +67,8 @@
     </fragment>
     <fragment
         android:id="@+id/selectionFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.selection.SelectionFragment"
         android:label="SelectionFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.selection.SelectionFragment"
         tools:layout="@layout/fragment_selection">
 
         <action
@@ -74,8 +77,8 @@
     </fragment>
     <fragment
         android:id="@+id/imageDetailFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.image.ImageDetailFragment"
         android:label="ImageDetailFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.image.ImageDetailFragment"
         tools:layout="@layout/fragment_image_detail">
         <argument
             android:name="resource"
@@ -83,8 +86,8 @@
     </fragment>
     <fragment
         android:id="@+id/diffutilFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.diffutil.DiffutilFragment"
         android:label="DiffutilFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.diffutil.DiffutilFragment"
         tools:layout="@layout/fragment_diffutil">
         <action
             android:id="@+id/action_diffutilFragment_to_imageDetailFragment"
@@ -95,11 +98,16 @@
     </fragment>
     <fragment
         android:id="@+id/whiskeyDetailFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.diffutil.detail.WhiskeyDetailFragment"
         android:label="WhiskeyDetailFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.diffutil.detail.WhiskeyDetailFragment"
         tools:layout="@layout/fragment_whiskey_detail">
         <argument
             android:name="dto"
             app:argType="com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto" />
     </fragment>
+    <fragment
+        android:id="@+id/animalFragment"
+        android:label="AnimalFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.paging.animal.AnimalFragment"
+        tools:layout="@layout/fragment_animal" />
 </navigation>

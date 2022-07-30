@@ -91,6 +91,10 @@ abstract class DataSource<DATA : Dto> : SourceQuery<DATA> {
         return source.size
     }
 
+    override fun isEmpty(): Boolean {
+        return source.isEmpty()
+    }
+
     override fun selected(id: Long): Boolean {
         val hasId = selectedSource.contains(id)
 

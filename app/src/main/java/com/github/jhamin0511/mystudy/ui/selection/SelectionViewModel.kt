@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
-import com.github.jhamin0511.mystudy.repository.FoodRepository
+import com.github.jhamin0511.mystudy.repository.food.FoodRepository
 import com.github.jhamin0511.mystudy.viewmodel.Event
 import com.github.jhamin0511.mystudy.viewmodel.event
 import dagger.hilt.android.lifecycle.HiltViewModel

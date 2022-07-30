@@ -7,6 +7,7 @@
     <string name="user_paging">User Paging</string>
     <string name="selection">RecyclerView Selection</string>
     <string name="diffutil">RecyclerView DiffUtil</string>
+    <string name="custom_paging">Custom Paging</string>
     <!-- endregion -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>
@@ -46,4 +47,11 @@
     <string name="product_information">Product Information</string>
     <string name="history">History</string>
     <string name="confirm">Confirm</string>
+    <string name="designation">Designation</string>
+    <string name="lifespan">Lifespan</string>
+    <string name="animal_taste">Taste</string>
+    <string name="herbivores">Herbivores</string>
+    <string name="carnivores">Carnivores</string>
+    <string name="omnivores">Omnivores</string>
+    <string name="summary">Summary</string>
 </resources>
