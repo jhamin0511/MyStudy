@@ -13,6 +13,7 @@ class AnimalFragment : BaseFragment() {
     private lateinit var binding: FragmentAnimalBinding
     private val viewModel: AnimalViewModel by viewModels()
     private val adapter = AnimalAdapter()
+
     override fun getLayoutId(): Int {
         return R.layout.fragment_animal
     }

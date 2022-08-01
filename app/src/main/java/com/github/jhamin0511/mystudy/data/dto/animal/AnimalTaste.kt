@@ -11,11 +11,9 @@ enum class AnimalTaste(
     /** 초식 */
     @SerializedName("herbivores")
     HERBIVORES(R.string.herbivores),
-
     /** 육식 */
     @SerializedName("carnivores")
     CARNIVORES(R.string.carnivores),
-
     /** 잡식 */
     @SerializedName("omnivores")
     OMNIVORES(R.string.omnivores);

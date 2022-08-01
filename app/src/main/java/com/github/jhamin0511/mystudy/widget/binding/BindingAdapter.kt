@@ -7,7 +7,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.github.jhamin0511.mystudy.widget.recycler.AppendLoader
+import com.github.jhamin0511.mystudy.widget.recycler.paging.AppendLoader
 import com.github.jhamin0511.mystudy.widget.setVisible
 import timber.log.Timber
 

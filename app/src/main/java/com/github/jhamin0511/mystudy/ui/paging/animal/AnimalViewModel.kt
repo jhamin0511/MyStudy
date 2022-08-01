@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.repository.animal.AnimalRepository
+import com.github.jhamin0511.mystudy.ui.paging.START_PAGE
 import com.github.jhamin0511.mystudy.viewmodel.value
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import javax.inject.Inject
 
 @HiltViewModel
 class AnimalViewModel
@@ -19,29 +20,20 @@ class AnimalViewModel
     private val repository: AnimalRepository
 ) : ViewModel() {
     // region Binding
-    val bindLoading = MutableLiveData<Boolean>()
+    val bindLoading = MutableLiveData(false)
     val bindEmpty = MutableLiveData<Boolean>()
-    val bindSearch = MutableLiveData<String>()
+    val bindSearch = MutableLiveData("")
 
     fun bindLoad() {
-        Timber.i("bindLoad() : ${bindLoading.value(false)}")
-        if (bindLoading.value == false) {
-            viewModelScope.launch {
-                bindLoading.value = true
-                val response = repository.getAnimals(page++, bindSearch.value(""))
-                delay(NETWORK_DELAY_TIME)
-                dataSource.addAll(response)
-                bindEmpty.value = dataSource.isEmpty()
-                bindLoading.value = false
-            }
-        }
+        Timber.i("bindLoad() : ${bindLoading.value()}")
+        callItems(roadMore = true)
     }
 
     init {
         bindSearch.observeForever {
             Timber.i("bindSearch.observeForever() : $it")
-            page = 1
-            callInitialItems(it)
+            page = START_PAGE
+            callItems(it)
         }
     }
     // endregion
@@ -51,24 +43,32 @@ class AnimalViewModel
     // endregion
 
     // region Model
-    private var page = 1
-    val dataSource = AnimalDataSource(observeItems)
+    private var page = START_PAGE
+    private val dataSource = AnimalDataSource(observeItems)
 
     init {
         Timber.i("init")
-        callInitialItems("")
+        callItems()
     }
 
-    private fun callInitialItems(
-        search: String = bindSearch.value()
+    private fun callItems(
+        search: String = bindSearch.value(),
+        roadMore: Boolean = false
     ) {
-        viewModelScope.launch {
-            bindLoading.value = true
-            val response = repository.getAnimals(page++, search)
-            delay(NETWORK_DELAY_TIME)
-            dataSource.set(response)
-            bindEmpty.value = dataSource.isEmpty()
-            bindLoading.value = false
+        Timber.i("callItems() / search : $search / roadMode : $roadMore")
+        if (!bindLoading.value()) {
+            viewModelScope.launch {
+                bindLoading.value = true
+                val response = repository.getAnimals(page++, search)
+                delay(NETWORK_DELAY_TIME)
+                if (roadMore) {
+                    dataSource.addAll(response)
+                } else {
+                    dataSource.set(response)
+                }
+                bindEmpty.value = dataSource.isEmpty()
+                bindLoading.value = false
+            }
         }
     }
     // endregion
