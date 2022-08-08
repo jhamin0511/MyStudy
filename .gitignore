@@ -22,6 +22,11 @@ misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
 
+# Built application files
+*.apk
+*.aab
+*.pepk
+
 # Keystore files
 *.jks
 *.keystore
