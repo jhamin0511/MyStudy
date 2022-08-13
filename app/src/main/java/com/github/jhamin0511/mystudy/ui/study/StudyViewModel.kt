@@ -26,7 +26,8 @@ class StudyViewModel
             StudyItem(R.string.selection, R.id.action_studyFragment_to_selectionFragment),
             StudyItem(R.string.diffutil, R.id.action_studyFragment_to_diffutilFragment),
             StudyItem(R.string.custom_paging, R.id.action_studyFragment_to_animalFragment),
-            StudyItem(R.string.pass_bundle, R.id.action_studyFragment_to_passFragment)
+            StudyItem(R.string.pass_bundle, R.id.action_studyFragment_to_passFragment),
+            StudyItem(R.string.savedstatehandle, R.id.action_studyFragment_to_livedataFragment)
         )
     }
     // endregion

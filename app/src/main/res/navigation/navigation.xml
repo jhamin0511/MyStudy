@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_studyFragment_to_passFragment"
             app:destination="@id/passFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_livedataFragment"
+            app:destination="@id/livedataFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -130,5 +133,38 @@
         <argument
             android:name="dto"
             app:argType="com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto" />
+    </fragment>
+    <fragment
+        android:id="@+id/livedataFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.livedata.LivedataFragment"
+        android:label="LivedataFragment"
+        tools:layout="@layout/fragment_livedata">
+        <action
+            android:id="@+id/action_livedataFragment_to_livedataExtractFragment"
+            app:destination="@id/livedataExtractFragment" />
+        <action
+            android:id="@+id/action_livedataFragment_to_livedataObjectFragment"
+            app:destination="@id/livedataObjectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/livedataExtractFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.livedata.LivedataExtractFragment"
+        android:label="LivedataExtractFragment"
+        tools:layout="@layout/fragment_livedata_extract">
+        <argument
+            android:name="vo"
+            app:argType="com.github.jhamin0511.mystudy.data.vo.BookVo" />
+    </fragment>
+    <fragment
+        android:id="@+id/livedataObjectFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.livedata.LivedataObjectFragment"
+        android:label="LivedataObjectFragment"
+        tools:layout="@layout/fragment_livedata_object">
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <argument
+            android:name="vo"
+            app:argType="com.github.jhamin0511.mystudy.data.vo.BookVo" />
     </fragment>
 </navigation>

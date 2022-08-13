@@ -57,6 +57,7 @@
     <dimen name="radius_xlarge">12dp</dimen>
     <dimen name="radius_full">100dp</dimen>
 
+    <dimen name="stroke_xsmall">1px</dimen>
     <dimen name="stroke_small">1dp</dimen>
     <dimen name="stroke_medium">2dp</dimen>
     <dimen name="stroke_large">3dp</dimen>

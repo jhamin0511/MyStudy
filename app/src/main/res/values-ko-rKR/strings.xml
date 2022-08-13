@@ -10,6 +10,7 @@
     <string name="diffutil">목록 DiffUtil</string>
     <string name="custom_paging">커스텀 페이징</string>
     <string name="pass_bundle">Activity/Fragment Bundle 데이터 전달</string>
+    <string name="savedstatehandle">SavedStateHandle</string>
     <!-- endregion -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>
@@ -59,4 +60,12 @@
     <string name="activity_intent">Activity with Intent</string>
     <string name="fragment_argument">Fragment with Argument</string>
     <string name="fragment_safe_args">Fragment with Safe Args</string>
+    <string name="livedata_extract">LiveData Extract</string>
+    <string name="livedata_object">LiveData Object</string>
+    <string name="author">저자</string>
+    <string name="translator">역자</string>
+    <string name="public_date">출간일</string>
+    <string name="publisher">출판사</string>
+    <string name="price">금액</string>
+    <string name="book_introduction">책소개</string>
 </resources>
