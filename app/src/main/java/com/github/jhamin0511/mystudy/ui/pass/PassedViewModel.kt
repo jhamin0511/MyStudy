@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.ui.diffutil.detail
+package com.github.jhamin0511.mystudy.ui.pass
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyTaste
 import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
+import com.github.jhamin0511.mystudy.key.DTO
 import com.github.jhamin0511.mystudy.time.GlobalTime
 import com.github.jhamin0511.mystudy.viewmodel.Event
 import com.github.jhamin0511.mystudy.viewmodel.event
@@ -17,9 +18,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class WhiskeyDetailViewModel
+class PassedViewModel
 @Inject constructor(
-    private val handle: SavedStateHandle
+    handle: SavedStateHandle
 ) : ViewModel() {
     // region Binding
     val bindLoading = MutableLiveData<Boolean>()
@@ -58,21 +59,20 @@ class WhiskeyDetailViewModel
         viewModelScope.launch {
             bindLoading.value = true
 
-            val whiskey = handle.get<WhiskeyDto>("dto")
-            if (whiskey != null) {
-                id = whiskey.id
-                date = whiskey.buyAt
+            handle.get<WhiskeyDto>(DTO)?.let {
+                id = it.id
+                date = it.buyAt
 
-                bindImage.value = whiskey.image
-                bindDate.value = GlobalTime.convertDateTime(whiskey.buyAt)
-                bindName.value = whiskey.name
-                bindPrice.value = whiskey.price
-                bindDescription.value = whiskey.description
-                bindHistory.value = whiskey.history
-                bindTaste.value = whiskey.taste
-                bindBookmark.value = whiskey.bookmark
-                bindFavorite.value = whiskey.favorite
-                bindFollow.value = whiskey.follow
+                bindImage.value = it.image
+                bindDate.value = GlobalTime.convertDateTime(it.buyAt)
+                bindName.value = it.name
+                bindPrice.value = it.price
+                bindDescription.value = it.description
+                bindHistory.value = it.history
+                bindTaste.value = it.taste
+                bindBookmark.value = it.bookmark
+                bindFavorite.value = it.favorite
+                bindFollow.value = it.follow
             }
 
             delay(NETWORK_DELAY_TIME)
@@ -84,39 +84,10 @@ class WhiskeyDetailViewModel
 
     // region Observe
     val observeShowPicker = MutableLiveData<Event<Long>>()
-    val observeSaved = MutableLiveData<Event<WhiskeyDto>>()
     // endregion
 
     // region Model
     private var id: Long = 0
     private var date: Long = 0
-
-    fun save() {
-        viewModelScope.launch {
-            bindLoading.value = true
-            val dto = WhiskeyDto(
-                id,
-                date,
-                bindImage.value(),
-                bindName.value(),
-                bindPrice.value(),
-                bindDescription.value(),
-                bindHistory.value(),
-                bindTaste.value(),
-                bindBookmark.value(),
-                bindFavorite.value(),
-                bindFollow.value()
-            )
-            delay(NETWORK_DELAY_TIME)
-
-            bindLoading.value = false
-            observeSaved.event(dto)
-        }
-    }
-
-    fun applyDate(value: Long) {
-        date = value
-        bindDate.value = GlobalTime.convertDateTime(value)
-    }
     // endregion
 }

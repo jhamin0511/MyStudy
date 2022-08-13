@@ -8,7 +8,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StudyViewModel
-@Inject constructor() : ViewModel() {
+@Inject constructor(
+) : ViewModel() {
 
     // region Binding
     // endregion
@@ -24,7 +25,8 @@ class StudyViewModel
             StudyItem(R.string.user_paging, R.id.action_studyFragment_to_userFragment),
             StudyItem(R.string.selection, R.id.action_studyFragment_to_selectionFragment),
             StudyItem(R.string.diffutil, R.id.action_studyFragment_to_diffutilFragment),
-            StudyItem(R.string.custom_paging, R.id.action_studyFragment_to_animalFragment)
+            StudyItem(R.string.custom_paging, R.id.action_studyFragment_to_animalFragment),
+            StudyItem(R.string.pass_bundle, R.id.action_studyFragment_to_passFragment)
         )
     }
     // endregion

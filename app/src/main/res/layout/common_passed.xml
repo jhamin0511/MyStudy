@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.github.jhamin0511.mystudy.ui.pass.PassedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_large">
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    app:bindImage="@{vm.bindImage}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/img_jimbeam" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/TextView.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_large"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:drawablePadding="@dimen/space_xsmall"
+                    android:gravity="center"
+                    android:onClick="@{() -> vm.bindClickDate()}"
+                    android:paddingTop="@dimen/space_xsmall"
+                    android:paddingBottom="@dimen/space_xsmall"
+                    android:text="@{vm.bindDate}"
+                    app:drawableStartCompat="@drawable/ic_calendar_month"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_image"
+                    tools:text="2022.07.15 17:42" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/TextView.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xsmall"
+                    android:layout_marginEnd="@dimen/space_large"
+                    android:text="@{vm.bindName}"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="@id/iv_image"
+                    app:layout_constraintStart_toStartOf="@id/tv_date"
+                    app:layout_constraintTop_toBottomOf="@id/tv_date"
+                    tools:text="짐빔" />
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    style="@style/TextView.Content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xsmall"
+                    android:text="@{vm.bindPrice}"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintStart_toStartOf="@id/tv_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name"
+                    tools:text="36,000원" />
+
+                <TextView
+                    android:id="@+id/tv_product_info"
+                    style="@style/TextView.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:text="@string/product_information"
+                    android:textSize="@dimen/text_xlarge"
+                    app:layout_constraintStart_toStartOf="@id/tv_price"
+                    app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    style="@style/TextView.Content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:layout_marginEnd="@dimen/space_large"
+                    android:text="@{vm.bindDescription}"
+                    android:textColor="@color/content_gray"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_product_info"
+                    app:layout_constraintTop_toBottomOf="@id/tv_product_info"
+                    tools:text="전형적인 버번 위스키의 오렌지 색상에 가볍고 매끄러우며 풍부한 바닐라, 캐러멜 향이 난다. 달콤한 꿀과 감초 사탕 맛이 느껴진다. 여운이 짧으나 매력적이며 복합적인 풍미를 지니고 있다. 4년산이며 알코올도수는 40%이다. 80 proof이다." />
+
+                <TextView
+                    android:id="@+id/tv_history_title"
+                    style="@style/TextView.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:text="@string/history"
+                    android:textSize="@dimen/text_xlarge"
+                    app:layout_constraintStart_toStartOf="@id/tv_description"
+                    app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+                <TextView
+                    android:id="@+id/tv_history"
+                    style="@style/TextView.Content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_small"
+                    android:layout_marginEnd="@dimen/space_large"
+                    android:text="@{vm.bindHistory}"
+                    android:textColor="@color/content_gray"
+                    android:textSize="@dimen/text_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_history_title"
+                    app:layout_constraintTop_toBottomOf="@id/tv_history_title"
+                    tools:text="18세기 후기에, 나중엔 결국 자신의 성을 “Beam”으로 바꾼 Boehm 가족의 일원은 독일을 떠나 켄터키주에 정착하였다. 요한네스 레지널드 빔(Johannes Reginald Beam) (1770–1834)은 지금 우리가 버번 위스키라고 알고 있는 위스키를 생산한 농부이다. 제이콥 빔 (Jacob Beam)은 1795년 그가 처음으로 만든 콘 위스키를 팔았다. 그 위스키는 처음에는 올드 제이크 빔(Old Jake Beam)이라고 불렸다. 그리고 증류주공장은 올드 텁(Old Tub)이라고 알려져 있었다.
+
+데이비드 빔 (David Beam) (1802–1854)은 1820년 18 살이라는 나이에 아버지의 의무를 받아 산업 혁명 시기에 가족의 버번 위스키의 배포를 확산시켰다. 1854년 데이비드 빔 (David M. Beam)(1833–1913)은 각 시로 연결되어 있는 철도를 이용하기 위해 증류 제조공장을 넬슨컨트리로 옮겼다. 제임스 보르가드 빔(James Beauregard Beam) (1864–1947)은 가족의 상업을 미국 금주법기간 전과 후에 이어 관리를 하였다, 그리고 1933년 그는 증류공장을 그의 Bardstown 집에 가까운 Clermont, Kentucky 에다가 다시 건설하였다. 1935년 제임스 빔 주류업체 (James B. Beam Distilling Company)가 해리 호멜(Harry L. Homel), 올리버 제이콥슨 (Oliver Jacobson), 블럼(H. Blum)과 제르마이아 빔(Jerimiah Beam)에 의해 설립되었다. 이 시점 이후로 버번 위스키는 제임스 보르가드 빔(James Beauregard Beam)을 이어 짐 빔 버번(Jim Beam Bourbon)이라고 불렸다, 그리고 몇몇 술병의 라벨에는 제임스 빔 (James B. Beam)의 서명과 함께 “자신의 서명 없는 술은 진짜가 아니다” 라는 내용을 써놓았다. 1913년 제르마이아 빔(Jerimiah Beam) (1899–1977)은 Clear Springs 증류주공장에서 일하기 시작했다, 그 후 그는 새로운 Clermont 시설에서 증류장과 작업 감독관이 되었다. 1954년 제르마이아 빔(Jerimiah Beam)은 완전한 소유권을 얻고 켄터키 보스턴에 제2의 증류 제조공장을 열었다. 제르마이아는 유년시절 친구인 짐버레인 요셉 퀸(Jimberlain Joseph Quinn)과 한 팀을 이뤄 기업을 확장해 나갔다.
+
+부커 노(Booker Noe) (1929–2004)는 짐 빔 주류업체에서 40년 넘게 제리 달톤(Jerry Dalton) (1998–2007)과 가깝게 지내며 증류장 일을 맡아왔다. 1987년 부커 노는 자신의 이름은 딴 회사의 첫 Small Batch Bourbon Collection 위스키 부커스Boooker’s를 선보였다
+
+프레드 노(Fred Noe) (1957–present)는 2007년 제7대 짐 가족 증류자가 되었다, 그리고 그는 정규적으로 판매촉진의 목적으로 여행을 다녔다.
+
+1987년 짐 빔(Jim Beam)은 내셔널 브랜드(National Brands)를 사들였다.
+
+빔 가족은 헤븐 힐 제조사(Heaven Hill Distillery)의 역사에서 큰 역할을 했다. 헤븐 힐 창사이래 모든 증류장은 빔 가족의 일원이었다. 헤븐 힐의 원조 증류장은 짐 빔(Jim Beam)의 첫 사촌인 요셉 빔 (Joseph L. Beam)이다. 그의 아들 해리 빔(Harry Beam)은 그의 뒤를 이었고 짐 빔(Jim Beam) 동생의 아들을 이어 얼 빔(Earl Beam)은 요셉 빔 (Joseph L. Beam)의 아들 해리 빔(Harry Beam)를 이었다. 얼 빔(Earl Beam) 은 헤븐 힐 제조사 (Heaven Hill Distillery) 파커 빔(Parker Beam) 과 그의 아들 크레이그 빔(Craig Beam)이 뒤를 이었다." />
+
+                <ImageView
+                    android:id="@+id/iv_taste"
+                    android:layout_width="@dimen/icon_xlarge"
+                    android:layout_height="@dimen/icon_xlarge"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    android:onClick="@{() -> vm.bindClickTaste()}"
+                    app:bindImage="@{vm.bindTaste.imageRes}"
+                    app:layout_constraintEnd_toStartOf="@id/iv_bookmark"
+                    app:layout_constraintTop_toTopOf="@id/iv_bookmark"
+                    tools:src="@drawable/ic_taste_2" />
+
+                <ImageView
+                    android:id="@+id/iv_bookmark"
+                    android:layout_width="@dimen/icon_xlarge"
+                    android:layout_height="@dimen/icon_xlarge"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    android:onClick="@{() -> vm.bindClickBookmark()}"
+                    android:src="@drawable/selector_bookmark"
+                    app:bindSelected="@{vm.bindBookmark}"
+                    app:layout_constraintEnd_toStartOf="@id/iv_favorite"
+                    app:layout_constraintTop_toTopOf="@id/iv_favorite" />
+
+                <ImageView
+                    android:id="@+id/iv_favorite"
+                    android:layout_width="@dimen/icon_xlarge"
+                    android:layout_height="@dimen/icon_xlarge"
+                    android:layout_marginEnd="@dimen/space_medium"
+                    android:onClick="@{() -> vm.bindClickFavorite()}"
+                    android:src="@drawable/selector_favorite"
+                    app:bindSelected="@{vm.bindFavorite}"
+                    app:layout_constraintEnd_toStartOf="@id/iv_follow"
+                    app:layout_constraintTop_toTopOf="@id/iv_follow" />
+
+                <ImageView
+                    android:id="@+id/iv_follow"
+                    android:layout_width="@dimen/icon_xlarge"
+                    android:layout_height="@dimen/icon_xlarge"
+                    android:layout_marginStart="@dimen/space_small"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:layout_marginEnd="@dimen/space_large"
+                    android:onClick="@{() -> vm.bindClickFollow()}"
+                    android:src="@drawable/selector_follow"
+                    app:bindSelected="@{vm.bindFollow}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_history" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:bindVisible="@{vm.bindLoading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

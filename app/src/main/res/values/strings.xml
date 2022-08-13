@@ -8,6 +8,7 @@
     <string name="selection">RecyclerView Selection</string>
     <string name="diffutil">RecyclerView DiffUtil</string>
     <string name="custom_paging">Custom Paging</string>
+    <string name="pass_bundle">Pass Activity/Fragment Bundle</string>
     <!-- endregion -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>
@@ -54,4 +55,7 @@
     <string name="carnivores">Carnivores</string>
     <string name="omnivores">Omnivores</string>
     <string name="summary">Summary</string>
+    <string name="activity_intent">Activity with Intent</string>
+    <string name="fragment_argument">Fragment with Argument</string>
+    <string name="fragment_safe_args">Fragment with Safe Args</string>
 </resources>

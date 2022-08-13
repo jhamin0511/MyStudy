@@ -9,6 +9,7 @@
     <string name="selection">목록 선택</string>
     <string name="diffutil">목록 DiffUtil</string>
     <string name="custom_paging">커스텀 페이징</string>
+    <string name="pass_bundle">Activity/Fragment Bundle 데이터 전달</string>
     <!-- endregion -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>
@@ -55,4 +56,7 @@
     <string name="carnivores">육식성</string>
     <string name="omnivores">잡식성</string>
     <string name="summary">요약</string>
+    <string name="activity_intent">Activity with Intent</string>
+    <string name="fragment_argument">Fragment with Argument</string>
+    <string name="fragment_safe_args">Fragment with Safe Args</string>
 </resources>

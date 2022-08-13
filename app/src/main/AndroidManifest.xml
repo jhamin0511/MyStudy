@@ -20,5 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.pass.PassedActivity" />
+        <activity android:name=".ui.pass.PassedFragActivity" />
     </application>
 </manifest>
