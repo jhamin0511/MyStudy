@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.github.jhamin0511.mystudy.data.dto.user.UserType
 import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.database.AppDatabase
-import com.github.jhamin0511.mystudy.network.service.NETWORK_DELAY_TIME
+import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.time.GlobalTime
 import com.github.jhamin0511.mystudy.viewmodel.Event
 import com.github.jhamin0511.mystudy.viewmodel.event
@@ -52,6 +52,8 @@ class UserDetailViewModel
         id = args.id
 
         viewModelScope.launch {
+            bindLoading.value = true
+
             val entity = userDao.selectById(id) ?: UserEntity(
                 id,
                 UserType.ONE,
@@ -69,6 +71,10 @@ class UserDetailViewModel
             bindDate.value = GlobalTime.convertDateTime(entity.date)
             bindIntroduce.value = entity.introduce
             bindContent.value = entity.content
+
+            delay(NETWORK_DELAY_TIME)
+
+            observeSaved.event(true)
         }
     }
 

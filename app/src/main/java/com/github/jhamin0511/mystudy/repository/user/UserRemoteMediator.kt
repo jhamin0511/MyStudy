@@ -7,7 +7,7 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.database.AppDatabase
-import com.github.jhamin0511.mystudy.network.service.NETWORK_DELAY_TIME
+import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.network.service.UserService
 import com.github.jhamin0511.mystudy.ui.paging.KEY_COUNT
 import com.github.jhamin0511.mystudy.ui.paging.START_PAGE

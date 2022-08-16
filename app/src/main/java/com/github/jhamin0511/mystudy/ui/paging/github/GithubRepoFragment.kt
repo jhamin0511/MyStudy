@@ -9,8 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentGithubRepoBinding
+import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
 import com.github.jhamin0511.mystudy.widget.setVisible
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +25,7 @@ class GithubRepoFragment : BaseFragment() {
 
     override fun getLayoutId() = R.layout.fragment_github_repo
 
-    override fun bindValue() {
+    override fun initValue() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.items.collectLatest {
@@ -37,15 +37,15 @@ class GithubRepoFragment : BaseFragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 adapter.loadStateFlow.collectLatest {
                     binding.progress.isVisible = it.refresh is LoadState.Loading ||
-                            it.prepend is LoadState.Loading ||
-                            it.append is LoadState.Loading
+                        it.prepend is LoadState.Loading ||
+                        it.append is LoadState.Loading
                     binding.recyclerEmpty.root.setVisible(adapter.itemCount == 0)
                 }
             }
         }
     }
 
-    override fun bindView(view: View) {
+    override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.vm = viewModel
@@ -53,11 +53,11 @@ class GithubRepoFragment : BaseFragment() {
         binding.recycler.adapter = adapter
     }
 
-    override fun bindObserve() {
+    override fun initObserve() {
         // no-op comment in an unused listener function
     }
 
-    override fun bindEvent() {
+    override fun initEvent() {
         binding.search.setKeywordChanged {
             adapter.refresh()
         }

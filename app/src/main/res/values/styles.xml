@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="TextView.Item.Title" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/text_xsmall</item>
+    </style>
+
+    <style name="TextView.Item.Content" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
     <style name="TextView.Title" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/gray</item>
         <item name="android:textSize">@dimen/text_small</item>
@@ -11,7 +21,23 @@
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
 
-    <style name="HolderItem">
+    <style name="TextView.Subtitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/title_black</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemHolder">
+        <item name="android:background">@color/white</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="CardItemHolder">
+        <item name="android:background">@color/white</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:layout_marginStart">@dimen/space_small</item>
+        <item name="android:layout_marginTop">@dimen/space_xsmall</item>
+        <item name="android:layout_marginEnd">@dimen/space_small</item>
+        <item name="android:layout_marginBottom">@dimen/space_xsmall</item>
     </style>
 </resources>

@@ -5,20 +5,33 @@ import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseHolder(
     view: View,
-    click: ItemClick? = null,
-    longClick: ItemLongClick? = null
+    holderClick: HolderClickListener? = null,
+    holderLongClick: HolderLongClickListener? = null,
+    itemClick: HolderItemClickListener? = null,
+    itemLongClick: HolderItemLongClickListener? = null
 ) : RecyclerView.ViewHolder(view) {
     lateinit var item: Item
 
     init {
-        if (click != null) {
+        if (holderClick != null) {
             view.setOnClickListener {
-                click.onClick(item, absoluteAdapterPosition)
+                holderClick.onClick(item.id(), absoluteAdapterPosition)
             }
         }
-        if (longClick != null) {
+        if (holderLongClick != null) {
             view.setOnLongClickListener {
-                longClick.onLongClick(item, absoluteAdapterPosition)
+                holderLongClick.onLongClick(item.id(), absoluteAdapterPosition)
+                true
+            }
+        }
+        if (itemClick != null) {
+            view.setOnClickListener {
+                itemClick.onClick(item, absoluteAdapterPosition)
+            }
+        }
+        if (itemLongClick != null) {
+            view.setOnLongClickListener {
+                itemLongClick.onLongClick(item, absoluteAdapterPosition)
                 true
             }
         }

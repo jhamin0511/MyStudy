@@ -1,0 +1,14 @@
+{
+  "item": {
+    "id": 1,
+    "buyAt": 1,
+    "image": 1,
+    "name": "name1",
+    "price": "price1",
+    "description": "description1",
+    "taste": "bad",
+    "bookmark": true,
+    "favorite": true,
+    "follow": true
+  }
+}

@@ -5,11 +5,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentStudyBinding
-import com.github.jhamin0511.mystudy.viewmodel.EventObserver
+import com.github.jhamin0511.mystudy.ui.common.BaseFragment
+import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
 import com.github.jhamin0511.mystudy.widget.recycler.Item
-import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class StudyFragment : BaseFragment() {
     private lateinit var binding: FragmentStudyBinding
     private val viewModel: StudyViewModel by viewModels()
-    private val studyClick = object : ItemClick {
+    private val studyClick = object : HolderItemClickListener {
         override fun onClick(item: Item, position: Int) {
             val study = item as StudyItem
             Navigation.findNavController(binding.root).navigate(study.navigateRes)
@@ -27,27 +26,24 @@ class StudyFragment : BaseFragment() {
 
     override fun getLayoutId() = R.layout.fragment_study
 
-    override fun bindValue() {
+    override fun initValue() {
         // no-op comment in an unused listener function
     }
 
-    override fun bindView(view: View) {
+    override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.recycler.defaultDecoration(requireContext())
         binding.recycler.adapter = adapter
     }
 
-    override fun bindObserve() {
-        viewModel.observeStudies.observe(
-            this,
-            EventObserver {
-                adapter.addItems(it)
-            }
-        )
+    override fun initObserve() {
+        viewModel.observeItems.observe(this) {
+            adapter.addItems(it)
+        }
     }
 
-    override fun bindEvent() {
+    override fun initEvent() {
         // no-op comment in an unused listener function
     }
 }

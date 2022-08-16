@@ -7,9 +7,11 @@ import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.database.AppDatabase
 import com.github.jhamin0511.mystudy.network.service.UserService
 import javax.inject.Inject
+import javax.inject.Singleton
 
 private const val PER_PAGE = 50
 
+@Singleton
 class UserRepository
 @Inject constructor(
     private val service: UserService,

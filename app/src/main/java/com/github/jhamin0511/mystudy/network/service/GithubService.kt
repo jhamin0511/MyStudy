@@ -8,7 +8,7 @@ interface GithubService {
     @GET("search/repositories?sort=stars")
     suspend fun getSearchRepository(
         @Query("q") keyword: String,
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int = 30
+        @Query(PAGE) page: Int,
+        @Query(PER_PAGE) perPage: Int = 30
     ): GithubRepositoryResponse
 }

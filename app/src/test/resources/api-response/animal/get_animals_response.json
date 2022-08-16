@@ -1,0 +1,28 @@
+{
+  "total_count": 5,
+  "items": [
+    {
+      "id": 1,
+      "emoji": "\uD83D\uDC35",
+      "designationKo": "nameKo1",
+      "designationEn": "nameKo1",
+      "lifespan": "lifespan1",
+      "taste": "herbivores",
+      "summary": "summary1",
+      "characteristic": "characteristic",
+      "bookmark": true
+    },
+    {
+      "id": 2,
+      "emoji": "\uD83D\uDC35",
+      "designationKo": "nameKo2",
+      "designationEn": "nameEn2",
+      "lifespan": "lifespan2",
+      "taste": "carnivores",
+      "summary": "summary2",
+      "characteristic": "characteristic",
+      "bookmark": false
+    }
+  ],
+  "last": true
+}

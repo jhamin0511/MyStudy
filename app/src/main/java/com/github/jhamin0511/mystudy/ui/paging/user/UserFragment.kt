@@ -11,13 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentUserBinding
 import com.github.jhamin0511.mystudy.time.GlobalTime
+import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.ui.paging.PagingErrorHandler
+import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
+import com.github.jhamin0511.mystudy.widget.recycler.HolderItemLongClickListener
 import com.github.jhamin0511.mystudy.widget.recycler.Item
-import com.github.jhamin0511.mystudy.widget.recycler.ItemClick
-import com.github.jhamin0511.mystudy.widget.recycler.ItemLongClick
 import com.github.jhamin0511.mystudy.widget.setVisible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -28,12 +28,12 @@ import timber.log.Timber
 class UserFragment : BaseFragment() {
     private lateinit var binding: FragmentUserBinding
     private val viewModel: UserViewModel by viewModels()
-    private val userClick = object : ItemClick {
+    private val userClick = object : HolderItemClickListener {
         override fun onClick(item: Item, position: Int) {
             startUserDetail(item, position)
         }
     }
-    private val userLongClick = object : ItemLongClick {
+    private val userLongClick = object : HolderItemLongClickListener {
         override fun onLongClick(item: Item, position: Int) {
             // no-op comment in an unused listener function
         }
@@ -43,11 +43,11 @@ class UserFragment : BaseFragment() {
 
     override fun getLayoutId() = R.layout.fragment_user
 
-    override fun bindValue() {
+    override fun initValue() {
         // no-op comment in an unused listener function
     }
 
-    override fun bindView(view: View) {
+    override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.vm = viewModel
@@ -56,7 +56,7 @@ class UserFragment : BaseFragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun bindObserve() {
+    override fun initObserve() {
         viewModel.observeItems.observe(this) { observe ->
             Timber.i("observeItems.observe() : $observe")
             lifecycleScope.launch {
@@ -67,7 +67,7 @@ class UserFragment : BaseFragment() {
         }
     }
 
-    override fun bindEvent() {
+    override fun initEvent() {
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest {
                 handler.showToast(it)
@@ -76,7 +76,7 @@ class UserFragment : BaseFragment() {
                     binding.refresh.isRefreshing = it.refresh is LoadState.Loading
                 } else {
                     binding.progress.isVisible = it.refresh is LoadState.Loading ||
-                            it.append is LoadState.Loading
+                        it.append is LoadState.Loading
                     it.source.refresh
                 }
                 binding.recyclerEmpty.root.setVisible(adapter.itemCount == 0)

@@ -1,7 +1,5 @@
 package com.github.jhamin0511.mystudy.ui.paging.user.detail
 
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -11,13 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.base.BaseFragment
 import com.github.jhamin0511.mystudy.databinding.FragmentUserDetailBinding
+import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
+import com.github.jhamin0511.mystudy.widget.PickerDialogShower
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Calendar
-import java.util.Date
-import java.util.GregorianCalendar
 
 @AndroidEntryPoint
 class UserDetailFragment : BaseFragment() {
@@ -27,11 +23,11 @@ class UserDetailFragment : BaseFragment() {
 
     override fun getLayoutId() = R.layout.fragment_user_detail
 
-    override fun bindValue() {
+    override fun initValue() {
         viewModel.initModel(arg)
     }
 
-    override fun bindView(view: View) {
+    override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
         binding.vm = viewModel
@@ -39,16 +35,18 @@ class UserDetailFragment : BaseFragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun bindObserve() {
+    override fun initObserve() {
         viewModel.observeSaved.observe(this, EventObserver {
             findNavController().popBackStack()
         })
         viewModel.observeShowPicker.observe(this, EventObserver {
-            showDateTimePickerDialog(it)
+            PickerDialogShower.showDateTime(requireContext(), it) { time ->
+                viewModel.applyDate(time)
+            }
         })
     }
 
-    override fun bindEvent() {
+    override fun initEvent() {
         // no-op comment in an unused listener function
     }
 
@@ -66,35 +64,5 @@ class UserDetailFragment : BaseFragment() {
         }
     }
 
-    private fun showDateTimePickerDialog(value: Long) {
-        val calendar = GregorianCalendar()
-        calendar.time = Date(value)
 
-        val timePicker = TimePickerDialog(
-            requireContext(),
-            { _, hourOfDay, minute ->
-                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                calendar.set(Calendar.MINUTE, minute)
-
-                viewModel.applyDate(calendar.time.time)
-            },
-            calendar.get(Calendar.HOUR_OF_DAY),
-            calendar.get(Calendar.MINUTE),
-            true
-        )
-
-        DatePickerDialog(
-            requireContext(),
-            { _, year, month, dayOfMonth ->
-                calendar.set(Calendar.YEAR, year)
-                calendar.set(Calendar.MONTH, month)
-                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-
-                timePicker.show()
-            },
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
-        ).show()
-    }
 }

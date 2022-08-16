@@ -5,7 +5,11 @@
     <string name="paging">Paging</string>
     <string name="github_repository">Github Repository</string>
     <string name="user_paging">User Paging</string>
-    <string name="user_room_paging">User Room Paging</string>
+    <string name="selection">RecyclerView Selection</string>
+    <string name="diffutil">RecyclerView DiffUtil</string>
+    <string name="custom_paging">Custom Paging</string>
+    <string name="pass_bundle">Pass Activity/Fragment Bundle</string>
+    <string name="savedstatehandle">SavedStateHandle</string>
     <!-- endregion -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>
@@ -42,4 +46,25 @@
     <string name="save">Save</string>
     <string name="error_internet_connect">Please check your internet connectivity</string>
     <string name="error_unknown">An Unknown Error has occurred.</string>
+    <string name="product_information">Product Information</string>
+    <string name="history">History</string>
+    <string name="confirm">Confirm</string>
+    <string name="designation">Designation</string>
+    <string name="lifespan">Lifespan</string>
+    <string name="animal_taste">Taste</string>
+    <string name="herbivores">Herbivores</string>
+    <string name="carnivores">Carnivores</string>
+    <string name="omnivores">Omnivores</string>
+    <string name="summary">Summary</string>
+    <string name="activity_intent">Activity with Intent</string>
+    <string name="fragment_argument">Fragment with Argument</string>
+    <string name="fragment_safe_args">Fragment with Safe Args</string>
+    <string name="livedata_extract">LiveData Extract</string>
+    <string name="livedata_object">LiveData Object</string>
+    <string name="author">Author</string>
+    <string name="translator">Translator</string>
+    <string name="public_date">Public Date</string>
+    <string name="publisher">Publisher</string>
+    <string name="price">Price</string>
+    <string name="book_introduction">Introduction</string>
 </resources>

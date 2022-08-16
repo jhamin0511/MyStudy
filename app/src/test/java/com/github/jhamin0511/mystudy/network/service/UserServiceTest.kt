@@ -25,12 +25,11 @@ class UserServiceTest : ServiceTest() {
         // When
         val response = service.getUsers(page, perPage)
         // Then
-        val request = mockWebServer.takeRequest()
-        assertThat(request.method).matches("GET")
+        val takeRequest = mockWebServer.takeRequest()
+        assertThat(takeRequest.method).matches(GET)
         val path = "/users?page=$page&per_page=$perPage"
-        assertThat(request.path).isEqualTo(path)
+        assertThat(takeRequest.path).isEqualTo(path)
 
-        assertThat(response.total).isEqualTo(23)
-        assertThat(response.users).hasSize(5)
+        ServiceResponseChecker.checkData(response)
     }
 }

@@ -6,7 +6,11 @@
     <string name="paging">페이징</string>
     <string name="github_repository">깃허브 저장소</string>
     <string name="user_paging">유저 페이징</string>
-    <string name="user_room_paging">유저 룸 페이징</string>
+    <string name="selection">목록 선택</string>
+    <string name="diffutil">목록 DiffUtil</string>
+    <string name="custom_paging">커스텀 페이징</string>
+    <string name="pass_bundle">Activity/Fragment Bundle 데이터 전달</string>
+    <string name="savedstatehandle">SavedStateHandle</string>
     <!-- endregion -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>
@@ -43,4 +47,25 @@
     <string name="save">저장</string>
     <string name="error_internet_connect">인터넷 연결 상태를 확인해주세요.</string>
     <string name="error_unknown">알 수 없는 에러가 발생했습니다.</string>
+    <string name="product_information">Product Information</string>
+    <string name="history">History</string>
+    <string name="confirm">확인</string>
+    <string name="designation">명칭</string>
+    <string name="lifespan">수명</string>
+    <string name="animal_taste">식성</string>
+    <string name="herbivores">초식성</string>
+    <string name="carnivores">육식성</string>
+    <string name="omnivores">잡식성</string>
+    <string name="summary">요약</string>
+    <string name="activity_intent">Activity with Intent</string>
+    <string name="fragment_argument">Fragment with Argument</string>
+    <string name="fragment_safe_args">Fragment with Safe Args</string>
+    <string name="livedata_extract">LiveData Extract</string>
+    <string name="livedata_object">LiveData Object</string>
+    <string name="author">저자</string>
+    <string name="translator">역자</string>
+    <string name="public_date">출간일</string>
+    <string name="publisher">출판사</string>
+    <string name="price">금액</string>
+    <string name="book_introduction">책소개</string>
 </resources>

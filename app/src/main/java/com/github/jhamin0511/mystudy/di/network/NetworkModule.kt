@@ -14,21 +14,29 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val TIMEOUT = 5000L
+const val NETWORK_DELAY_TIME = 1500L
 const val LOCAL_RETROFIT = "https://localhost.com/"
 const val GITHUB_RETROFIT = "https://api.github.com/"
 
 @InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule {
+    companion object {
+        fun createRetrofitBuilder(): Retrofit.Builder {
+            return Retrofit.Builder().apply {
+                addConverterFactory(GsonConverterFactory.create())
+            }
+        }
+    }
+
     @Singleton
     @Provides
     fun provideLocalRetrofitBuilder(
         client: OkHttpClient
     ): Retrofit.Builder {
-        return Retrofit.Builder().apply {
+        return createRetrofitBuilder().apply {
             baseUrl(LOCAL_RETROFIT)
             client(client)
-            addConverterFactory(GsonConverterFactory.create())
         }
     }
 
