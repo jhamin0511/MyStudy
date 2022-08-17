@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/uiUxFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.UiUxFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.uiux.UiUxFragment"
         android:label="UiUxFragment"
         tools:layout="@layout/fragment_uiux" />
 </navigation>

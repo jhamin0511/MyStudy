@@ -1,7 +1,8 @@
-package com.github.jhamin0511.mystudy.ui.bottomnavigation
+package com.github.jhamin0511.mystudy.ui.bottomnavigation.uiux
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentUiuxBinding
 import com.github.jhamin0511.mystudy.ui.common.BaseFragment
@@ -10,6 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class UiUxFragment : BaseFragment() {
     private lateinit var binding: FragmentUiuxBinding
+    private val viewModel: UiUxViewModel by viewModels()
 
     override fun getLayoutId() = R.layout.fragment_uiux
 
@@ -20,6 +22,7 @@ class UiUxFragment : BaseFragment() {
     override fun initView(view: View) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
+        binding.vm = viewModel
     }
 
     override fun initObserve() {

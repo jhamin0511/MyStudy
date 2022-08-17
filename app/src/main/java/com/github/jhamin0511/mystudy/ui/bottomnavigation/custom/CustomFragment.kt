@@ -1,17 +1,17 @@
-package com.github.jhamin0511.mystudy.ui.bottomnavigation
+package com.github.jhamin0511.mystudy.ui.bottomnavigation.custom
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.databinding.FragmentLibraryBinding
+import com.github.jhamin0511.mystudy.databinding.FragmentCustomBinding
 import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LibraryFragment : BaseFragment() {
-    private lateinit var binding: FragmentLibraryBinding
+class CustomFragment : BaseFragment() {
+    private lateinit var binding: FragmentCustomBinding
 
-    override fun getLayoutId() = R.layout.fragment_library
+    override fun getLayoutId() = R.layout.fragment_custom
 
     override fun initValue() {
         // no-op comment in an unused listener function

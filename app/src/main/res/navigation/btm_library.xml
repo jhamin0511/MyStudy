@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.LibraryFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.library.LibraryFragment"
         android:label="LibraryFragment"
         tools:layout="@layout/fragment_library" />
 </navigation>

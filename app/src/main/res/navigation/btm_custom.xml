@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/customFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.CustomFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.custom.CustomFragment"
         android:label="CustomFragment"
         tools:layout="@layout/fragment_custom" />
 </navigation>

@@ -77,4 +77,5 @@
     <string name="book_introduction">책소개</string>
     <string name="bottom_navigation_activity">Activity에서 시작하기</string>
     <string name="bottom_navigation_Fragment">Fragment에서 시작하기</string>
+    <string name="count">Count</string>
 </resources>
