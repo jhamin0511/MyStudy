@@ -10,7 +10,14 @@
     <string name="custom_paging">Custom Paging</string>
     <string name="pass_bundle">Pass Activity/Fragment Bundle</string>
     <string name="savedstatehandle">SavedStateHandle</string>
+    <string name="bottom_navigation">BottomNavigationView</string>
     <!-- endregion -->
+    <!--  region Bottom Navigation  -->
+    <string name="jetpack">Jetpack</string>
+    <string name="library">Library</string>
+    <string name="custom">Custom</string>
+    <string name="uiux">UI/UX</string>
+    <!--  endregion  -->
     <string name="create_normal">Create Normal Notification</string>
     <string name="channel_normal">Normal</string>
     <string name="channel_normal_description">Normal Notification</string>
@@ -67,4 +74,6 @@
     <string name="publisher">Publisher</string>
     <string name="price">Price</string>
     <string name="book_introduction">Introduction</string>
+    <string name="bottom_navigation_activity">Start Activity</string>
+    <string name="bottom_navigation_Fragment">Start Fragment</string>
 </resources>

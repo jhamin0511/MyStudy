@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btm_uiux"
+    app:startDestination="@id/uiUxFragment">
+
+    <fragment
+        android:id="@+id/uiUxFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.UiUxFragment"
+        android:label="UiUxFragment"
+        tools:layout="@layout/fragment_uiux" />
+</navigation>

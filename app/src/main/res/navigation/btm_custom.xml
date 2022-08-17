@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btm_custom"
+    app:startDestination="@id/customFragment">
+
+    <fragment
+        android:id="@+id/customFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.CustomFragment"
+        android:label="CustomFragment"
+        tools:layout="@layout/fragment_custom" />
+</navigation>

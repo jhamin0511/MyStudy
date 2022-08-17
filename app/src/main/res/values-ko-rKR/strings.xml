@@ -11,7 +11,14 @@
     <string name="custom_paging">커스텀 페이징</string>
     <string name="pass_bundle">Activity/Fragment Bundle 데이터 전달</string>
     <string name="savedstatehandle">SavedStateHandle</string>
+    <string name="bottom_navigation">BottomNavigationView</string>
     <!-- endregion -->
+    <!--  region Bottom Navigation  -->
+    <string name="jetpack">Jetpack</string>
+    <string name="library">Library</string>
+    <string name="custom">Custom</string>
+    <string name="uiux">UI/UX</string>
+    <!--  endregion  -->
     <string name="create_normal">기본 알림 만들기</string>
     <string name="channel_normal">기본</string>
     <string name="channel_normal_description">기본 알림</string>
@@ -68,4 +75,6 @@
     <string name="publisher">출판사</string>
     <string name="price">금액</string>
     <string name="book_introduction">책소개</string>
+    <string name="bottom_navigation_activity">Activity에서 시작하기</string>
+    <string name="bottom_navigation_Fragment">Fragment에서 시작하기</string>
 </resources>
