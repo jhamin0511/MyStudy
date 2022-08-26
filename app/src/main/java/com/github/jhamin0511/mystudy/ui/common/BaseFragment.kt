@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import com.github.jhamin0511.mystudy.application.SHOW_LIFECYCLE_LOGO
 import timber.log.Timber
-
-private const val SHOW_LIFECYCLE_LOGO = true
 
 @Suppress("TooManyFunctions")
 abstract class BaseFragment : Fragment() {

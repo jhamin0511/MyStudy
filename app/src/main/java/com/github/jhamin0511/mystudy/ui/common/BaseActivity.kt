@@ -2,9 +2,8 @@ package com.github.jhamin0511.mystudy.ui.common
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.github.jhamin0511.mystudy.application.SHOW_LIFECYCLE_LOGO
 import timber.log.Timber
-
-private const val SHOW_LIFECYCLE_LOGO = false
 
 @Suppress("TooManyFunctions")
 abstract class BaseActivity : AppCompatActivity() {

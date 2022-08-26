@@ -18,4 +18,8 @@
         <item name="android:windowBackground">@color/background</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.MainActivity" parent="Theme.MyStudy">
+        <item name="android:windowBackground">@null</item>
+    </style>
 </resources>

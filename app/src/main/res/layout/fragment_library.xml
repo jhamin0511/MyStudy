@@ -8,6 +8,18 @@
         android:background="#64B5F6">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_xlarge"
+            android:background="#01579B"
+            android:gravity="center"
+            android:text="@string/library"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/library"

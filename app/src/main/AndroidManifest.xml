@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".ui.pass.PassedActivity" />
         <activity android:name=".ui.pass.PassedFragActivity" />
-        <activity android:name=".ui.bottomnavigation.BottomInActivity" />
+        <activity
+            android:name=".ui.bottomnavigation.BottomInActivity"
+            android:theme="@style/Theme.MainActivity" />
     </application>
 </manifest>
