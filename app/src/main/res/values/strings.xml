@@ -11,6 +11,7 @@
     <string name="pass_bundle">Pass Activity/Fragment Bundle</string>
     <string name="savedstatehandle">SavedStateHandle</string>
     <string name="bottom_navigation">BottomNavigationView</string>
+    <string name="bottom_nav_refresh">BottomNav Refresh</string>
     <!-- endregion -->
     <!--  region Bottom Navigation  -->
     <string name="jetpack">Jetpack</string>
@@ -77,4 +78,9 @@
     <string name="bottom_navigation_activity">Start Activity</string>
     <string name="bottom_navigation_Fragment">Start Fragment</string>
     <string name="count">Count</string>
+    <string name="refresh_always">Refresh Always</string>
+    <string name="refresh_one">One</string>
+    <string name="refresh_two">Two</string>
+    <string name="refresh_three">Three</string>
+    <string name="refresh_four">Four</string>
 </resources>
