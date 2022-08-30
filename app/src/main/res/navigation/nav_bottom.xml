@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_bottom"
+    app:startDestination="@+id/btm_jetpack">
+
+    <include app:graph="@navigation/btm_jetpack" />
+    <include app:graph="@navigation/btm_library" />
+    <include app:graph="@navigation/btm_custom" />
+    <include app:graph="@navigation/btm_uiux" />
+</navigation>

@@ -37,6 +37,12 @@
         <action
             android:id="@+id/action_studyFragment_to_livedataFragment"
             app:destination="@id/livedataFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_bottomNavigationFragment"
+            app:destination="@id/bottomNavigationFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_refreshNavigationFragment"
+            app:destination="@id/refreshNavigationFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -167,4 +173,23 @@
             android:name="vo"
             app:argType="com.github.jhamin0511.mystudy.data.vo.BookVo" />
     </fragment>
+    <fragment
+        android:id="@+id/bottomNavigationFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.BottomNavigationFragment"
+        android:label="BottomNavigationFragment"
+        tools:layout="@layout/fragment_bottom_navigation">
+        <action
+            android:id="@+id/action_bottomNavigationFragment_to_bottomInFragment"
+            app:destination="@id/bottomInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bottomInFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.BottomInFragment"
+        android:label="BottomInFragment"
+        tools:layout="@layout/fragment_bottom_in" />
+    <fragment
+        android:id="@+id/refreshNavigationFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.refresh.RefreshNavigationFragment"
+        android:label="RefreshNavigationFragment"
+        tools:layout="@layout/fragment_refresh_navigation" />
 </navigation>

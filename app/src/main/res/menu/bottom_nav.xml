@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btm_jetpack"
+        android:contentDescription="@string/jetpack"
+        android:icon="@drawable/ic_jetpack"
+        android:title="@string/jetpack" />
+    <item
+        android:id="@+id/btm_library"
+        android:contentDescription="@string/library"
+        android:icon="@drawable/ic_library"
+        android:title="@string/library" />
+    <item
+        android:id="@+id/btm_custom"
+        android:contentDescription="@string/custom"
+        android:icon="@drawable/ic_custom"
+        android:title="@string/custom" />
+    <item
+        android:id="@+id/btm_uiux"
+        android:contentDescription="@string/uiux"
+        android:icon="@drawable/ic_uiux"
+        android:title="@string/uiux" />
+</menu>

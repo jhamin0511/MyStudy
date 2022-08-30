@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/refresh_one"
+        android:contentDescription="@string/refresh_one"
+        android:icon="@drawable/ic_face"
+        android:title="@string/refresh_one" />
+    <item
+        android:id="@+id/refresh_two"
+        android:contentDescription="@string/refresh_two"
+        android:icon="@drawable/ic_face2"
+        android:title="@string/refresh_two" />
+    <item
+        android:id="@+id/refresh_three"
+        android:contentDescription="@string/refresh_three"
+        android:icon="@drawable/ic_face3"
+        android:title="@string/refresh_three" />
+    <item
+        android:id="@+id/refresh_four"
+        android:contentDescription="@string/refresh_four"
+        android:icon="@drawable/ic_face4"
+        android:title="@string/refresh_four" />
+</menu>
