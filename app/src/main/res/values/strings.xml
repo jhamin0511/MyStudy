@@ -79,6 +79,8 @@
     <string name="bottom_navigation_Fragment">Start Fragment</string>
     <string name="count">Count</string>
     <string name="refresh_always">Refresh Always</string>
+    <string name="refresh_di">Dependecy Injection</string>
+    <string name="refresh_enum">Enum</string>
     <string name="refresh_one">One</string>
     <string name="refresh_two">Two</string>
     <string name="refresh_three">Three</string>

@@ -41,8 +41,8 @@
             android:id="@+id/action_studyFragment_to_bottomNavigationFragment"
             app:destination="@id/bottomNavigationFragment" />
         <action
-            android:id="@+id/action_studyFragment_to_refreshFragment"
-            app:destination="@id/refreshFragment" />
+            android:id="@+id/action_studyFragment_to_refreshNavigationFragment"
+            app:destination="@id/refreshNavigationFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -187,15 +187,6 @@
         android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.BottomInFragment"
         android:label="BottomInFragment"
         tools:layout="@layout/fragment_bottom_in" />
-    <fragment
-        android:id="@+id/refreshFragment"
-        android:name="com.github.jhamin0511.mystudy.ui.refresh.RefreshFragment"
-        android:label="RefreshFragment"
-        tools:layout="@layout/fragment_refresh">
-        <action
-            android:id="@+id/action_refreshFragment_to_refreshNavigationFragment"
-            app:destination="@id/refreshNavigationFragment" />
-    </fragment>
     <fragment
         android:id="@+id/refreshNavigationFragment"
         android:name="com.github.jhamin0511.mystudy.ui.refresh.RefreshNavigationFragment"

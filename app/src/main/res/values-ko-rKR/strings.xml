@@ -80,6 +80,8 @@
     <string name="bottom_navigation_Fragment">Fragment에서 시작하기</string>
     <string name="count">Count</string>
     <string name="refresh_always">항상 갱신</string>
+    <string name="refresh_di">의존성 주입</string>
+    <string name="refresh_enum">열거형</string>
     <string name="refresh_one">One</string>
     <string name="refresh_two">Two</string>
     <string name="refresh_three">Three</string>

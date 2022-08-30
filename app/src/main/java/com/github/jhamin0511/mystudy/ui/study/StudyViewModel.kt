@@ -16,7 +16,7 @@ private val items = listOf(
     StudyItem(R.string.pass_bundle, R.id.action_studyFragment_to_passFragment),
     StudyItem(R.string.savedstatehandle, R.id.action_studyFragment_to_livedataFragment),
     StudyItem(R.string.bottom_navigation, R.id.action_studyFragment_to_bottomNavigationFragment),
-    StudyItem(R.string.bottom_nav_refresh, R.id.action_studyFragment_to_refreshFragment)
+    StudyItem(R.string.bottom_nav_refresh, R.id.action_studyFragment_to_refreshNavigationFragment)
 )
 
 @HiltViewModel
