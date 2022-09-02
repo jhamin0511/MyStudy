@@ -13,6 +13,7 @@
     <string name="savedstatehandle">SavedStateHandle</string>
     <string name="bottom_navigation">BottomNavigationView</string>
     <string name="bottom_nav_refresh">BottomNav Refresh</string>
+    <string name="binding_leak">Binding Leak</string>
     <!-- endregion -->
     <!--  region Bottom Navigation  -->
     <string name="jetpack">Jetpack</string>
@@ -86,4 +87,6 @@
     <string name="refresh_two">Two</string>
     <string name="refresh_three">Three</string>
     <string name="refresh_four">Four</string>
+    <string name="memory_stay">메모리 해제</string>
+    <string name="memory_clear">메모리 유지</string>
 </resources>

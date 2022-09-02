@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_studyFragment_to_refreshNavigationFragment"
             app:destination="@id/refreshNavigationFragment" />
+        <action
+            android:id="@+id/action_studyFragment_to_bindingLeakFragment"
+            app:destination="@id/bindingLeakFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -192,4 +195,53 @@
         android:name="com.github.jhamin0511.mystudy.ui.refresh.RefreshNavigationFragment"
         android:label="RefreshNavigationFragment"
         tools:layout="@layout/fragment_refresh_navigation" />
+    <fragment
+        android:id="@+id/bindingLeakFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bindingleack.BindingLeakFragment"
+        android:label="BindingLeakFragment"
+        tools:layout="@layout/fragment_binding_leak" >
+        <action
+            android:id="@+id/action_bindingLeakFragment_to_bindingOneStayFragment"
+            app:destination="@id/bindingOneStayFragment" />
+        <action
+            android:id="@+id/action_bindingLeakFragment_to_bindingOneClearFragment"
+            app:destination="@id/bindingOneClearFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bindingOneStayFragment"
+        tools:layout="@layout/fragment_binding_one"
+        android:name="com.github.jhamin0511.mystudy.ui.bindingleack.BindingOneStayFragment"
+        android:label="BindingOneStayFragment" >
+        <action
+            android:id="@+id/action_bindingOneStayFragment_to_bindingTwoStayFragment"
+            app:destination="@id/bindingTwoStayFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_binding_two"
+        android:id="@+id/bindingTwoStayFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bindingleack.BindingTwoStayFragment"
+        android:label="BindingTwoStayFragment" >
+        <action
+            android:id="@+id/action_bindingTwoStayFragment_to_bindingOneStayFragment"
+            app:destination="@id/bindingOneStayFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_binding_one"
+        android:id="@+id/bindingOneClearFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bindingleack.BindingOneClearFragment"
+        android:label="BindingOneClearFragment" >
+        <action
+            android:id="@+id/action_bindingOneClearFragment_to_bindingTwoClearFragment"
+            app:destination="@id/bindingTwoClearFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_binding_two"
+        android:id="@+id/bindingTwoClearFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bindingleack.BindingTwoClearFragment"
+        android:label="BindingTwoClearFragment" >
+        <action
+            android:id="@+id/action_bindingTwoClearFragment_to_bindingOneClearFragment"
+            app:destination="@id/bindingOneClearFragment" />
+    </fragment>
+
 </navigation>
