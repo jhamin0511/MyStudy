@@ -13,6 +13,7 @@
     <string name="bottom_navigation">BottomNavigationView</string>
     <string name="bottom_nav_refresh">BottomNav Refresh</string>
     <string name="binding_leak">Binding Leak</string>
+    <string name="navigation_deeplink">Navigation Deeplink</string>
     <!-- endregion -->
     <!--  region Bottom Navigation  -->
     <string name="jetpack">Jetpack</string>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btm_e"
+    app:startDestination="@id/navDeeplinkEFragment">
+
+    <fragment
+        android:id="@+id/navDeeplinkEFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.navigation.deeplink.NavDeeplinkEFragment"
+        android:label="NavDeeplinkEFragment"
+        tools:layout="@layout/fragment_deeplink_e">
+        <action
+            android:id="@+id/action_navDeeplinkEFragment_to_navDeeplinkEDashFragment"
+            app:destination="@id/navDeeplinkEDashFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navDeeplinkEDashFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.navigation.deeplink.NavDeeplinkEDashFragment"
+        android:label="NavDeeplinkEDashFragment"
+        tools:layout="@layout/fragment_deeplink_e_dash" />
+</navigation>

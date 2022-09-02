@@ -43,6 +43,7 @@
     <dimen name="space_medium">12dp</dimen>
     <dimen name="space_large">16dp</dimen>
     <dimen name="space_xlarge">20dp</dimen>
+    <dimen name="space_bigger">30dp</dimen>
 
     <dimen name="progress_xsmall">20dp</dimen>
     <dimen name="progress_small">40dp</dimen>
