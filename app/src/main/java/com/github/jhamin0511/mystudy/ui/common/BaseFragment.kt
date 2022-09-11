@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.mystudy.application.SHOW_LIFECYCLE_LOGO
 import timber.log.Timber
 
@@ -23,6 +24,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         if (SHOW_LIFECYCLE_LOGO) {
+
             Timber.tag(tagName).i("onAttach()")
         }
         super.onAttach(context)
@@ -44,6 +46,17 @@ abstract class BaseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (SHOW_LIFECYCLE_LOGO) {
+            val controller = this.findNavController()
+            val backQueue = controller.backQueue
+            Timber.tag("NavController").i("stack size : %s", backQueue.size)
+            for (entry in backQueue) {
+                val des = entry.destination
+                val message = "entry : $entry / " +
+                    "label : ${des.label} / " +
+                    "name : ${des.navigatorName} / " +
+                    "displayName : ${des.displayName}"
+                Timber.tag("NavController").i(message)
+            }
             Timber.tag(tagName).i("onCreateView()")
         }
         return inflater.inflate(getLayoutId(), container, false)

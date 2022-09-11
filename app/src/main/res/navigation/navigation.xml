@@ -48,7 +48,7 @@
             app:destination="@id/bindingLeakFragment" />
         <action
             android:id="@+id/action_studyFragment_to_navDeeplinkActivity"
-            app:destination="@id/navDeeplinkActivity" />
+            app:destination="@id/navFlowActivity" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -247,8 +247,8 @@
             app:destination="@id/bindingOneClearFragment" />
     </fragment>
     <activity
-        android:id="@+id/navDeeplinkActivity"
-        android:name="com.github.jhamin0511.mystudy.ui.navigation.deeplink.NavDeeplinkActivity"
-        android:label="NavDeeplinkActivity"
-        tools:layout="@layout/fragment_deeplink_root" />
+        android:id="@+id/navFlowActivity"
+        android:name="com.github.jhamin0511.mystudy.ui.navigation.flow.NavFlowActivity"
+        android:label="NavFlowActivity"
+        tools:layout="@layout/fragment_flow_splash" />
 </navigation>
