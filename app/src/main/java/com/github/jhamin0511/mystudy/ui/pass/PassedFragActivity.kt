@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.commit
+import com.github.jhamin0511.app.common.ui.BaseActivity
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
 import com.github.jhamin0511.mystudy.databinding.ActivityFragPassedBinding
@@ -11,7 +12,7 @@ import com.github.jhamin0511.mystudy.key.DTO
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PassedFragActivity : com.github.jhamin0511.app.common.BaseActivity() {
+class PassedFragActivity : BaseActivity() {
     companion object {
         fun start(context: Context, whiskeyDto: WhiskeyDto): Intent {
             return Intent(context, PassedFragActivity::class.java).apply {

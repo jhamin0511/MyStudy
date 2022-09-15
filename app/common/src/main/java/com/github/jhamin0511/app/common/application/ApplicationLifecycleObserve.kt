@@ -1,8 +1,9 @@
-package com.github.jhamin0511.mystudy.application
+package com.github.jhamin0511.app.common.application
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import com.github.jhamin0511.app.common.LIFECYCLE_FLOW_LOG_ENABLE
 import timber.log.Timber
 
 class ApplicationLifecycleObserve : LifecycleEventObserver {
@@ -11,7 +12,7 @@ class ApplicationLifecycleObserve : LifecycleEventObserver {
     }
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(TAG).i("$event()")
         }
     }

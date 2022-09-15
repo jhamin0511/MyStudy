@@ -1,4 +1,4 @@
-package com.github.jhamin0511.app.common
+package com.github.jhamin0511.app.common.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import com.github.jhamin0511.app.common.LIFECYCLE_FLOW_LOG_ENABLE
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")

@@ -9,12 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.github.jhamin0511.app.common.BaseFragment
+import com.github.jhamin0511.app.common.ui.BaseFragment
+import com.github.jhamin0511.app.common.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentWhiskeyDetailBinding
 import com.github.jhamin0511.mystudy.key.DTO
 import com.github.jhamin0511.mystudy.key.REQUEST
-import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.PickerDialogShower
 import dagger.hilt.android.AndroidEntryPoint
 

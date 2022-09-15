@@ -4,7 +4,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import com.github.jhamin0511.app.common.BaseFragment
+import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentStudyBinding
 import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener

@@ -3,11 +3,11 @@ package com.github.jhamin0511.mystudy.ui.livedata
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.github.jhamin0511.app.common.viewmodel.Event
+import com.github.jhamin0511.app.common.viewmodel.event
 import com.github.jhamin0511.mystudy.data.vo.BookVo
 import com.github.jhamin0511.mystudy.key.VO
 import com.github.jhamin0511.mystudy.network.request.BookEditRequest
-import com.github.jhamin0511.mystudy.viewmodel.Event
-import com.github.jhamin0511.mystudy.viewmodel.event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

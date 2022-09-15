@@ -3,13 +3,13 @@ package com.github.jhamin0511.mystudy.ui.paging.user.detail
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.jhamin0511.app.common.viewmodel.Event
+import com.github.jhamin0511.app.common.viewmodel.event
 import com.github.jhamin0511.mystudy.data.dto.user.UserType
 import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.database.AppDatabase
 import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.time.GlobalTime
-import com.github.jhamin0511.mystudy.viewmodel.Event
-import com.github.jhamin0511.mystudy.viewmodel.event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.delay

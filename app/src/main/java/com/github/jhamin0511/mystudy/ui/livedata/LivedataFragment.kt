@@ -4,10 +4,10 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.github.jhamin0511.app.common.BaseFragment
+import com.github.jhamin0511.app.common.ui.BaseFragment
+import com.github.jhamin0511.app.common.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentLivedataBinding
-import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

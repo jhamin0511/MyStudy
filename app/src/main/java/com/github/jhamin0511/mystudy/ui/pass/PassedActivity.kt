@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.github.jhamin0511.app.common.ui.BaseActivity
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
 import com.github.jhamin0511.mystudy.databinding.CommonPassedBinding
@@ -11,7 +12,7 @@ import com.github.jhamin0511.mystudy.key.DTO
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PassedActivity : com.github.jhamin0511.app.common.BaseActivity() {
+class PassedActivity : BaseActivity() {
     companion object {
         fun start(context: Context, whiskey: WhiskeyDto): Intent {
             return Intent(context, PassedActivity::class.java).apply {

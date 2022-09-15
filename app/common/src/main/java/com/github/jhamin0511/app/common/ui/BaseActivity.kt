@@ -1,7 +1,8 @@
-package com.github.jhamin0511.app.common
+package com.github.jhamin0511.app.common.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.github.jhamin0511.app.common.LIFECYCLE_FLOW_LOG_ENABLE
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")

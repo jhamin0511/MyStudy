@@ -1,7 +1,7 @@
 package com.github.jhamin0511.mystudy.ui.study
 
 import androidx.databinding.DataBindingUtil
-import com.github.jhamin0511.app.common.BaseActivity
+import com.github.jhamin0511.app.common.ui.BaseActivity
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ActivityStudyBinding
 import dagger.hilt.android.AndroidEntryPoint

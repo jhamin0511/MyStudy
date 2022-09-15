@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.jhamin0511.mystudy.viewmodel
+package com.github.jhamin0511.app.common.viewmodel
 
 /**  Used as a wrapper for data that is exposed via a LiveData that represents an event. */
 class Event<out T>(private val content: T?) {

@@ -3,7 +3,7 @@ package com.github.jhamin0511.mystudy.ui.refresh
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
-import com.github.jhamin0511.app.common.BaseFragment
+import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentRefreshThreeBinding
 import dagger.hilt.android.AndroidEntryPoint
