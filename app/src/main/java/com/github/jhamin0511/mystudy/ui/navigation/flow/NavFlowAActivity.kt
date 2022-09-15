@@ -5,11 +5,10 @@ import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ActivityNavFlowABinding
-import com.github.jhamin0511.mystudy.ui.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NavFlowAActivity : BaseActivity() {
+class NavFlowAActivity : com.github.jhamin0511.app.common.BaseActivity() {
     companion object {
         fun start(context: Context): Intent {
             return Intent(context, NavFlowAActivity::class.java)

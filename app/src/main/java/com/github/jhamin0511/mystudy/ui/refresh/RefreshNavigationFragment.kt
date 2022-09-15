@@ -9,18 +9,16 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentRefreshNavigationBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class RefreshNavigationFragment : BaseFragment() {
+class RefreshNavigationFragment : BaseFragment(R.layout.fragment_refresh_navigation) {
     private lateinit var binding: FragmentRefreshNavigationBinding
     private val viewModel: RefreshViewModel by activityViewModels()
-
-    override fun getLayoutId() = R.layout.fragment_refresh_navigation
 
     override fun initValue() {
         Timber.i("viewModel : $viewModel")

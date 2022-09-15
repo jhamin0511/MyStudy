@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.ui.common
+package com.github.jhamin0511.app.common
 
 import android.content.Context
 import android.os.Bundle
@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.github.jhamin0511.mystudy.application.SHOW_LIFECYCLE_LOGO
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
-abstract class BaseFragment : Fragment() {
-    @LayoutRes
-    abstract fun getLayoutId(): Int
+abstract class BaseFragment(
+    @LayoutRes private val layoutId: Int
+) : Fragment(layoutId) {
     abstract fun initValue()
     abstract fun initView(view: View)
     abstract fun initObserve()
@@ -23,18 +21,19 @@ abstract class BaseFragment : Fragment() {
     private val tagName = "Lifecycle_${this::class.simpleName}"
 
     override fun onAttach(context: Context) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onAttach(context)
 
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onAttach()")
         }
-        super.onAttach(context)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onCreate(savedInstanceState)
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onCreate()")
         }
-        super.onCreate(savedInstanceState)
 
         initValue()
         initObserve()
@@ -45,91 +44,91 @@ abstract class BaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (SHOW_LIFECYCLE_LOGO) {
-            val controller = this.findNavController()
-            val backQueue = controller.backQueue
-            Timber.tag("NavController").i("stack size : %s", backQueue.size)
-            for (entry in backQueue) {
-                val des = entry.destination
-                val message = "entry : $entry / " +
-                    "label : ${des.label} / " +
-                    "name : ${des.navigatorName} / " +
-                    "displayName : ${des.displayName}"
-                Timber.tag("NavController").i(message)
-            }
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onCreateView()")
         }
-        return inflater.inflate(getLayoutId(), container, false)
+
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onViewCreated()")
         }
+
         initView(view)
         initEvent()
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onViewStateRestored(savedInstanceState)
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onViewStateRestored()")
         }
-        super.onViewStateRestored(savedInstanceState)
     }
 
     override fun onStart() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onStart()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onStart()")
         }
-        super.onStart()
     }
 
     override fun onResume() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onResume()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onResume()")
         }
-        super.onResume()
     }
 
     override fun onPause() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onPause()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onPause()")
         }
-        super.onPause()
     }
 
     override fun onStop() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onStop()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onStop()")
         }
-        super.onStop()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onSaveInstanceState(outState)
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onSaveInstanceState()")
         }
-        super.onSaveInstanceState(outState)
     }
 
     override fun onDestroyView() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onDestroyView()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onDestroyView()")
         }
-        super.onDestroyView()
     }
 
     override fun onDestroy() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onDestroy()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onDestroy()")
         }
-        super.onDestroy()
     }
 
     override fun onDetach() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onDetach()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onDetach()")
         }
-        super.onDetach()
     }
 }

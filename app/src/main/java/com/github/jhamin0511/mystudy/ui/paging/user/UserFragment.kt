@@ -10,10 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentUserBinding
 import com.github.jhamin0511.mystudy.time.GlobalTime
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.ui.paging.PagingErrorHandler
 import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
 import com.github.jhamin0511.mystudy.widget.recycler.HolderItemLongClickListener
@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
-class UserFragment : BaseFragment() {
+class UserFragment : BaseFragment(R.layout.fragment_user) {
     private lateinit var binding: FragmentUserBinding
     private val viewModel: UserViewModel by viewModels()
     private val userClick = object : HolderItemClickListener {
@@ -40,8 +40,6 @@ class UserFragment : BaseFragment() {
     }
     private val adapter = UserAdapter(userClick, userLongClick)
     private val handler by lazy { PagingErrorHandler(requireContext()) }
-
-    override fun getLayoutId() = R.layout.fragment_user
 
     override fun initValue() {
         // no-op comment in an unused listener function

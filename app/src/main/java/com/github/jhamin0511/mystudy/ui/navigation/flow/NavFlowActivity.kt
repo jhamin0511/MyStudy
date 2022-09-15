@@ -5,12 +5,11 @@ import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ActivityNavFlowBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class NavFlowActivity : BaseActivity() {
+class NavFlowActivity : com.github.jhamin0511.app.common.BaseActivity() {
     companion object {
         const val ACTION_FLOW_A = "navigation.flow.NavFlowAFragment"
 

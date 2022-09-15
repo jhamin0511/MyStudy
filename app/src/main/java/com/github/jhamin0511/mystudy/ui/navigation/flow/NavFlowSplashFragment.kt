@@ -4,15 +4,15 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentFlowSplashBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class NavFlowSplashFragment : BaseFragment() {
+class NavFlowSplashFragment : BaseFragment( R.layout.fragment_flow_splash) {
     companion object {
         private const val SPLASH_TIME = 2000L
     }
@@ -20,8 +20,6 @@ class NavFlowSplashFragment : BaseFragment() {
     private lateinit var binding: FragmentFlowSplashBinding
     private val navController by lazy { findNavController() }
     private val isLogin = false
-
-    override fun getLayoutId() = R.layout.fragment_flow_splash
 
     override fun initValue() {
         // no-op comment in an unused listener function

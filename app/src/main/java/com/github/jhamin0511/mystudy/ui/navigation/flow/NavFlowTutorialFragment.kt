@@ -2,16 +2,14 @@ package com.github.jhamin0511.mystudy.ui.navigation.flow
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentFlowTutorialBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NavFlowTutorialFragment : BaseFragment() {
+class NavFlowTutorialFragment : BaseFragment(R.layout.fragment_flow_tutorial) {
     private lateinit var binding: FragmentFlowTutorialBinding
-
-    override fun getLayoutId() = R.layout.fragment_flow_tutorial
 
     override fun initValue() {
         // no-op comment in an unused listener function

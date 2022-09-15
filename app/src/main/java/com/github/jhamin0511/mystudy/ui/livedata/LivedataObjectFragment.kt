@@ -7,18 +7,16 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentLivedataObjectBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LivedataObjectFragment : BaseFragment() {
+class LivedataObjectFragment : BaseFragment(R.layout.fragment_livedata_object) {
     private lateinit var binding: FragmentLivedataObjectBinding
     private val viewModel: LivedataObjectViewModel by viewModels()
-
-    override fun getLayoutId() = R.layout.fragment_livedata_object
 
     override fun initValue() {
         // no-op comment in an unused listener function

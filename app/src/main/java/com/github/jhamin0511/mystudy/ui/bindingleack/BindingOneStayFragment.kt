@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentBindingOneBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class BindingOneStayFragment : BaseFragment() {
+class BindingOneStayFragment : BaseFragment(R.layout.fragment_binding_one) {
     private lateinit var binding: FragmentBindingOneBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +19,6 @@ class BindingOneStayFragment : BaseFragment() {
 
         Timber.i("BackStackSize : ${findNavController().backQueue.size}")
     }
-
-    override fun getLayoutId() = R.layout.fragment_binding_one
 
     override fun initValue() {
         // no-op comment in an unused listener function

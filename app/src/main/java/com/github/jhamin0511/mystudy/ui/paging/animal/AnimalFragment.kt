@@ -3,20 +3,16 @@ package com.github.jhamin0511.mystudy.ui.paging.animal
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentAnimalBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AnimalFragment : BaseFragment() {
+class AnimalFragment : BaseFragment(R.layout.fragment_animal) {
     private lateinit var binding: FragmentAnimalBinding
     private val viewModel: AnimalViewModel by viewModels()
     private val adapter = AnimalAdapter()
-
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_animal
-    }
 
     override fun initValue() {
         // no-op comment in an unused listener function

@@ -8,14 +8,14 @@ import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.selection.StableIdKeyProvider
 import androidx.recyclerview.selection.StorageStrategy
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentSelectionBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SelectionFragment : BaseFragment() {
+class SelectionFragment : BaseFragment(R.layout.fragment_selection) {
     private lateinit var binding: FragmentSelectionBinding
     private val viewModel: SelectionViewModel by viewModels()
     private val itemClick = object : FoodItemClickListener {
@@ -37,8 +37,6 @@ class SelectionFragment : BaseFragment() {
             SelectionPredicates.createSelectAnything()
         ).build()
     }
-
-    override fun getLayoutId() = R.layout.fragment_selection
 
     override fun initValue() {
         viewModel.callFoods()

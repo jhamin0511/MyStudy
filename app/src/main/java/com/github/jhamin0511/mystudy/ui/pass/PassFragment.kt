@@ -3,16 +3,16 @@ package com.github.jhamin0511.mystudy.ui.pass
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyTaste
 import com.github.jhamin0511.mystudy.databinding.FragmentPassBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @Suppress("MaxLineLength")
 @AndroidEntryPoint
-class PassFragment : BaseFragment() {
+class PassFragment : BaseFragment(R.layout.fragment_pass) {
     private lateinit var binding: FragmentPassBinding
     private val whiskey = WhiskeyDto(
         1,
@@ -37,8 +37,6 @@ class PassFragment : BaseFragment() {
         favorite = false,
         follow = true
     )
-
-    override fun getLayoutId() = R.layout.fragment_pass
 
     override fun initValue() {
         // no-op comment in an unused listener function

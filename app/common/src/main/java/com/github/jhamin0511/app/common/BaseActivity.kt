@@ -1,8 +1,7 @@
-package com.github.jhamin0511.mystudy.ui.common
+package com.github.jhamin0511.app.common
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.github.jhamin0511.mystudy.application.SHOW_LIFECYCLE_LOGO
 import timber.log.Timber
 
 @Suppress("TooManyFunctions")
@@ -15,10 +14,11 @@ abstract class BaseActivity : AppCompatActivity() {
     private val tagName = "Lifecycle_${this::class.simpleName}"
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onCreate(savedInstanceState)
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onCreate()")
         }
-        super.onCreate(savedInstanceState)
 
         initValue()
         initView()
@@ -27,58 +27,66 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onStart() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onStart()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onStart()")
         }
-        super.onStart()
     }
 
     override fun onRestart() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onRestart()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onRestart()")
         }
-        super.onRestart()
     }
 
     override fun onResume() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onResume()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onResume()")
         }
-        super.onResume()
     }
 
     override fun onPause() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onPause()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onPause()")
         }
-        super.onPause()
     }
 
     override fun onStop() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onStop()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onStop()")
         }
-        super.onStop()
     }
 
     override fun onDestroy() {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onDestroy()
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onDestroy()")
         }
-        super.onDestroy()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onSaveInstanceState(outState)
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onSaveInstanceState()")
         }
-        super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        if (SHOW_LIFECYCLE_LOGO) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        if (LIFECYCLE_FLOW_LOG_ENABLE) {
             Timber.tag(tagName).i("onRestoreInstanceState()")
         }
-        super.onRestoreInstanceState(savedInstanceState)
     }
 }

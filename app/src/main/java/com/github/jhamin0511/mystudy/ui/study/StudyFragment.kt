@@ -4,16 +4,16 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.github.jhamin0511.app.common.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentStudyBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class StudyFragment : BaseFragment() {
+class StudyFragment : BaseFragment(R.layout.fragment_study) {
     private lateinit var binding: FragmentStudyBinding
     private val viewModel: StudyViewModel by viewModels()
     private val studyClick = object : HolderItemClickListener {
@@ -23,8 +23,6 @@ class StudyFragment : BaseFragment() {
         }
     }
     private val adapter = StudyAdapter(studyClick)
-
-    override fun getLayoutId() = R.layout.fragment_study
 
     override fun initValue() {
         // no-op comment in an unused listener function
