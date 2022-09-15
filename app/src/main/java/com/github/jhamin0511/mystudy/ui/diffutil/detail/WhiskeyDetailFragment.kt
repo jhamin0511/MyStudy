@@ -9,23 +9,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.github.jhamin0511.app.common.ui.BaseFragment
+import com.github.jhamin0511.app.common.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentWhiskeyDetailBinding
 import com.github.jhamin0511.mystudy.key.DTO
 import com.github.jhamin0511.mystudy.key.REQUEST
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
-import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.PickerDialogShower
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class WhiskeyDetailFragment : BaseFragment() {
+class WhiskeyDetailFragment : BaseFragment(R.layout.fragment_whiskey_detail) {
     private lateinit var binding: FragmentWhiskeyDetailBinding
     private val viewModel: WhiskeyDetailViewModel by viewModels()
-
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_whiskey_detail
-    }
 
     override fun initValue() {
         // no-op comment in an unused listener function

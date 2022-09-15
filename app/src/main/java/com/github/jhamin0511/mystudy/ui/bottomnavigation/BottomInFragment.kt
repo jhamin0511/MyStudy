@@ -5,16 +5,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentBottomInBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BottomInFragment : BaseFragment() {
+class BottomInFragment : BaseFragment(R.layout.fragment_bottom_in) {
     private lateinit var binding: FragmentBottomInBinding
-
-    override fun getLayoutId() = R.layout.fragment_bottom_in
 
     override fun initValue() {
         // no-op comment in an unused listener function

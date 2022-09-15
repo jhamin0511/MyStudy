@@ -1,0 +1,50 @@
+ext {
+    MinSdk = 23
+    TargetSdk = 31
+    CompileSdk = 32
+
+    Kotlin = "1.7.10"
+    Coroutine = "1.6.0"
+    Ktlint = "10.3.0"
+    Detekt = "1.21.0"
+    DaggerHilt = "2.42"
+
+    TestMockito = "3.7.7"
+    TestMockitoKotlin = "2.2.0"
+    TestJunit = "4.13.2"
+    TestRobolectric = "4.8"
+    TestTruth = "1.4.0"
+    TestCoreTesting = "2.1.0"
+    TestCoreKtx = "1.4.0"
+    TestJunitKtx = "1.1.3"
+    TestEspresso = "3.4.0"
+
+    AndroidxCore = "1.8.0"
+    AndroidxAppcompat = "1.5.1"
+    AndroidxConstraintlayout = "2.1.4"
+    AndroidxSwiperefreshlayout = "1.1.0"
+    AndroidxActivity = "1.4.0"
+    AndroidxFragment = "1.4.1"
+    AndroidxNavigation = "2.4.2"
+    AndroidxLifecycle = "2.4.1"
+    AndroidxRcyclerview = "1.2.1"
+    AndroidxPaging= "3.1.1"
+    AndroidxRoom= "2.4.2"
+
+    SquareupRetrofit = "2.9.0"
+    SquareupOkhttp = "4.9.3"
+    SquareupLeakcanary = "2.9.1"
+
+    Timber = "5.0.1"
+
+    RoundedImageView = "2.3.0"
+}
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    handler.maven { url 'https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven' }
+}
+
+ext.addRepos = this.&addRepos

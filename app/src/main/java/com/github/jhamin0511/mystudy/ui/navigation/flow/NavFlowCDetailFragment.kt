@@ -5,17 +5,15 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentFlowCDetailBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NavFlowCDetailFragment : BaseFragment() {
+class NavFlowCDetailFragment : BaseFragment(R.layout.fragment_flow_c_detail) {
     private lateinit var binding: FragmentFlowCDetailBinding
     private val navController by lazy { findNavController() }
-
-    override fun getLayoutId() = R.layout.fragment_flow_c_detail
 
     override fun initValue() {
         // no-op comment in an unused listener function

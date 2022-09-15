@@ -3,19 +3,17 @@ package com.github.jhamin0511.mystudy.ui.navigation.flow
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentFlowCBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NavFlowCFragment : BaseFragment() {
+class NavFlowCFragment : BaseFragment( R.layout.fragment_flow_c) {
     private lateinit var binding: FragmentFlowCBinding
     private val navMainController by lazy {
         Navigation.findNavController(requireActivity(), R.id.nav_flow)
     }
-
-    override fun getLayoutId() = R.layout.fragment_flow_c
 
     override fun initValue() {
         // no-op comment in an unused listener function

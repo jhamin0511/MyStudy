@@ -1,4 +1,4 @@
-package com.github.jhamin0511.mystudy.viewmodel
+package com.github.jhamin0511.app.common.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 

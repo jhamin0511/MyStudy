@@ -2,10 +2,10 @@ package com.github.jhamin0511.mystudy.ui.livedata
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.github.jhamin0511.app.common.viewmodel.Event
+import com.github.jhamin0511.app.common.viewmodel.event
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.data.vo.BookVo
-import com.github.jhamin0511.mystudy.viewmodel.Event
-import com.github.jhamin0511.mystudy.viewmodel.event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

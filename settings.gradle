@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MyStudy"
-include ':app'
+include ':app:common'

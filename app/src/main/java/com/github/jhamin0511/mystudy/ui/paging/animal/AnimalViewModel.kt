@@ -3,10 +3,10 @@ package com.github.jhamin0511.mystudy.ui.paging.animal
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.jhamin0511.app.common.viewmodel.value
 import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.repository.animal.AnimalRepository
 import com.github.jhamin0511.mystudy.ui.paging.START_PAGE
-import com.github.jhamin0511.mystudy.viewmodel.value
 import com.github.jhamin0511.mystudy.widget.recycler.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

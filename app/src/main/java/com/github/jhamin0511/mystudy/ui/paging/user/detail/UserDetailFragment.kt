@@ -8,20 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.github.jhamin0511.app.common.ui.BaseFragment
+import com.github.jhamin0511.app.common.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentUserDetailBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
-import com.github.jhamin0511.mystudy.viewmodel.EventObserver
 import com.github.jhamin0511.mystudy.widget.PickerDialogShower
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class UserDetailFragment : BaseFragment() {
+class UserDetailFragment : BaseFragment(R.layout.fragment_user_detail) {
     private lateinit var binding: FragmentUserDetailBinding
     private val viewModel: UserDetailViewModel by viewModels()
     private val arg: UserDetailFragmentArgs by navArgs()
-
-    override fun getLayoutId() = R.layout.fragment_user_detail
 
     override fun initValue() {
         viewModel.initModel(arg)
@@ -36,14 +34,20 @@ class UserDetailFragment : BaseFragment() {
     }
 
     override fun initObserve() {
-        viewModel.observeSaved.observe(this, EventObserver {
-            findNavController().popBackStack()
-        })
-        viewModel.observeShowPicker.observe(this, EventObserver {
-            PickerDialogShower.showDateTime(requireContext(), it) { time ->
-                viewModel.applyDate(time)
+        viewModel.observeSaved.observe(
+            this,
+            EventObserver {
+                findNavController().popBackStack()
             }
-        })
+        )
+        viewModel.observeShowPicker.observe(
+            this,
+            EventObserver {
+                PickerDialogShower.showDateTime(requireContext(), it) { time ->
+                    viewModel.applyDate(time)
+                }
+            }
+        )
     }
 
     override fun initEvent() {
@@ -63,6 +67,4 @@ class UserDetailFragment : BaseFragment() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
 }

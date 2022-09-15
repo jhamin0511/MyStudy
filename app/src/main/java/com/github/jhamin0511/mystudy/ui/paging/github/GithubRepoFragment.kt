@@ -8,9 +8,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
+import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentGithubRepoBinding
-import com.github.jhamin0511.mystudy.ui.common.BaseFragment
 import com.github.jhamin0511.mystudy.widget.recycler.defaultDecoration
 import com.github.jhamin0511.mystudy.widget.setVisible
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,12 +18,10 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class GithubRepoFragment : BaseFragment() {
+class GithubRepoFragment : BaseFragment(R.layout.fragment_github_repo) {
     private lateinit var binding: FragmentGithubRepoBinding
     private val viewModel: GithubRepoViewModel by viewModels()
     private val adapter = GithubRepoAdapter()
-
-    override fun getLayoutId() = R.layout.fragment_github_repo
 
     override fun initValue() {
         lifecycleScope.launch {
