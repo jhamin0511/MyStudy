@@ -1,9 +1,9 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
 import androidx.navigation.NavController
+import com.github.jhamin0511.app.common.recycler.HolderClickListener
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
-import com.github.jhamin0511.mystudy.widget.recycler.HolderClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.source.DataSource
+import com.github.jhamin0511.mystudy.widget.source.DataSource
 
 class WhiskeyHolderClick(
     private val navController: NavController,

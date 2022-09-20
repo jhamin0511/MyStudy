@@ -1,10 +1,10 @@
 package com.github.jhamin0511.mystudy.ui.study
 
 import android.view.ViewGroup
+import com.github.jhamin0511.app.common.recycler.BaseAdapter
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.HolderItemClickListener
 import com.github.jhamin0511.mystudy.R
-import com.github.jhamin0511.mystudy.widget.recycler.BaseAdapter
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
 
 class StudyAdapter(
     private val studyClickListener: HolderItemClickListener

@@ -10,14 +10,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import com.github.jhamin0511.app.common.recycler.HolderItemClickListener
+import com.github.jhamin0511.app.common.recycler.HolderItemLongClickListener
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.FragmentUserBinding
 import com.github.jhamin0511.mystudy.time.GlobalTime
 import com.github.jhamin0511.mystudy.ui.paging.PagingErrorHandler
-import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.HolderItemLongClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 import com.github.jhamin0511.mystudy.widget.setVisible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

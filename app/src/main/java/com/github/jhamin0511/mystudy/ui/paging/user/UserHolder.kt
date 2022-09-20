@@ -1,11 +1,10 @@
 package com.github.jhamin0511.mystudy.ui.paging.user
 
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.HolderItemClickListener
+import com.github.jhamin0511.app.common.recycler.HolderItemLongClickListener
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.databinding.ItemUserBinding
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.HolderItemLongClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.Item
-
 
 class UserHolder(
     private val binding: ItemUserBinding,

@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.HolderItemClickListener
+import com.github.jhamin0511.app.common.recycler.HolderItemLongClickListener
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ItemDateBinding
 import com.github.jhamin0511.mystudy.databinding.ItemUserBinding
 import com.github.jhamin0511.mystudy.ui.paging.user.HolderType.DATE
 import com.github.jhamin0511.mystudy.ui.paging.user.HolderType.USER
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.HolderItemClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.HolderItemLongClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 object HolderType {
     const val DATE = R.layout.item_date

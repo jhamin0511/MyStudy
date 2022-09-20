@@ -3,11 +3,11 @@ package com.github.jhamin0511.mystudy.ui.diffutil
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.di.network.NETWORK_DELAY_TIME
 import com.github.jhamin0511.mystudy.network.request.WhiskeyRequest
 import com.github.jhamin0511.mystudy.repository.whiskey.WhiskeyRepository
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.delay

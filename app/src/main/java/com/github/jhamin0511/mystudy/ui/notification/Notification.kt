@@ -14,6 +14,7 @@ import com.github.jhamin0511.mystudy.ui.notification.channel.Channel
 import com.github.jhamin0511.mystudy.ui.notification.channel.ChannelGroup
 import com.github.jhamin0511.mystudy.ui.notification.group.Group
 import com.github.jhamin0511.mystudy.ui.notification.style.Style
+import com.github.jhamin0511.ui.design.R as DesignR
 
 class Notification(
     private val context: Context
@@ -51,7 +52,7 @@ class Notification(
         normalCount++
         val description = context.getString(R.string.channel_normal_description)
         val args = Bundle().apply {
-            putInt(COLOR, R.color.red_50)
+            putInt(COLOR, DesignR.color.red_50)
             putString(TITLE, title)
             putString(DESCRIPTION, description)
         }
@@ -78,7 +79,7 @@ class Notification(
         val title = "$name $groupCount"
         groupCount++
         val args = Bundle().apply {
-            putInt(COLOR, R.color.purple_50)
+            putInt(COLOR, DesignR.color.purple_50)
             putString(TITLE, title)
             putString(DESCRIPTION, description)
         }
@@ -117,7 +118,7 @@ class Notification(
         importanceCount++
         val description = context.getString(channel.description)
         val args = Bundle().apply {
-            putInt(COLOR, R.color.pink_50)
+            putInt(COLOR, DesignR.color.pink_50)
             putString(TITLE, title)
             putString(DESCRIPTION, description)
         }
@@ -144,7 +145,7 @@ class Notification(
         styleCount++
         val description = context.getString(channel.description)
         val args = Bundle().apply {
-            putInt(COLOR, R.color.cyan_50)
+            putInt(COLOR, DesignR.color.cyan_50)
             putString(TITLE, title)
             putString(DESCRIPTION, description)
         }

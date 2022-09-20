@@ -1,9 +1,9 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.BR
 import com.github.jhamin0511.mystudy.databinding.ItemWhiskeyHeaderBinding
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class WhiskeyHeaderHolder(
     private val binding: ItemWhiskeyHeaderBinding

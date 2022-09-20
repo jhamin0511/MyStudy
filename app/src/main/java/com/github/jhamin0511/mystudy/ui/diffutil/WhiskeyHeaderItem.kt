@@ -1,6 +1,6 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
-import com.github.jhamin0511.mystudy.widget.recycler.Item
+import com.github.jhamin0511.app.common.recycler.Item
 
 data class WhiskeyHeaderItem(
     val date: String

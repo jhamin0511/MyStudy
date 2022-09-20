@@ -1,10 +1,10 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
 import androidx.annotation.DrawableRes
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyTaste
 import com.github.jhamin0511.mystudy.time.GlobalTime
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 data class WhiskeyItem(
     val id: Long,

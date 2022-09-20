@@ -1,9 +1,9 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
 import androidx.lifecycle.MutableLiveData
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
-import com.github.jhamin0511.mystudy.widget.recycler.Item
-import com.github.jhamin0511.mystudy.widget.recycler.source.DataSource
+import com.github.jhamin0511.mystudy.widget.source.DataSource
 
 class WhiskeyDataSource(
     private val observe: MutableLiveData<List<Item>>

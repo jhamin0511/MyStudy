@@ -2,7 +2,7 @@ package com.github.jhamin0511.mystudy.ui.diffutil
 
 import androidx.annotation.DrawableRes
 import androidx.navigation.NavController
-import com.github.jhamin0511.mystudy.widget.recycler.source.SourceQuery
+import com.github.jhamin0511.mystudy.widget.source.SourceQuery
 
 interface WhiskeyItemClickListener {
     fun onClickImage(@DrawableRes resource: Int)
