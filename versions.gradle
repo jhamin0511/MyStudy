@@ -26,7 +26,7 @@ ext {
     AndroidxSwiperefreshlayout = "1.1.0"
     AndroidxActivity = "1.4.0"
     AndroidxFragment = "1.4.1"
-    AndroidxNavigation = "2.4.2"
+    AndroidxNavigation = "2.5.2"
     AndroidxLifecycle = "2.4.1"
     AndroidxRcyclerview = "1.2.1"
     AndroidxPaging= "3.1.1"

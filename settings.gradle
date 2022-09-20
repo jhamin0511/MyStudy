@@ -14,4 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MyStudy"
 include ':app:common'
-include ':app:navigationflow'
+include ':ui:design'
+include ':ui:widget'
+include ':sample:NavigationFlow'
+include ':sample:DesignSample'

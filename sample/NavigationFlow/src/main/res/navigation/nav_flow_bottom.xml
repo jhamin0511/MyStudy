@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_flow_bottom"
+    app:startDestination="@+id/navFlowAFragment">
+
+    <fragment
+        android:id="@+id/navFlowAFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.NavFlowAFragment"
+        android:label="NavDeeplinkDFragment"
+        tools:layout="@layout/fragment_flow_a" />
+    <fragment
+        android:id="@+id/navFlowBFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.NavFlowBFragment"
+        android:label="NavFlowEFragment"
+        tools:layout="@layout/fragment_flow_b" />
+    <fragment
+        android:id="@+id/navFlowCFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.NavFlowCFragment"
+        android:label="NavFlowFFragment"
+        tools:layout="@layout/fragment_flow_c" />
+    <fragment
+        android:id="@+id/navFlowDFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.NavFlowDFragment"
+        android:label="NavFlowGFragment"
+        tools:layout="@layout/fragment_flow_d" />
+</navigation>
