@@ -26,7 +26,7 @@ class SignupFragment : BaseFragment(R.layout.fragment_signup) {
 
     override fun initEvent() {
         binding.btMain.setOnClickListener {
-            navController.navigate(R.id.action_signupFragment_to_mainFragment)
+            navController.setGraph(R.navigation.nav_graph)
         }
     }
 }

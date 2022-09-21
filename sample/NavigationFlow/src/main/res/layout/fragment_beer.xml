@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_bigger"
             android:text="Beer"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

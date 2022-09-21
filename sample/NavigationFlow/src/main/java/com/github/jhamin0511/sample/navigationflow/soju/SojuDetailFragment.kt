@@ -1,16 +1,15 @@
-package com.github.jhamin0511.sample.navigationflow.main
+package com.github.jhamin0511.sample.navigationflow.soju
 
 import android.net.Uri
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentMakgeolliDetailBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentSojuDetailBinding
 
-class MakgeolliDetailFragment : BaseFragment(R.layout.fragment_makgeolli_detail) {
-    private lateinit var binding: FragmentMakgeolliDetailBinding
+class SojuDetailFragment : BaseFragment(R.layout.fragment_soju_detail) {
+    private lateinit var binding: FragmentSojuDetailBinding
     private val navController by lazy { findNavController() }
 
     override fun initValue() {
@@ -28,14 +27,11 @@ class MakgeolliDetailFragment : BaseFragment(R.layout.fragment_makgeolli_detail)
 
     override fun initEvent() {
         binding.btStartActionLogin.setOnClickListener {
-            navController.navigate(R.id.action_global_loginFragment)
+            navController.setGraph(R.navigation.nav_session)
         }
         binding.btStartDeeplinkLogin.setOnClickListener {
-            val options = NavOptions.Builder()
-                .setPopUpTo(R.id.makgeolliDetailFragment, inclusive = true, saveState = false)
-                .build()
-            val uri = Uri.parse("mystudy://login")
-            navController.navigate(uri, options)
+            val deepLink = Uri.parse("navigationflow://detail/makgeolli")
+            navController.navigate(deepLink, null)
         }
     }
 }

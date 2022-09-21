@@ -30,12 +30,11 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
         lifecycleScope.launch {
             delay(SPLASH_TIME)
 
-            val actionId = if (isLogin) {
-                R.id.action_splashFragment_to_mainFragment
+            if (isLogin) {
+                navController.popBackStack()
             } else {
-                R.id.action_splashFragment_to_loginFragment
+                navController.setGraph(R.navigation.nav_session)
             }
-            navController.navigate(actionId)
         }
     }
 

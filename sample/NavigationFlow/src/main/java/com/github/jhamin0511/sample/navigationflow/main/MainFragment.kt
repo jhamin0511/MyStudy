@@ -1,5 +1,6 @@
 package com.github.jhamin0511.sample.navigationflow.main
 
+import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
@@ -7,12 +8,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
+import com.github.jhamin0511.sample.navigationflow.application.isShowSplash
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentMainBinding
-import timber.log.Timber
+import com.github.jhamin0511.sample.navigationflow.logBackstack
 
 class MainFragment : BaseFragment(R.layout.fragment_main) {
     private lateinit var binding: FragmentMainBinding
-    private val rootNavController by lazy { findNavController() }
+    private val navController by lazy { findNavController() }
 
     override fun initValue() {
         // no-op comment in an unused listener function
@@ -25,22 +27,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         val hostFragment =
             childFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         val bottomNavController = hostFragment.findNavController()
-        Timber.i("rootNavController : $rootNavController / bottomNavController : $bottomNavController")
         binding.bottomNavigation.setupWithNavController(bottomNavController)
-
-        Timber.i("bottomNavigation VISIBLE : ${binding.bottomNavigation.visibility == View.VISIBLE}")
-//        bottomNavController.addOnDestinationChangedListener { _, destination, _ ->
-//            Timber.i("destination : $destination")
-//            val bottomD = destination.id == R.id.navFlowDFragment
-//            val bottomE = destination.id == R.id.navFlowEFragment
-//            val bottomF = destination.id == R.id.navFlowFFragment
-//            val bottomG = destination.id == R.id.navFlowGFragment
-//            Timber.i("bottomD : $bottomD / bottomE : $bottomE / bottomF : $bottomF / bottomG : $bottomG / ")
-//            val bottomVisible = bottomD or bottomE or bottomF or bottomG
-//
-//            binding.bottomNavigation.setVisible(bottomVisible)
-//            binding.clSub.setVisible(bottomVisible)
-//        }
     }
 
     override fun initObserve() {
@@ -48,8 +35,18 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     override fun initEvent() {
-        binding.btH.setOnClickListener {
-//            rootNavController.navigate(R.id.action_navFlowCFragment_to_navFlowHFragment)
+        binding.btLiqueur.setOnClickListener {
+            navController.navigate(R.id.action_mainFragment_to_liqueurFragment)
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        navController.logBackstack()
+        if (!isShowSplash) {
+            navController.navigate(R.id.action_mainFragment_to_splashFragment)
+            isShowSplash = true
         }
     }
 }

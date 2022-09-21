@@ -1,16 +1,18 @@
 package com.github.jhamin0511.sample.navigationflow.main
 
+import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentSojuBinding
+import com.github.jhamin0511.sample.navigationflow.logBackstack
 
 class SojuFragment : BaseFragment(R.layout.fragment_soju) {
     private lateinit var binding: FragmentSojuBinding
-    private val navMainController by lazy {
-        Navigation.findNavController(requireActivity(), R.id.root_fragment_container)
+    private val navController by lazy {
+        Navigation.findNavController(requireActivity(), R.id.fragment_container)
     }
 
     override fun initValue() {
@@ -28,7 +30,13 @@ class SojuFragment : BaseFragment(R.layout.fragment_soju) {
 
     override fun initEvent() {
         binding.btDetail.setOnClickListener {
-            navMainController.navigate(R.id.action_global_sojuDetailFragment)
+            navController.navigate(R.id.action_global_sojuDetailFragment)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        navController.logBackstack()
     }
 }

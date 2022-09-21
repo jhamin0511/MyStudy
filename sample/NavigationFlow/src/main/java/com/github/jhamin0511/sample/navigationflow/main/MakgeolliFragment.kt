@@ -1,16 +1,18 @@
 package com.github.jhamin0511.sample.navigationflow.main
 
+import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentMakgeolliBinding
+import com.github.jhamin0511.sample.navigationflow.logBackstack
 
 class MakgeolliFragment : BaseFragment(R.layout.fragment_makgeolli) {
     private lateinit var binding: FragmentMakgeolliBinding
-    private val navMainController by lazy {
-        Navigation.findNavController(requireActivity(), R.id.root_fragment_container)
+    private val navController by lazy {
+        Navigation.findNavController(requireActivity(), R.id.fragment_container)
     }
 
     override fun initValue() {
@@ -28,7 +30,13 @@ class MakgeolliFragment : BaseFragment(R.layout.fragment_makgeolli) {
 
     override fun initEvent() {
         binding.btDetail.setOnClickListener {
-            navMainController.navigate(R.id.action_global_makgeolliDetailFragment)
+            navController.navigate(R.id.action_global_makgeolliDetailFragment)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        navController.logBackstack()
     }
 }

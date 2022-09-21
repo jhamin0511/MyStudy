@@ -5,7 +5,10 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import com.github.jhamin0511.app.common.application.ApplicationLifecycleObserve
 import timber.log.Timber
 
+var isShowSplash = false
+
 class NavFlowApplication : Application() {
+
     override fun onCreate() {
         super.onCreate()
 

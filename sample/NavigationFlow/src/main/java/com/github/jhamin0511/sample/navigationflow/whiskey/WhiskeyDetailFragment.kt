@@ -1,9 +1,7 @@
-package com.github.jhamin0511.sample.navigationflow.main
+package com.github.jhamin0511.sample.navigationflow.whiskey
 
-import android.net.Uri
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
@@ -28,14 +26,7 @@ class WhiskeyDetailFragment : BaseFragment(R.layout.fragment_whiskey_detail) {
 
     override fun initEvent() {
         binding.btStartActionLogin.setOnClickListener {
-            navController.navigate(R.id.action_global_loginFragment)
-        }
-        binding.btStartDeeplinkLogin.setOnClickListener {
-            val options = NavOptions.Builder()
-                .setPopUpTo(R.id.loginFragment, inclusive = true, saveState = false)
-                .build()
-            val uri = Uri.parse("mystudy://login")
-            navController.navigate(uri, options)
+            navController.setGraph(R.navigation.nav_session)
         }
     }
 }
