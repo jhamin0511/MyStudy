@@ -7,11 +7,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentFlowMainBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentMainBinding
 import timber.log.Timber
 
-class NavFlowMainFragment : BaseFragment(R.layout.fragment_flow_main) {
-    private lateinit var binding: FragmentFlowMainBinding
+class MainFragment : BaseFragment(R.layout.fragment_main) {
+    private lateinit var binding: FragmentMainBinding
     private val rootNavController by lazy { findNavController() }
 
     override fun initValue() {

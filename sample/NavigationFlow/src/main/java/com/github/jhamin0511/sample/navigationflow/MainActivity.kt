@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import com.github.jhamin0511.app.common.ui.BaseActivity
-import com.github.jhamin0511.sample.navigationflow.databinding.ActivityNavFlowBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.ActivityMainBinding
 
-class NavFlowActivity : BaseActivity() {
+class MainActivity : BaseActivity() {
     companion object {
         const val ACTION_FLOW_A = "navigation.flow.NavFlowAFragment"
 
@@ -15,14 +15,14 @@ class NavFlowActivity : BaseActivity() {
                 Intent.FLAG_ACTIVITY_NEW_TASK or
                 Intent.FLAG_ACTIVITY_CLEAR_TASK
 
-            return Intent(context, NavFlowActivity::class.java).apply {
+            return Intent(context, MainActivity::class.java).apply {
                 this.flags = flags
                 this.action = action
             }
         }
     }
 
-    private lateinit var binding: ActivityNavFlowBinding
+    private lateinit var binding: ActivityMainBinding
 //    private val navController by lazy { findNavController(R.id.fragment_deeplink_container) }
 
     override fun initValue() {
@@ -30,7 +30,7 @@ class NavFlowActivity : BaseActivity() {
     }
 
     override fun initView() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_nav_flow)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
     }
 
@@ -61,4 +61,5 @@ class NavFlowActivity : BaseActivity() {
 //
 //        overridePendingTransition(0, R.anim.activity_stay)
 //    }
+
 }

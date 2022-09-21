@@ -7,10 +7,10 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentFlowCDetailBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentMakgeolliDetailBinding
 
-class NavFlowCDetailFragment : BaseFragment(R.layout.fragment_flow_c_detail) {
-    private lateinit var binding: FragmentFlowCDetailBinding
+class MakgeolliDetailFragment : BaseFragment(R.layout.fragment_makgeolli_detail) {
+    private lateinit var binding: FragmentMakgeolliDetailBinding
     private val navController by lazy { findNavController() }
 
     override fun initValue() {
@@ -28,11 +28,11 @@ class NavFlowCDetailFragment : BaseFragment(R.layout.fragment_flow_c_detail) {
 
     override fun initEvent() {
         binding.btStartActionLogin.setOnClickListener {
-            navController.navigate(R.id.action_global_navFlowLoginFragment)
+            navController.navigate(R.id.action_global_loginFragment)
         }
         binding.btStartDeeplinkLogin.setOnClickListener {
             val options = NavOptions.Builder()
-                .setPopUpTo(R.id.navFlowLoginFragment, inclusive = true, saveState = false)
+                .setPopUpTo(R.id.makgeolliDetailFragment, inclusive = true, saveState = false)
                 .build()
             val uri = Uri.parse("mystudy://login")
             navController.navigate(uri, options)

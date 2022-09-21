@@ -52,7 +52,7 @@ class NavFlowAActivity : BaseActivity() {
 //            }
 //        }
         binding.btStartNewActivity.setOnClickListener {
-            val intent = NavFlowActivity.start(this, NavFlowActivity.ACTION_FLOW_A)
+            val intent = MainActivity.start(this, MainActivity.ACTION_FLOW_A)
             startActivity(intent)
             finish()
         }

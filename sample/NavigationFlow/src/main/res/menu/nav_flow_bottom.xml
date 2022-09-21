@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navFlowAFragment"
+        android:id="@+id/makgeolliFragment"
         android:contentDescription="A"
         android:icon="@drawable/ic_a"
         android:title="A" />
     <item
-        android:id="@+id/navFlowBFragment"
+        android:id="@+id/sojuFragment"
         android:contentDescription="B"
         android:icon="@drawable/ic_b"
         android:title="B" />
     <item
-        android:id="@+id/navFlowCFragment"
+        android:id="@+id/beerFragment"
         android:contentDescription="C"
         android:icon="@drawable/ic_c"
         android:title="C" />
     <item
-        android:id="@+id/navFlowDFragment"
+        android:id="@+id/whiskeyFragment"
         android:contentDescription="D"
         android:icon="@drawable/ic_d"
         android:title="D" />

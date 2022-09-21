@@ -1,14 +1,14 @@
-package com.github.jhamin0511.sample.navigationflow.login
+package com.github.jhamin0511.sample.navigationflow.signup
 
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentFlowLoginBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentSignupBinding
 
-class NavFlowLoginFragment : BaseFragment(R.layout.fragment_flow_login) {
-    private lateinit var binding: FragmentFlowLoginBinding
+class SignupFragment : BaseFragment(R.layout.fragment_signup) {
+    private lateinit var binding: FragmentSignupBinding
     private val navController by lazy { findNavController() }
 
     override fun initValue() {
@@ -26,10 +26,7 @@ class NavFlowLoginFragment : BaseFragment(R.layout.fragment_flow_login) {
 
     override fun initEvent() {
         binding.btMain.setOnClickListener {
-            navController.navigate(R.id.action_navFlowLoginFragment_to_navFlowMainFragment)
-        }
-        binding.btSignup.setOnClickListener {
-            navController.navigate(R.id.action_navFlowLoginFragment_to_navFlowSignupFragment)
+            navController.navigate(R.id.action_signupFragment_to_mainFragment)
         }
     }
 }

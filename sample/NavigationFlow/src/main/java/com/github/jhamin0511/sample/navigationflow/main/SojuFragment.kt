@@ -5,10 +5,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentFlowBBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentSojuBinding
 
-class NavFlowBFragment : BaseFragment(R.layout.fragment_flow_b) {
-    private lateinit var binding: FragmentFlowBBinding
+class SojuFragment : BaseFragment(R.layout.fragment_soju) {
+    private lateinit var binding: FragmentSojuBinding
     private val navMainController by lazy {
         Navigation.findNavController(requireActivity(), R.id.root_fragment_container)
     }
@@ -28,7 +28,7 @@ class NavFlowBFragment : BaseFragment(R.layout.fragment_flow_b) {
 
     override fun initEvent() {
         binding.btDetail.setOnClickListener {
-            navMainController.navigate(R.id.action_global_NavFlowBDetailFragment)
+            navMainController.navigate(R.id.action_global_sojuDetailFragment)
         }
     }
 }

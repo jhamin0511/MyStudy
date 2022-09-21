@@ -6,16 +6,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentFlowSplashBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class NavFlowSplashFragment : BaseFragment(R.layout.fragment_flow_splash) {
+class SplashFragment : BaseFragment(R.layout.fragment_splash) {
     companion object {
         private const val SPLASH_TIME = 2000L
     }
 
-    private lateinit var binding: FragmentFlowSplashBinding
+    private lateinit var binding: FragmentSplashBinding
     private val navController by lazy { findNavController() }
     private val isLogin = false
 
@@ -31,9 +31,9 @@ class NavFlowSplashFragment : BaseFragment(R.layout.fragment_flow_splash) {
             delay(SPLASH_TIME)
 
             val actionId = if (isLogin) {
-                R.id.action_navFlowSplashFragment_to_navFlowMainFragment
+                R.id.action_splashFragment_to_mainFragment
             } else {
-                R.id.action_navFlowSplashFragment_to_navFlowLoginFragment
+                R.id.action_splashFragment_to_loginFragment
             }
             navController.navigate(actionId)
         }

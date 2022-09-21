@@ -24,6 +24,9 @@ dependencies {
     // Test
     implementation "com.google.android.material:material:$Material"
     testImplementation "junit:junit:$TestJunit"
+    testImplementation "androidx.test.ext:junit:$AndroidxTestExt"
+    debugImplementation "androidx.test.ext:truth:$AndroidxTestTruth"
+    debugImplementation "androidx.fragment:fragment-testing:$AndroidxFragment"
     androidTestImplementation "androidx.test.ext:junit:$AndroidxTestExt"
     androidTestImplementation "androidx.test.espresso:espresso-core:$AndroidXTestEspresso"
 
@@ -34,8 +37,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$AndroidxNavigation"
     implementation "androidx.navigation:navigation-ui-ktx:$AndroidxNavigation"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$AndroidxNavigation"
-    androidTestImplementation "androidx.navigation:navigation-testing:$AndroidxNavigation"
     implementation "androidx.navigation:navigation-compose:$AndroidxNavigation"
+    androidTestImplementation "androidx.navigation:navigation-testing:$AndroidxNavigation"
 
     // Logging
     implementation "com.jakewharton.timber:timber:$Timber"

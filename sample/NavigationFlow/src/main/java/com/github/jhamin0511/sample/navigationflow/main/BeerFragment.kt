@@ -5,12 +5,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentFlowCBinding
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentBeerBinding
 
-class NavFlowCFragment : BaseFragment(R.layout.fragment_flow_c) {
-    private lateinit var binding: FragmentFlowCBinding
+class BeerFragment : BaseFragment(R.layout.fragment_beer) {
+    private lateinit var binding: FragmentBeerBinding
     private val navMainController by lazy {
-        Navigation.findNavController(requireActivity(), R.id.nav_flow)
+        Navigation.findNavController(requireActivity(), R.id.nav_graph)
     }
 
     override fun initValue() {
@@ -29,7 +29,7 @@ class NavFlowCFragment : BaseFragment(R.layout.fragment_flow_c) {
     override fun initEvent() {
         binding.btDetail.setOnClickListener {
 //            navController.navigate(R.id.navFlowFDashFragment)
-            navMainController.navigate(R.id.action_global_NavFlowCDetailFragment)
+            navMainController.navigate(R.id.action_global_beerDetailFragment)
         }
     }
 }
