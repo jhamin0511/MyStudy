@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/btmNavLiqueurFragment">
+    app:startDestination="@id/splashFragment">
 
     <include app:graph="@navigation/nav_session" />
 
@@ -24,15 +24,18 @@
         android:id="@+id/splashFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.splash.SplashFragment"
         android:label="SplashFragment"
-        tools:layout="@layout/fragment_splash" />
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_btmNavLiqueurFragment"
+            app:destination="@id/btmNavLiqueurFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/btmNavLiqueurFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.main.BtmNavLiqueurFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_btm_nav_liqueur">
-        <action
-            android:id="@+id/action_btmNavLiqueurFragment_to_splashFragment"
-            app:destination="@id/splashFragment" />
         <action
             android:id="@+id/action_btmNavLiqueurFragment_to_liqueurFragment"
             app:destination="@id/liqueurFragment" />

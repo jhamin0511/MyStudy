@@ -6,6 +6,7 @@ import com.github.jhamin0511.app.common.application.ApplicationLifecycleObserve
 import timber.log.Timber
 
 var isShowSplash = false
+var isLogin = false
 
 class NavFlowApplication : Application() {
 

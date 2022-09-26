@@ -8,7 +8,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
-import com.github.jhamin0511.sample.navigationflow.application.isShowSplash
 import com.github.jhamin0511.sample.navigationflow.cocktail.CocktailActivity
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentBtmNavLiqueurBinding
 import com.github.jhamin0511.sample.navigationflow.logBackstack
@@ -48,10 +47,5 @@ class BtmNavLiqueurFragment : BaseFragment(R.layout.fragment_btm_nav_liqueur) {
         super.onCreate(savedInstanceState)
 
         navController.logBackstack()
-
-        if (!isShowSplash) {
-            navController.navigate(R.id.action_btmNavLiqueurFragment_to_splashFragment)
-            isShowSplash = true
-        }
     }
 }
