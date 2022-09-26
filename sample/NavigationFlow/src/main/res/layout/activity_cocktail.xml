@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_bigger"
-            android:text="Activity A"
+            android:text="Cocktail"
             android:textColor="@color/white"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -20,31 +20,31 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/bt_start_action_a"
+            android:id="@+id/bt_start_action_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="START ACTION A"
+            android:text="START ACTION Login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/bt_start_deeplink_a"
+            android:id="@+id/bt_start_deeplink_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="START DEEPLINK A"
+            android:text="START DEEPLINK Login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_start_action_a" />
+            app:layout_constraintTop_toBottomOf="@id/bt_start_action_login" />
 
         <Button
             android:id="@+id/bt_start_new_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="START NEW ACTIVITY A"
+            android:text="START NEW ACTIVITY Main"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt_start_deeplink_a" />
+            app:layout_constraintTop_toBottomOf="@id/bt_start_deeplink_login" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,29 +1,30 @@
 package com.github.jhamin0511.sample.navigationflow
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.github.jhamin0511.app.common.ui.BaseActivity
 import com.github.jhamin0511.sample.navigationflow.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class MainActivity : BaseActivity() {
     companion object {
-        const val ACTION_FLOW_A = "navigation.flow.NavFlowAFragment"
+        const val ACTION_LOGIN = "com.github.jhamin0511.sample.navigationflow.LOGIN"
 
-        fun start(context: Context, action: String): Intent {
-            val flags = Intent.FLAG_ACTIVITY_NO_ANIMATION or
-                Intent.FLAG_ACTIVITY_NEW_TASK or
-                Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-            return Intent(context, MainActivity::class.java).apply {
-                this.flags = flags
+        fun startLogin(context: Activity, action: String) {
+            val intent = Intent(context, MainActivity::class.java).apply {
+                this.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION or
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                    Intent.FLAG_ACTIVITY_SINGLE_TOP
                 this.action = action
             }
+            context.startActivity(intent)
         }
     }
 
     private lateinit var binding: ActivityMainBinding
-//    private val navController by lazy { findNavController(R.id.fragment_deeplink_container) }
+    private val navController by lazy { findNavController(R.id.fragment_container) }
 
     override fun initValue() {
         // no-op comment in an unused listener function
@@ -42,24 +43,14 @@ class MainActivity : BaseActivity() {
         // no-op comment in an unused listener function
     }
 
-//    override fun onNewIntent(intent: Intent?) {
-//        super.onNewIntent(intent)
-//
-//        Timber.i("intent : $intent")
-////        if (intent?.action == ACTION_FLOW_A) {
-////            val options = NavOptions.Builder()
-////                .setPopUpTo(R.id.navFlowRootFragment, inclusive = true, saveState = false)
-////                .build()
-////            navController.navigate(R.id.navFlowAFragment, null, options)
-////        } else {
-////            navController.handleDeepLink(intent)
-////        }
-//    }
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
 
-//    override fun onPause() {
-//        super.onPause()
-//
-//        overridePendingTransition(0, R.anim.activity_stay)
-//    }
-
+        Timber.i("intent : $intent")
+        if (intent?.action == ACTION_LOGIN) {
+            navController.setGraph(R.navigation.nav_session)
+        } else {
+            navController.handleDeepLink(intent)
+        }
+    }
 }

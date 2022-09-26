@@ -1,4 +1,4 @@
-package com.github.jhamin0511.sample.navigationflow
+package com.github.jhamin0511.sample.navigationflow.liqueur
 
 import android.net.Uri
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
+import com.github.jhamin0511.sample.navigationflow.R
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentLiqueurBinding
 
 class LiqueurFragment : BaseFragment(R.layout.fragment_liqueur) {

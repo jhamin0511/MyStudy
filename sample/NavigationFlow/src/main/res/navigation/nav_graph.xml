@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/btmNavLiqueurFragment">
 
     <include app:graph="@navigation/nav_session" />
 
@@ -26,15 +26,15 @@
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash" />
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.github.jhamin0511.sample.navigationflow.main.MainFragment"
+        android:id="@+id/btmNavLiqueurFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.BtmNavLiqueurFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
+        tools:layout="@layout/fragment_btm_nav_liqueur">
         <action
-            android:id="@+id/action_mainFragment_to_splashFragment"
+            android:id="@+id/action_btmNavLiqueurFragment_to_splashFragment"
             app:destination="@id/splashFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_liqueurFragment"
+            android:id="@+id/action_btmNavLiqueurFragment_to_liqueurFragment"
             app:destination="@id/liqueurFragment" />
     </fragment>
     <fragment
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/liqueurFragment"
-        android:name="com.github.jhamin0511.sample.navigationflow.LiqueurFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.liqueur.LiqueurFragment"
         android:label="LiqueurFragment"
         tools:layout="@layout/fragment_liqueur" />
 </navigation>

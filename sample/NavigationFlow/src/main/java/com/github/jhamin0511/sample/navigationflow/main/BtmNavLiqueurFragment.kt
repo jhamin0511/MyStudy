@@ -9,11 +9,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
 import com.github.jhamin0511.sample.navigationflow.application.isShowSplash
-import com.github.jhamin0511.sample.navigationflow.databinding.FragmentMainBinding
+import com.github.jhamin0511.sample.navigationflow.cocktail.CocktailActivity
+import com.github.jhamin0511.sample.navigationflow.databinding.FragmentBtmNavLiqueurBinding
 import com.github.jhamin0511.sample.navigationflow.logBackstack
 
-class MainFragment : BaseFragment(R.layout.fragment_main) {
-    private lateinit var binding: FragmentMainBinding
+class BtmNavLiqueurFragment : BaseFragment(R.layout.fragment_btm_nav_liqueur) {
+    private lateinit var binding: FragmentBtmNavLiqueurBinding
     private val navController by lazy { findNavController() }
 
     override fun initValue() {
@@ -36,7 +37,10 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     override fun initEvent() {
         binding.btLiqueur.setOnClickListener {
-            navController.navigate(R.id.action_mainFragment_to_liqueurFragment)
+            navController.navigate(R.id.action_btmNavLiqueurFragment_to_liqueurFragment)
+        }
+        binding.btCocktail.setOnClickListener {
+            CocktailActivity.start(requireActivity())
         }
     }
 
@@ -44,8 +48,9 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         super.onCreate(savedInstanceState)
 
         navController.logBackstack()
+
         if (!isShowSplash) {
-            navController.navigate(R.id.action_mainFragment_to_splashFragment)
+            navController.navigate(R.id.action_btmNavLiqueurFragment_to_splashFragment)
             isShowSplash = true
         }
     }
