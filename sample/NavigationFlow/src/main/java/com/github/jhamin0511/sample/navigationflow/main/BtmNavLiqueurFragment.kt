@@ -41,6 +41,9 @@ class BtmNavLiqueurFragment : BaseFragment(R.layout.fragment_btm_nav_liqueur) {
         binding.btCocktail.setOnClickListener {
             CocktailActivity.start(requireActivity())
         }
+        binding.btNotification.setOnClickListener {
+            navController.navigate(R.id.action_btmNavLiqueurFragment_to_notificationFragment)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

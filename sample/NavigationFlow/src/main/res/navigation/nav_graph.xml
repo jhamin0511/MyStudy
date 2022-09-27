@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_btmNavLiqueurFragment_to_liqueurFragment"
             app:destination="@id/liqueurFragment" />
+        <action
+            android:id="@+id/action_btmNavLiqueurFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/makgeolliDetailFragment"
@@ -73,4 +76,9 @@
         android:name="com.github.jhamin0511.sample.navigationflow.liqueur.LiqueurFragment"
         android:label="LiqueurFragment"
         tools:layout="@layout/fragment_liqueur" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.notification.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
 </navigation>
