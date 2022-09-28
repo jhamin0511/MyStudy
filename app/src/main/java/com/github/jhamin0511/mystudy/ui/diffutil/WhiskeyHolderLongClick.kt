@@ -1,7 +1,7 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
-import com.github.jhamin0511.mystudy.widget.recycler.HolderLongClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.source.SourceQuery
+import com.github.jhamin0511.app.common.recycler.HolderLongClickListener
+import com.github.jhamin0511.mystudy.widget.source.SourceQuery
 
 class WhiskeyHolderLongClick(
     private val dataSource: SourceQuery<*>

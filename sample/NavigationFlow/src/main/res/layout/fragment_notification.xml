@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_bigger"
+            android:text="Notification"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_makgeolli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="makegeolli"
+            app:layout_constraintBottom_toTopOf="@+id/bt_soju"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/bt_soju"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_makgeolli"
+            android:text="soju"
+            app:layout_constraintBottom_toTopOf="@+id/bt_beer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_makgeolli" />
+
+        <Button
+            android:id="@+id/bt_beer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_soju"
+            android:text="beer"
+            app:layout_constraintBottom_toTopOf="@+id/bt_whiskey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_soju" />
+
+        <Button
+            android:id="@+id/bt_whiskey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_beer"
+            android:text="whiskey"
+            app:layout_constraintBottom_toTopOf="@+id/bt_detail_makgeolli"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_beer" />
+
+        <Button
+            android:id="@+id/bt_detail_makgeolli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_whiskey"
+            android:text="detail makegeolli"
+            app:layout_constraintBottom_toTopOf="@+id/bt_detail_soju"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_whiskey" />
+
+        <Button
+            android:id="@+id/bt_detail_soju"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_detail_makgeolli"
+            android:text="detail soju"
+            app:layout_constraintBottom_toTopOf="@+id/bt_detail_beer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_detail_makgeolli" />
+
+        <Button
+            android:id="@+id/bt_detail_beer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_detail_soju"
+            android:text="detail beer"
+            app:layout_constraintBottom_toTopOf="@+id/bt_detail_whiskey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_detail_soju" />
+
+        <Button
+            android:id="@+id/bt_detail_whiskey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_detail_beer"
+            android:text="detail whiskey"
+            app:layout_constraintBottom_toTopOf="@id/bt_cocktail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_detail_beer" />
+
+        <Button
+            android:id="@+id/bt_cocktail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_detail_beer"
+            android:text="Cocktail"
+            app:layout_constraintBottom_toTopOf="@id/bt_liqueur"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_detail_whiskey" />
+
+        <Button
+            android:id="@+id/bt_liqueur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_detail_beer"
+            android:text="Liqueur"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_cocktail" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

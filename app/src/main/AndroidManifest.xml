@@ -25,11 +25,5 @@
         <activity
             android:name=".ui.bottomnavigation.BottomInActivity"
             android:theme="@style/Theme.MainActivity" />
-        <activity
-            android:name=".ui.navigation.flow.NavFlowActivity"
-            android:exported="true">
-            <nav-graph android:value="@navigation/nav_flow" />
-        </activity>
-        <activity android:name=".ui.navigation.flow.NavFlowAActivity" />
     </application>
 </manifest>

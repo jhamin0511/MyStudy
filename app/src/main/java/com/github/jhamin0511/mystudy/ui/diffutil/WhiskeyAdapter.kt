@@ -3,16 +3,16 @@ package com.github.jhamin0511.mystudy.ui.diffutil
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.BaseListAdapter
+import com.github.jhamin0511.app.common.recycler.HolderClickListener
+import com.github.jhamin0511.app.common.recycler.HolderLongClickListener
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.databinding.ItemWhiskeyBinding
 import com.github.jhamin0511.mystudy.databinding.ItemWhiskeyHeaderBinding
 import com.github.jhamin0511.mystudy.ui.diffutil.HolderType.HEADER
 import com.github.jhamin0511.mystudy.ui.diffutil.HolderType.WHISKEY
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.BaseListAdapter
-import com.github.jhamin0511.mystudy.widget.recycler.HolderClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.HolderLongClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 object HolderType {
     const val HEADER = R.layout.item_whiskey_header

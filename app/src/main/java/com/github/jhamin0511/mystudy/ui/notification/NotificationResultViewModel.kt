@@ -10,8 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NotificationResultViewModel
-@Inject constructor(
-) : ViewModel() {
+@Inject constructor() : ViewModel() {
 
     // region Binding
     val bindTitle = MutableLiveData<String>()

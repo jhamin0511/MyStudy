@@ -17,8 +17,7 @@ private val items = listOf(
     StudyItem(R.string.savedstatehandle, R.id.action_studyFragment_to_livedataFragment),
     StudyItem(R.string.bottom_navigation, R.id.action_studyFragment_to_bottomNavigationFragment),
     StudyItem(R.string.bottom_nav_refresh, R.id.action_studyFragment_to_refreshNavigationFragment),
-    StudyItem(R.string.binding_leak, R.id.action_studyFragment_to_bindingLeakFragment),
-    StudyItem(R.string.navigation_flow, R.id.action_studyFragment_to_navDeeplinkActivity)
+    StudyItem(R.string.binding_leak, R.id.action_studyFragment_to_bindingLeakFragment)
 )
 
 @HiltViewModel

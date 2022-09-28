@@ -1,8 +1,8 @@
 package com.github.jhamin0511.mystudy.ui.paging.animal
 
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.data.dto.animal.AnimalDto
 import com.github.jhamin0511.mystudy.data.dto.animal.AnimalTaste
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 data class AnimalItem(
     val id: Long,

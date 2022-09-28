@@ -55,5 +55,4 @@ enum class Style {
     };
 
     abstract fun getStyle(context: Context): NotificationCompat.Style
-
 }

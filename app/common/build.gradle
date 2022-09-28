@@ -3,9 +3,10 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-apply from: rootProject.file('./lint.gradle')
+apply from: rootProject.file('./library.gradle')
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$AndroidxAppcompat"
+    implementation "androidx.recyclerview:recyclerview:$AndroidxRcyclerview"
     implementation "com.jakewharton.timber:timber:$Timber"
 }
