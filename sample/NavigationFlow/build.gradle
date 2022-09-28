@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.github.jhamin0511.navigationflow"
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
