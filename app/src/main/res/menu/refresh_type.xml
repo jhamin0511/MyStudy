@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/type_always"
+        android:contentDescription="@string/refresh_always"
+        android:title="@string/refresh_always" />
+    <item
+        android:id="@+id/type_di"
+        android:contentDescription="@string/refresh_di"
+        android:title="@string/refresh_di" />
+    <item
+        android:id="@+id/type_enum"
+        android:contentDescription="@string/refresh_enum"
+        android:title="@string/refresh_enum" />
+</menu>

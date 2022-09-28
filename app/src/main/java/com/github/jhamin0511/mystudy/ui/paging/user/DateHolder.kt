@@ -1,8 +1,8 @@
 package com.github.jhamin0511.mystudy.ui.paging.user
 
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.databinding.ItemDateBinding
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class DateHolder(
     private val binding: ItemDateBinding

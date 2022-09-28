@@ -1,0 +1,11 @@
+apply from: rootProject.file('./logging.gradle')
+
+android {
+    compileSdk CompileSdk
+    defaultConfig {
+        minSdk MinSdk
+        targetSdk TargetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}

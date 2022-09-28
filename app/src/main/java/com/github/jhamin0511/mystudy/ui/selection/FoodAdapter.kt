@@ -3,9 +3,9 @@ package com.github.jhamin0511.mystudy.ui.selection
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.selection.SelectionTracker
+import com.github.jhamin0511.app.common.recycler.BaseAdapter
+import com.github.jhamin0511.app.common.recycler.BaseHolder
 import com.github.jhamin0511.mystudy.databinding.ItemFoodBinding
-import com.github.jhamin0511.mystudy.widget.recycler.BaseAdapter
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
 
 class FoodAdapter(
     private val itemClick: FoodItemClickListener

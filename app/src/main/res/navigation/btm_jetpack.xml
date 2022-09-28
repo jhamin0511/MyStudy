@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btm_jetpack"
+    app:startDestination="@id/jetpackFragment">
+
+    <fragment
+        android:id="@+id/jetpackFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.bottomnavigation.jetpack.JetpackFragment"
+        android:label="JetpackFragment"
+        tools:layout="@layout/fragment_jetpack" />
+</navigation>

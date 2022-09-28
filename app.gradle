@@ -1,0 +1,27 @@
+apply from: rootProject.file('./logging.gradle')
+
+android {
+    compileSdk CompileSdk
+    defaultConfig {
+        minSdk MinSdk
+        targetSdk TargetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation project(path: ':app:common')
+    implementation project(path: ':ui:design')
+    implementation project(path: ':ui:widget')
+}

@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.commit
+import com.github.jhamin0511.app.common.ui.BaseActivity
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyDto
 import com.github.jhamin0511.mystudy.databinding.ActivityFragPassedBinding
 import com.github.jhamin0511.mystudy.key.DTO
-import com.github.jhamin0511.mystudy.ui.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

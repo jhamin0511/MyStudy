@@ -13,4 +13,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MyStudy"
-include ':app'
+include ':app:common'
+include ':ui:design'
+include ':ui:widget'
+include ':sample:NavigationFlow'
+include ':sample:DesignSample'

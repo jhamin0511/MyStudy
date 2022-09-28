@@ -1,10 +1,10 @@
 package com.github.jhamin0511.mystudy.ui.selection
 
 import androidx.recyclerview.selection.ItemDetailsLookup
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.BR
 import com.github.jhamin0511.mystudy.databinding.ItemFoodBinding
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class FoodHolder(
     private val binding: ItemFoodBinding,

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_one"
+    app:startDestination="@id/refreshOneFragment">
+
+    <fragment
+        android:id="@+id/refreshOneFragment"
+        android:name="com.github.jhamin0511.mystudy.ui.refresh.RefreshOneFragment"
+        android:label="RefreshOneFragment"
+        tools:layout="@layout/fragment_refresh_one" />
+</navigation>

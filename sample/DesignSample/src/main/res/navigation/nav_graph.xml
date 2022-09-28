@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentDesignList">
+
+    <fragment
+        android:id="@+id/fragmentDesignList"
+        android:name="com.github.jhamin0511.sample.design.ElementFragment"
+        android:label="FragmentDesignList"
+        tools:layout="@layout/fragment_element" >
+        <action
+            android:id="@+id/action_fragmentDesignList_to_colorFragment"
+            app:destination="@id/colorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.github.jhamin0511.sample.design.color.ColorFragment"
+        android:label="ColorFragment"
+        tools:layout="@layout/fragment_color" />
+</navigation>

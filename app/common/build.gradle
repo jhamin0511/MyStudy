@@ -1,0 +1,12 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: rootProject.file('./library.gradle')
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$AndroidxAppcompat"
+    implementation "androidx.recyclerview:recyclerview:$AndroidxRcyclerview"
+    implementation "com.jakewharton.timber:timber:$Timber"
+}
