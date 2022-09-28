@@ -12,6 +12,7 @@ import android.os.Bundle
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavDeepLinkBuilder
+import com.github.jhamin0511.sample.navigationflow.MainActivity
 import com.github.jhamin0511.sample.navigationflow.R
 import com.github.jhamin0511.sample.navigationflow.cocktail.CocktailActivity
 
@@ -46,12 +47,31 @@ object Notification {
     }
 
     fun notifyNormal(context: Context, url: String) {
+        val intent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            data = Uri.parse(url)
+        }
+        val flag = PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
+        val pendingIntent = PendingIntent.getActivity(context, 0, intent, flag)
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID).apply {
+            setSmallIcon(R.mipmap.ic_launcher)
+            setContentTitle(url)
+            setContentText(url)
+            setAutoCancel(true)
+            setContentIntent(pendingIntent)
+        }.build()
+
+        NotificationManagerCompat.from(context)
+            .notify(System.currentTimeMillis().toInt(), notification)
+    }
+
+    fun notifyNormal(context: Context, url: String, destination: Int) {
         val bundle = Bundle().apply {
             putString(URL, url)
         }
         val pendingIntent = NavDeepLinkBuilder(context).apply {
             setGraph(R.navigation.nav_graph)
-            setDestination(R.id.splashFragment)
+            setDestination(destination)
             setArguments(bundle)
         }.createPendingIntent()
         val notification = NotificationCompat.Builder(context, CHANNEL_ID).apply {

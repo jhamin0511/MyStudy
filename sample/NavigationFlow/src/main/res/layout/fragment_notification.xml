@@ -112,9 +112,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/bt_detail_beer"
             android:text="Cocktail"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bt_liqueur"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bt_detail_whiskey" />
+
+        <Button
+            android:id="@+id/bt_liqueur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_detail_beer"
+            android:text="Liqueur"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_cocktail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

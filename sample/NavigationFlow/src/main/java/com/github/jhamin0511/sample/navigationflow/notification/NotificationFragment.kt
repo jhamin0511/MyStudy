@@ -64,5 +64,9 @@ class NotificationFragment : BaseFragment(R.layout.fragment_notification) {
         binding.btCocktail.setOnClickListener {
             Notification.notifyCocktail(requireContext())
         }
+        binding.btLiqueur.setOnClickListener {
+            val url = Notification.createURL(host = HOST_DETAIL, path = WHISKEY)
+            Notification.notifyNormal(requireContext(), url, R.id.liqueurFragment)
+        }
     }
 }

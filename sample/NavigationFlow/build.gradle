@@ -39,6 +39,12 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$AndroidxNavigation"
     implementation "androidx.navigation:navigation-compose:$AndroidxNavigation"
     androidTestImplementation "androidx.navigation:navigation-testing:$AndroidxNavigation"
+    // # Splash
+    implementation "androidx.core:core-splashscreen:$AndroidxSplash"
+    // # Activity
+    implementation "androidx.activity:activity-ktx:$AndroidxActivity"
+    // # Fragment
+    implementation "androidx.fragment:fragment-ktx:$AndroidxFragment"
 
     // Logging
     implementation "com.jakewharton.timber:timber:$Timber"

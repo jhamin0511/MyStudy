@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/btmNavLiqueurFragment">
 
     <include app:graph="@navigation/nav_session" />
 
@@ -21,16 +21,28 @@
         app:destination="@id/whiskeyDetailFragment" />
 
     <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.github.jhamin0511.sample.navigationflow.splash.SplashFragment"
-        android:label="SplashFragment"
-        tools:layout="@layout/fragment_splash" >
+        android:id="@+id/tutorialFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.login.TutorialFragment"
+        android:label="TutorialFragment"
+        tools:layout="@layout/fragment_tutorial" />
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.signup.SignupFragment"
+        android:label="SignupFragment"
+        tools:layout="@layout/fragment_signup" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_splashFragment_to_btmNavLiqueurFragment"
-            app:destination="@id/btmNavLiqueurFragment"
-            app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_loginFragment_to_tutorialFragment"
+            app:destination="@id/tutorialFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/btmNavLiqueurFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.main.BtmNavLiqueurFragment"
@@ -47,30 +59,22 @@
         android:id="@+id/makgeolliDetailFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.makgeolli.MakgeolliDetailFragment"
         android:label="MakgeolliDetailFragment"
-        tools:layout="@layout/fragment_makgeolli_detail">
-        <deepLink app:uri="navigationflow://detail/makgeolli" />
-    </fragment>
+        tools:layout="@layout/fragment_makgeolli_detail" />
     <fragment
         android:id="@+id/sojuDetailFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.soju.SojuDetailFragment"
         android:label="SojuDetailFragment"
-        tools:layout="@layout/fragment_soju_detail">
-        <deepLink app:uri="navigationflow://detail/soju" />
-    </fragment>
+        tools:layout="@layout/fragment_soju_detail" />
     <fragment
         android:id="@+id/beerDetailFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.beer.BeerDetailFragment"
         android:label="BeerDetailFragment"
-        tools:layout="@layout/fragment_beer_detail">
-        <deepLink app:uri="navigationflow://detail/beer" />
-    </fragment>
+        tools:layout="@layout/fragment_beer_detail" />
     <fragment
         android:id="@+id/whiskeyDetailFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.whiskey.WhiskeyDetailFragment"
         android:label="WhiskeyDetailFragment"
-        tools:layout="@layout/fragment_whiskey_detail">
-        <deepLink app:uri="navigationflow://detail/whiskey" />
-    </fragment>
+        tools:layout="@layout/fragment_whiskey_detail" />
     <fragment
         android:id="@+id/liqueurFragment"
         android:name="com.github.jhamin0511.sample.navigationflow.liqueur.LiqueurFragment"

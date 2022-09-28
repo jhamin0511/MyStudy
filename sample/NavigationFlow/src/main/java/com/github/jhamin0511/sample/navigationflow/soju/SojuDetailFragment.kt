@@ -1,6 +1,7 @@
 package com.github.jhamin0511.sample.navigationflow.soju
 
 import android.net.Uri
+import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
@@ -8,6 +9,7 @@ import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
 import com.github.jhamin0511.sample.navigationflow.application.isLogin
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentSojuDetailBinding
+import com.github.jhamin0511.sample.navigationflow.logBackstack
 
 class SojuDetailFragment : BaseFragment(R.layout.fragment_soju_detail) {
     private lateinit var binding: FragmentSojuDetailBinding
@@ -35,5 +37,11 @@ class SojuDetailFragment : BaseFragment(R.layout.fragment_soju_detail) {
             val deepLink = Uri.parse("navigationflow://detail/makgeolli")
             navController.navigate(deepLink, null)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        navController.logBackstack()
     }
 }

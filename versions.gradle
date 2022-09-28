@@ -32,6 +32,7 @@ ext {
     AndroidxRcyclerview = "1.2.1"
     AndroidxPaging = "3.1.1"
     AndroidxRoom = "2.4.2"
+    AndroidxSplash = "1.0.0"
 
     SquareupRetrofit = "2.9.0"
     SquareupOkhttp = "4.9.3"

@@ -45,8 +45,7 @@ class CocktailActivity : BaseActivity() {
         @Suppress("TooGenericExceptionCaught")
         binding.btStartDeeplinkLogin.setOnClickListener {
             try {
-                val options = NavOptions.Builder()
-                    .build()
+                val options = NavOptions.Builder().build()
                 val controller = NavHostController(this)
                 controller.setGraph(R.navigation.nav_session)
                 controller.navigate(Uri.parse("bottomnavigation://login"), options)

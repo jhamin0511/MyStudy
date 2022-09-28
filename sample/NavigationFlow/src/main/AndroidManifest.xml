@@ -12,7 +12,8 @@
         android:theme="@style/Theme.NavigationFlow">
         <activity
             android:name="com.github.jhamin0511.sample.navigationflow.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.MAIN" />
