@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
+import com.github.jhamin0511.sample.navigationflow.application.isLogin
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentSojuDetailBinding
 
 class SojuDetailFragment : BaseFragment(R.layout.fragment_soju_detail) {
@@ -27,6 +28,7 @@ class SojuDetailFragment : BaseFragment(R.layout.fragment_soju_detail) {
 
     override fun initEvent() {
         binding.btStartActionLogin.setOnClickListener {
+            isLogin = false
             navController.setGraph(R.navigation.nav_session)
         }
         binding.btStartDeeplinkLogin.setOnClickListener {

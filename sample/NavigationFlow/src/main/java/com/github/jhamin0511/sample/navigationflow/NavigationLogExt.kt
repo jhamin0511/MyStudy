@@ -9,12 +9,8 @@ fun NavController.logBackstack() {
     Timber.tag(TAG).d("NavController : $this")
     val queue = this.backQueue
     queue.forEach { entry ->
-        val message = """
-
-            entry : $entry
-            id : ${entry.id}
-            destination : ${entry.destination}
-            """
-        Timber.tag(TAG).d(message)
+        Timber.tag(TAG).d("entry : $entry")
+        Timber.tag(TAG).d("id : ${entry.id}")
+        Timber.tag(TAG).d("destination : ${entry.destination}")
     }
 }

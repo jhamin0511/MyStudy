@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.github.jhamin0511.app.common.ui.BaseFragment
 import com.github.jhamin0511.sample.navigationflow.R
+import com.github.jhamin0511.sample.navigationflow.application.isLogin
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentLoginBinding
 import com.github.jhamin0511.sample.navigationflow.logBackstack
 
@@ -28,6 +29,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
     override fun initEvent() {
         binding.btMain.setOnClickListener {
+            isLogin = true
             navController.setGraph(R.navigation.nav_graph)
         }
         binding.btSignup.setOnClickListener {

@@ -28,13 +28,11 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = this
 
-
         if (!isShowSplash) {
             lifecycleScope.launch {
                 delay(SPLASH_TIME)
 
                 startMainAndSession()
-                isLogin = true
             }
             isShowSplash = true
         } else {
@@ -44,7 +42,7 @@ class SplashFragment : BaseFragment(R.layout.fragment_splash) {
 
     private fun startMainAndSession() {
         if (isLogin) {
-            navController.navigate(R.id.action_splashFragment_to_btmNavLiqueurFragment)
+            navController.navigate(R.id.action_splashFragment_to_btmNavLiqueurFragment, arguments)
         } else {
             navController.setGraph(R.navigation.nav_session)
         }

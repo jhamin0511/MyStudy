@@ -1,5 +1,6 @@
 package com.github.jhamin0511.sample.navigationflow.main
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -11,6 +12,13 @@ import com.github.jhamin0511.sample.navigationflow.R
 import com.github.jhamin0511.sample.navigationflow.cocktail.CocktailActivity
 import com.github.jhamin0511.sample.navigationflow.databinding.FragmentBtmNavLiqueurBinding
 import com.github.jhamin0511.sample.navigationflow.logBackstack
+import com.github.jhamin0511.sample.navigationflow.notification.Notification.BEER
+import com.github.jhamin0511.sample.navigationflow.notification.Notification.HOST_BOTTOM
+import com.github.jhamin0511.sample.navigationflow.notification.Notification.MAKGEOLLI
+import com.github.jhamin0511.sample.navigationflow.notification.Notification.SOJU
+import com.github.jhamin0511.sample.navigationflow.notification.Notification.URL
+import com.github.jhamin0511.sample.navigationflow.notification.Notification.WHISKEY
+import timber.log.Timber
 
 class BtmNavLiqueurFragment : BaseFragment(R.layout.fragment_btm_nav_liqueur) {
     private lateinit var binding: FragmentBtmNavLiqueurBinding
@@ -28,6 +36,41 @@ class BtmNavLiqueurFragment : BaseFragment(R.layout.fragment_btm_nav_liqueur) {
             childFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         val bottomNavController = hostFragment.findNavController()
         binding.bottomNavigation.setupWithNavController(bottomNavController)
+
+        startNotificationUrl()
+    }
+
+    private fun startNotificationUrl() {
+        val url = arguments?.getString(URL)
+        Timber.i("URL : $url")
+        if (url != null && url.isNotEmpty()) {
+            val uri = Uri.parse(url)
+            Timber.i("HOST : ${uri.host}")
+            moveBottomNavMenu(uri)
+        }
+        arguments = null
+    }
+
+    private fun moveBottomNavMenu(uri: Uri) {
+        if (uri.host == HOST_BOTTOM) {
+            Timber.i("lastPathSegment : ${uri.lastPathSegment}")
+            when (uri.lastPathSegment) {
+                MAKGEOLLI -> {
+                    binding.bottomNavigation.selectedItemId = R.id.makgeolliFragment
+                }
+                SOJU -> {
+                    binding.bottomNavigation.selectedItemId = R.id.sojuFragment
+                }
+                BEER -> {
+                    binding.bottomNavigation.selectedItemId = R.id.beerFragment
+                }
+                WHISKEY -> {
+                    binding.bottomNavigation.selectedItemId = R.id.whiskeyFragment
+                }
+            }
+        } else {
+            navController.navigate(uri)
+        }
     }
 
     override fun initObserve() {

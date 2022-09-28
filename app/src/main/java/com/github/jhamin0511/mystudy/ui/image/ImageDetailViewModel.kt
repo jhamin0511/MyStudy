@@ -7,8 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ImageDetailViewModel
-@Inject constructor(
-) : ViewModel() {
+@Inject constructor() : ViewModel() {
     // region Binding
     val bindImage = MutableLiveData<Int>()
     // endregion

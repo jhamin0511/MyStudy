@@ -14,7 +14,6 @@ import androidx.core.app.NotificationManagerCompat.IMPORTANCE_MIN
 import com.github.jhamin0511.mystudy.R
 import com.github.jhamin0511.mystudy.ui.notification.channel.ChannelGroup.IMPORTANCE
 
-
 enum class Channel(
     val id: String,
     @StringRes
