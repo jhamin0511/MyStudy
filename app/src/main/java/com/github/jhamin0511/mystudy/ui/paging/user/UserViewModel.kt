@@ -9,9 +9,9 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import androidx.paging.map
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.data.entity.UserEntity
 import com.github.jhamin0511.mystudy.repository.user.UserRepository
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.map

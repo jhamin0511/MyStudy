@@ -1,8 +1,8 @@
 package com.github.jhamin0511.mystudy.ui.selection
 
 import androidx.annotation.DrawableRes
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.data.dto.food.FoodDto
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 data class FoodItem(
     val id: Long,

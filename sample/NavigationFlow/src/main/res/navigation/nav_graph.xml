@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/btmNavLiqueurFragment">
+
+    <include app:graph="@navigation/nav_session" />
+
+    <action
+        android:id="@+id/action_global_makgeolliDetailFragment"
+        app:destination="@id/makgeolliDetailFragment" />
+    <action
+        android:id="@+id/action_global_sojuDetailFragment"
+        app:destination="@id/sojuDetailFragment" />
+    <action
+        android:id="@+id/action_global_beerDetailFragment"
+        app:destination="@id/beerDetailFragment" />
+    <action
+        android:id="@+id/action_global_whiskeyDetailFragment"
+        app:destination="@id/whiskeyDetailFragment" />
+
+    <fragment
+        android:id="@+id/tutorialFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.login.TutorialFragment"
+        android:label="TutorialFragment"
+        tools:layout="@layout/fragment_tutorial" />
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.signup.SignupFragment"
+        android:label="SignupFragment"
+        tools:layout="@layout/fragment_signup" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_tutorialFragment"
+            app:destination="@id/tutorialFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/btmNavLiqueurFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.BtmNavLiqueurFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_btm_nav_liqueur">
+        <action
+            android:id="@+id/action_btmNavLiqueurFragment_to_liqueurFragment"
+            app:destination="@id/liqueurFragment" />
+        <action
+            android:id="@+id/action_btmNavLiqueurFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/makgeolliDetailFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.makgeolli.MakgeolliDetailFragment"
+        android:label="MakgeolliDetailFragment"
+        tools:layout="@layout/fragment_makgeolli_detail" />
+    <fragment
+        android:id="@+id/sojuDetailFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.soju.SojuDetailFragment"
+        android:label="SojuDetailFragment"
+        tools:layout="@layout/fragment_soju_detail" />
+    <fragment
+        android:id="@+id/beerDetailFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.beer.BeerDetailFragment"
+        android:label="BeerDetailFragment"
+        tools:layout="@layout/fragment_beer_detail" />
+    <fragment
+        android:id="@+id/whiskeyDetailFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.whiskey.WhiskeyDetailFragment"
+        android:label="WhiskeyDetailFragment"
+        tools:layout="@layout/fragment_whiskey_detail" />
+    <fragment
+        android:id="@+id/liqueurFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.liqueur.LiqueurFragment"
+        android:label="LiqueurFragment"
+        tools:layout="@layout/fragment_liqueur" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.notification.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
+</navigation>

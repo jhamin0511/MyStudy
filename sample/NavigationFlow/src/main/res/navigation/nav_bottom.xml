@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_bottom"
+    app:startDestination="@+id/makgeolliFragment">
+
+    <fragment
+        android:id="@+id/makgeolliFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.MakgeolliFragment"
+        android:label="MakgeolliFragment"
+        tools:layout="@layout/fragment_makgeolli" />
+    <fragment
+        android:id="@+id/sojuFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.SojuFragment"
+        android:label="SojuFragment"
+        tools:layout="@layout/fragment_soju" />
+    <fragment
+        android:id="@+id/beerFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.BeerFragment"
+        android:label="BeerFragment"
+        tools:layout="@layout/fragment_beer" />
+    <fragment
+        android:id="@+id/whiskeyFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.main.WhiskeyFragment"
+        android:label="WhiskeyFragment"
+        tools:layout="@layout/fragment_whiskey" />
+</navigation>

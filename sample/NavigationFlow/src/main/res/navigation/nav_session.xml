@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_session"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/tutorialFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.login.TutorialFragment"
+        android:label="TutorialFragment"
+        tools:layout="@layout/fragment_tutorial" />
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.signup.SignupFragment"
+        android:label="SignupFragment"
+        tools:layout="@layout/fragment_signup" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.github.jhamin0511.sample.navigationflow.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_tutorialFragment"
+            app:destination="@id/tutorialFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <deepLink app:uri="navigationflow://login" />
+    </fragment>
+</navigation>

@@ -1,0 +1,17 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+apply from: rootProject.file('./library.gradle')
+
+android {
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.material:material:1.6.1'
+}

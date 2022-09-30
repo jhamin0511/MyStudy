@@ -1,0 +1,4 @@
+dependencies {
+    // Logging
+    implementation "com.jakewharton.timber:timber:$Timber"
+}

@@ -1,12 +1,12 @@
 package com.github.jhamin0511.mystudy.ui.diffutil
 
+import com.github.jhamin0511.app.common.recycler.BaseHolder
+import com.github.jhamin0511.app.common.recycler.HolderClickListener
+import com.github.jhamin0511.app.common.recycler.HolderLongClickListener
+import com.github.jhamin0511.app.common.recycler.Item
 import com.github.jhamin0511.mystudy.BR
 import com.github.jhamin0511.mystudy.data.dto.whiskey.WhiskeyTaste
 import com.github.jhamin0511.mystudy.databinding.ItemWhiskeyBinding
-import com.github.jhamin0511.mystudy.widget.recycler.BaseHolder
-import com.github.jhamin0511.mystudy.widget.recycler.HolderClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.HolderLongClickListener
-import com.github.jhamin0511.mystudy.widget.recycler.Item
 
 class WhiskeyHolder(
     private val binding: ItemWhiskeyBinding,

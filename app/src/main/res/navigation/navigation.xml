@@ -46,9 +46,6 @@
         <action
             android:id="@+id/action_studyFragment_to_bindingLeakFragment"
             app:destination="@id/bindingLeakFragment" />
-        <action
-            android:id="@+id/action_studyFragment_to_navDeeplinkActivity"
-            app:destination="@id/navFlowActivity" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -246,9 +243,4 @@
             android:id="@+id/action_bindingTwoClearFragment_to_bindingOneClearFragment"
             app:destination="@id/bindingOneClearFragment" />
     </fragment>
-    <activity
-        android:id="@+id/navFlowActivity"
-        android:name="com.github.jhamin0511.mystudy.ui.navigation.flow.NavFlowActivity"
-        android:label="NavFlowActivity"
-        tools:layout="@layout/fragment_flow_splash" />
 </navigation>

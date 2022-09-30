@@ -7,8 +7,6 @@ import com.github.jhamin0511.mystudy.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
-const val SHOW_LIFECYCLE_LOGO = true
-
 @HiltAndroidApp
 class StudyApplication : Application() {
 

@@ -1,46 +1,30 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'io.gitlab.arturbosch.detekt'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
 }
 
-android {
-    compileSdk 32
+apply from: rootProject.file('./app.gradle')
 
+android {
     defaultConfig {
         applicationId "com.github.jhamin0511.mystudy"
-        minSdk 23
-        targetSdk 31
         versionCode 1
         versionName "1.0.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    buildFeatures {
-        dataBinding true
-    }
 }
 
 dependencies {
-    implementation project(path: ':app:common')
     implementation 'com.google.android.material:material:1.6.1'
 
     // region Kotlin

@@ -7,8 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class JetpackViewModel
-@Inject constructor(
-) : ViewModel() {
+@Inject constructor() : ViewModel() {
     // region Binding
     val bindCount = MutableLiveData<Int>()
 
