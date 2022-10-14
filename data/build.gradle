@@ -9,6 +9,8 @@ java {
 }
 
 dependencies {
+    implementation project(path: ':domain')
+
     testImplementation "junit:junit:$TestJunit"
     testImplementation "com.google.truth:truth:$GoogleTruth"
 }
