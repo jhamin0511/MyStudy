@@ -9,11 +9,12 @@ ext {
     Detekt = "1.21.0"
     DaggerHilt = "2.42"
 
+    GoogleTruth = "1.1.3"
+
     TestMockito = "3.7.7"
     TestMockitoKotlin = "2.2.0"
     TestJunit = "4.13.2"
     TestRobolectric = "4.8"
-    TestTruth = "1.4.0"
     TestCoreTesting = "2.1.0"
     TestCoreKtx = "1.4.0"
     TestJunitKtx = "1.1.3"
